@@ -33,6 +33,29 @@ class Location {
 
 }
 
+// Create a class for the 'player'
+class Player {
+
+    // Create locations
+    constructor(index){
+
+        // Add name and position to the object
+        this.id = index
+        this.name = locationsList[index].name
+        this.position = locationsList[index].position
+
+        // Create and append location objects
+        $('#background-map-wrapper').append($('<div class="player-token"></div>')
+                                            .css({"position":"absolute"})
+                                            .css({"top":"40%"})
+                                            .css({"left":"40%"})
+                                            .attr('name',"Player")    
+                                            .append($('<img id="player-token-img" src="assets/images/token.png" alt="Token">'))  
+                                            )
+
+    }
+}
+
 //Wrap the construction in a ready function
 $(function(){
 
@@ -41,5 +64,8 @@ $(function(){
     for (i=0;i<locationsList.length;i++) {
         locations.push(new Location(i))
     }  
+
+    //Run the location creator to instantiate locations
+    player = new Player(1)
 
 })
