@@ -1,8 +1,32 @@
 body{
-    background-color:#EFF8FE;
+    background-color:black;
 }
 
-
-.background-map{
+#background-map-wrapper{
+    position:relative;
+    padding:0px;
+}
+#background-map{
     width:100%;
+}
+
+.location-marker{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    height:20px;
+    width:20px;
+    line-height:10px;
+}
+.location-marker:hover{
+    cursor:pointer;
+}
+
+.x-text{
+    display:inline-block;
+    color: red;
+    font-weight: bold;
+    font-size:2em;
+    text-align:center;
+    vertical-align:middle;
+    padding:0px;
 }
