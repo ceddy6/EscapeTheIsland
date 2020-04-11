@@ -1,10 +1,12 @@
-// List of locations
+// List of locations and the player should be available everywhere
 var locationsList = [{name:"Camp",position:["50%","69%"]},
                     {name:"Port du Moulin",position:["38%","55%"]},
                     {name:"Clos de Menage",position:["47%","72%"]},
                     {name:"Port Gorey",position:["80%","10%"]},
                     {name:"Creux Harbour",position:["66%","85%"]},
                     ]
+var locations
+var player
 
 // Every location on the island has a class
 // The class needs its coordinates, some name and description, and probably some onclick functions?
@@ -25,7 +27,7 @@ class Location {
                                             .css({"left":this.position[1]})
                                             .attr('name',this.name)
                                             .attr('index',this.id)
-                                            .on("click",function(){alert(locationsList[index].name)})
+                                            .on("click",function(){locationClicked(index)})
                                             .append($('<p class="x-text">x</p>'))        
                                             )
 
@@ -54,6 +56,26 @@ class Player {
                                             )
 
     }
+
+    // Move the player around
+    goToLocation(index) {
+
+        console.log("Going to location")
+        console.log(locationsList)
+        console.log(index)
+        console.log(locationsList[index])
+        console.log(locationsList[index].position)
+
+        // Get the position of the location
+        var newPos = locationsList[index].position
+        console.log(newPos)
+
+        // Update the player's position to that position
+        $('.player-token').css({"top":newPos[0]})
+                        .css({"left":newPos[1]})
+
+    }
+
 }
 
 //Wrap the construction in a ready function
@@ -69,3 +91,10 @@ $(function(){
     player = new Player(1)
 
 })
+
+
+function locationClicked(index) {
+
+    player.goToLocation(index)
+
+}
