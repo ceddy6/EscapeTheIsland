@@ -12,6 +12,9 @@
     <!-- Boostrap stylesheet (should be loaded early)-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+    <!-- Clock font style sheet-->
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+
     <!-- Page style sheets-->
     <link rel="stylesheet" href="assets/css/main.css">
 
@@ -22,7 +25,14 @@
 <body>
 
     <div class="container-fluid" id="background-map-wrapper">
-        <img class="img-fluid" id="background-map" src="assets/images/map.png" alt="Map">
+        <img class="img-fluid" id="background-map" src="assets/images/map.png" alt="Map">     
+    </div>
+    <div class="background-clock-wrapper container-fluid">
+        <img class="img-fluid" id="background-clock" src="assets/images/clock.jpg" alt="Clock">
+        <div class="clock-digit hours-tens"><span class="digital-no">0</span></div>
+        <div class="clock-digit hours-units"><span class="digital-no">1</span></div>
+        <div class="clock-digit minutes-tens"><span class="digital-no">2</span></div>
+        <div class="clock-digit minutes-units"><span class="digital-no">3</span></div>
     </div>
 
 

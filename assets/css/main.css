@@ -25,7 +25,7 @@ body{
     display:inline-block;
     color: red;
     font-weight: bold;
-    font-size:2em;
+    font-size:3vw;
     text-align:center;
     vertical-align:middle;
     padding:0px;
@@ -41,4 +41,53 @@ body{
 
 #player-token-img{
     width:100%;
+}
+
+.background-clock-wrapper{
+    position: relative;
+    width:25%;
+    top:0px;
+    left:0px;
+    transform: translate(0%,0%);
+}
+
+#background-clock{
+    width:100%;
+}
+
+.clock-digit{
+    position:absolute;
+    width:17%;
+    height:45%;
+    background-color:black;
+    color:white;
+}
+
+.clock-digit.hours-tens{ 
+    top:27%;
+    left:14%;
+}
+.clock-digit.hours-units{ 
+    top:27%;
+    left:30%;
+}
+.clock-digit.minutes-tens{ 
+    top:27%;
+    left:53%;
+}
+.clock-digit.minutes-units{ 
+    top:27%;
+    left:69%;
+}
+
+.digital-no{
+    display:inline-block;
+    color: white;
+    font-family:'Orbitron';
+    font-weight: bold;
+    font-size:4vw;
+    text-align:center;
+    vertical-align:middle;
+    padding:0px;
+    padding-left:4px;
 }
