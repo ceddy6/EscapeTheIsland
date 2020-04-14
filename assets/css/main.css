@@ -110,6 +110,10 @@ body{
   width:10%;
   transform: translate(-50%,-50%);
 }
+.minigame1-stone:hover{
+  cursor:move;
+  z-index:10;
+}
 #minigame1-stone1{
   top:20%;
   left:20%;
