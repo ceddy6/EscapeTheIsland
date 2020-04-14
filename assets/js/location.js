@@ -24,3 +24,17 @@ class Location {
     }
 
 }
+
+// When a location is clicked on
+function locationClicked(index) {
+
+    // Send the player token to the location
+    player.goToLocation(index)
+
+    // Update the clock
+
+    // Open the minigame window
+    $('#minigame1').modal('show')
+
+
+}

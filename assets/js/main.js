@@ -21,10 +21,3 @@ $(function(){
     player = new Player(1)
 
 })
-
-
-function locationClicked(index) {
-
-    player.goToLocation(index)
-
-}
