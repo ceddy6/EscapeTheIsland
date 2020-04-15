@@ -33,6 +33,9 @@ function locationClicked(index) {
 
     // Update the clock
 
+    // Add a chest to the minigame
+    chest = new Chest
+
     // Open the minigame window
     $('#minigame1').modal('show')
 
