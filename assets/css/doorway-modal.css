@@ -1,10 +1,10 @@
 .modal-dialog.door{
     max-width:80vw;
-    max-height:80vh;
+    /* max-height:80vh; */
   }
   .modal-body.door{
     max-width:80vw;
-    max-height:80vh;
+    /* max-height:80vh; */
     position:relative;
   }
 

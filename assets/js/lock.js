@@ -22,7 +22,7 @@ class Lock{
         lockModal.find('.modal-title').text("The lock needs a combination!")  
         lockModal.find('.modal-body')   
             .empty()                                
-            .append('<img class="img-fluid" id="minigame-background" src='+locations[index].minigame_img+' alt="Minigame">')
+            .append('<img class="img-fluid" id="lock-background" src='+lockData[index].lock_img+' alt="Minigame">')
 
         lockModal.modal('show')  
 

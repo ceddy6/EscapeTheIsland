@@ -1,0 +1,14 @@
+.modal-dialog.lock{
+    max-width:60vw;
+    /* max-height:60vh; */
+  }
+  .modal-body.lock{
+    max-width:60vw;
+    /* max-height:60vh; */
+    position:relative;
+  }
+
+
+  #lock-background{
+    width:100%;
+  }
