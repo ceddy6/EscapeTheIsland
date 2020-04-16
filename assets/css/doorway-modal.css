@@ -1,0 +1,20 @@
+.modal-dialog.door{
+    max-width:80vw;
+    max-height:80vh;
+  }
+  .modal-body.door{
+    max-width:80vw;
+    max-height:80vh;
+    position:relative;
+  }
+
+
+  #doorway-background{
+    width:100%;
+  }
+  #doorway-lock{
+      position:absolute;
+  }
+  #doorway-lock:hover{
+      cursor:pointer;
+  }

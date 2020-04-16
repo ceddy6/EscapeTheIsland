@@ -4,15 +4,15 @@
   }
   .modal-body.minigame{
     max-width:80vw;
-    max-height:80vw;
+    max-height:80vh;
     position:relative;
   }
 
   
-  #minigame1-background{
+  #minigame-background{
     width:100%;
   }
-  .minigame1-stone{
+  /* .minigame1-stone{
     position:absolute;
     width:10%;
     transform: translate(-50%,-50%);
@@ -40,5 +40,5 @@
   
   #minigame1-chest{
     width:20%;
-  }
+  } */
   

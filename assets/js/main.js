@@ -18,6 +18,10 @@ var locationsList = [{name:"WindowInTheRock", position:["50%","69%"],id:0,locked
 var locations
 var player
 var clock
+var minigame
+var doorway
+var lock
+var zoom
 
 //Wrap the construction in a ready function
 $(window).on("load",function(){

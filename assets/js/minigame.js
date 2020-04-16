@@ -10,7 +10,7 @@ class Minigame{
         minigameModal.find('.modal-title').text("You see a puzzle!")  
         minigameModal.find('.modal-body')   
             .empty()                                
-            .append('<img class="img-fluid" id="minigame1-background" src='+locations[index].minigame_img+' alt="Minigame">')
+            .append('<img class="img-fluid" id="minigame-background" src='+locations[index].minigame_img+' alt="Minigame">')
         minigameModal.modal('show')  
 
     }
