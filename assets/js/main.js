@@ -1,14 +1,19 @@
 // List of locations and the player should be available everywhere
 var locationsList = [{name:"WindowInTheRock", position:["50%","69%"],id:0,locked:1,
-                    doorway_img:"assets/images/doorways/windowintherock.jpg"},
-                    {name:"Waterfall",        position:["38%","55%"],id:1,locked:1,
-                    doorway_img:"assets/images/doorways/waterfall.jpg"},
+                    doorway_img:"assets/images/doorways/windowintherock.jpg",
+                    minigame_img:"assets/images/minigames/windowintherock.jpg"},
+                    {name:"Waterfall",        position:["38%","55%"],id:1,locked:0,
+                    doorway_img:"assets/images/doorways/waterfall.jpg",
+                    minigame_img:"assets/images/minigames/waterfall.jpg"},
                     {name:"Volcano",          position:["47%","72%"],id:2,locked:1,
-                    doorway_img:"assets/images/doorways/volcano.jpg"},
-                    {name:"Obelisk",          position:["80%","10%"],id:3,locked:1,
-                    doorway_img:"assets/images/doorways/obelisk.jfif"},
+                    doorway_img:"assets/images/doorways/volcano.jpg",
+                    minigame_img:"assets/images/minigames/volcano.jpg"},
+                    {name:"Obelisk",          position:["80%","10%"],id:3,locked:0,
+                    doorway_img:"assets/images/doorways/obelisk.jfif",
+                    minigame_img:"assets/images/minigames/obelisk.jfif"},
                     {name:"Tree",             position:["66%","85%"],id:4,locked:1,
-                    doorway_img:"assets/images/doorways/tree.jpg"},
+                    doorway_img:"assets/images/doorways/tree.jpg",
+                    minigame_img:"assets/images/minigames/tree.jpg"},
                     ]
 var locations
 var player
@@ -16,8 +21,6 @@ var clock
 
 //Wrap the construction in a ready function
 $(window).on("load",function(){
-
-  console.log("Inside window ready function")
 
   // Create the clock
   clock = new Clock
@@ -30,11 +33,6 @@ $(window).on("load",function(){
 
   //Run the location creator to instantiate locations
   player = new Player(1)
-
-  // Select the modal dom element for the doorway so that it can be referenced elsewhere
-  //doorwayModal = $('#door-modal')
-  // Select the modal dom element for the minigame so that it can be referenced elsewhere
-  //minigameModal = $('#minigame-modal')
 
 })
 

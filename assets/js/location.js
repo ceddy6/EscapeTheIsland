@@ -11,6 +11,7 @@ class Location {
         this.position = locationsList[index].position
         this.locked = locationsList[index].locked
         this.doorway_img = locationsList[index].doorway_img
+        this.minigame_img = locationsList[index].minigame_img
 
         // Create and append location objects
         $('#background-map-wrapper').append($('<div class="location-marker"></div>')

@@ -12,12 +12,13 @@ class Doorway{
             doorwayModal.find('.modal-title').text("You see a locked door")  
             doorwayModal.find('.modal-body')   
                 .empty()                                
-                .append('<img class="img-fluid" id="minigame1-background" src='+locations[index].doorway_img+' alt="Window">')
+                .append('<img class="img-fluid" id="minigame1-background" src='+locations[index].doorway_img+' alt="Doorway">')
             doorwayModal.modal('show')   
 
         } else {
 
             // Skip straight to creating the minigame modal
+            minigame = new Minigame(index)
 
         }
 
