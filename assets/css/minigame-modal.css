@@ -1,0 +1,44 @@
+.modal-dialog.minigame{
+    max-width:80vw;
+    max-height:80vh;
+  }
+  .modal-body.minigame{
+    max-width:80vw;
+    max-height:80vw;
+    position:relative;
+  }
+
+  
+  #minigame1-background{
+    width:100%;
+  }
+  .minigame1-stone{
+    position:absolute;
+    width:10%;
+    transform: translate(-50%,-50%);
+  }
+  .minigame1-stone:hover{
+    cursor:move;
+    z-index:10;
+  }
+  #minigame1-stone1{
+    top:20%;
+    left:20%;
+  }
+  #minigame1-stone2{
+    top:40%;
+    left:30%;
+  }
+  #minigame1-stone3{
+    top:60%;
+    left:30%;
+  }
+  #minigame1-stone4{
+    top:80%;
+    left:50%;
+  }
+  
+  #minigame1-chest{
+    width:20%;
+  }
+  

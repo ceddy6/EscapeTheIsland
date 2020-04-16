@@ -17,12 +17,15 @@
 
     <!-- Page style sheets-->
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/minigame-modal.css">
 
     <!-- Load favicon -->
     <link rel="icon" href="favicon.ico">
 
     <!-- Load javascript files-->
     <script src="assets/js/location.js"></script>
+    <script src="assets/js/doorway.js"></script>
+    <script src="assets/js/minigame.js"></script>
     <script src="assets/js/player.js"></script>
     <script src="assets/js/clock.js"></script>
     <script src="assets/js/chest.js"></script>
@@ -32,7 +35,7 @@
 <body>
 
     <div class="container-fluid" id="background-map-wrapper">
-        <img class="img-fluid" id="background-map" src="assets/images/map.png" alt="Map">     
+        <img class="img-fluid" id="background-map" src="assets/images/map1.jpg" alt="Map">     
     </div>
     <div class="background-clock-wrapper container-fluid">
         <img class="img-fluid" id="background-clock" src="assets/images/clock.jpg" alt="Clock">
@@ -42,31 +45,65 @@
         <div class="clock-digit minutes-units"><span class="digital-no">0</span></div>
     </div>
 
-  <!-- First Modal Minigame (Port du Moulin, rhymes) -->
-  <div id="minigame1" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-  
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Port du Moulin</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-          <img class="img-fluid" id="minigame1-background" src="assets/images/minigame1/windowintherock.jpg" alt="Window">
-          <img class="minigame1-stone" id="minigame1-stone1" src="assets/images/minigame1/pebble1.jfif" alt="Stone1">
-          <img class="minigame1-stone" id="minigame1-stone2" src="assets/images/minigame1/pebble2.jfif" alt="Stone2">
-          <img class="minigame1-stone" id="minigame1-stone3" src="assets/images/minigame1/pebble3.jfif" alt="Stone3">
-          <img class="minigame1-stone" id="minigame1-stone4" src="assets/images/minigame1/pebble4.jfif" alt="Stone4">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <!-- Modal for a minigame -->
+    <div id="minigame-modal" class="modal fade minigame" role="dialog">
+      <div class="modal-dialog minigame">
+        <div class="modal-content minigame">
+          <div class="modal-header minigame">
+            <h4 class="modal-title minigame">Description</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body minigame">
+            <!-- The Modal body will be populated by the minigame constructors-->
+          </div>
         </div>
       </div>
-  
     </div>
-  </div>
 
+    <!-- Modal for a locked door to enter a minigame -->
+    <div id="door-modal" class="modal fade door" role="dialog">
+      <div class="modal-dialog door">
+        <div class="modal-content door">
+          <div class="modal-header door">
+            <h4 class="modal-title door">Description</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body door">
+            <!-- The Modal body will be populated by the door constructors-->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for a zoomed in view of a feature of interest -->
+    <div id="zoom-modal" class="modal fade zoom" role="dialog">
+      <div class="modal-dialog zoom">
+        <div class="modal-content zoom">
+          <div class="modal-header zoom">
+            <h4 class="modal-title zoom">Description</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body zoon">
+            <!-- The Modal body will be populated by the zoomed view constructors-->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for a close up of a lock -->
+    <div id="lock-modal" class="modal fade lock" role="dialog">
+      <div class="modal-dialog lock">
+        <div class="modal-content lock">
+          <div class="modal-header lock">
+            <h4 class="modal-title lock">Description</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body lock">
+            <!-- The Modal body will be populated by the lock constructors-->
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Boostrap imports (need to come last, just before /body)-->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -74,3 +111,15 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 </html>
+
+
+
+
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div> -->
+          <!-- <img class="img-fluid" id="minigame1-background" src="assets/images/minigame1/windowintherock.jpg" alt="Window">
+          <img class="minigame1-stone" id="minigame1-stone1" src="assets/images/minigame1/pebble1.jfif" alt="Stone1">
+          <img class="minigame1-stone" id="minigame1-stone2" src="assets/images/minigame1/pebble2.jfif" alt="Stone2">
+          <img class="minigame1-stone" id="minigame1-stone3" src="assets/images/minigame1/pebble3.jfif" alt="Stone3">
+          <img class="minigame1-stone" id="minigame1-stone4" src="assets/images/minigame1/pebble4.jfif" alt="Stone4"> -->

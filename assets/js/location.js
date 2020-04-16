@@ -9,6 +9,8 @@ class Location {
         this.id = index
         this.name = locationsList[index].name
         this.position = locationsList[index].position
+        this.locked = locationsList[index].locked
+        this.doorway_img = locationsList[index].doorway_img
 
         // Create and append location objects
         $('#background-map-wrapper').append($('<div class="location-marker"></div>')
@@ -31,13 +33,7 @@ function locationClicked(index) {
     // Send the player token to the location
     player.goToLocation(index)
 
-    // Update the clock
-
-    // Add a chest to the minigame
-    chest = new Chest
-
-    // Open the minigame window
-    $('#minigame1').modal('show')
-
+    // Create and show the doorway modal
+    doorway = new Doorway(index)
 
 }

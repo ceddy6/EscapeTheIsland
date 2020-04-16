@@ -23,15 +23,8 @@ class Player {
     // Move the player around
     goToLocation(index) {
 
-        console.log("Going to location")
-        console.log(locationsList)
-        console.log(index)
-        console.log(locationsList[index])
-        console.log(locationsList[index].position)
-
         // Get the position of the location
         var newPos = locationsList[index].position
-        console.log(newPos)
 
         // Update the player's position to that position
         $('.player-token').css({"top":newPos[0]})
