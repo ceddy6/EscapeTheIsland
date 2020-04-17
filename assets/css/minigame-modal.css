@@ -1,10 +1,10 @@
 .modal-dialog.minigame{
     max-width:80vw;
-    max-height:80vh;
+    /* max-height:80vh; */
   }
   .modal-body.minigame{
     max-width:80vw;
-    max-height:80vh;
+    /* max-height:80vh; */
     position:relative;
   }
 

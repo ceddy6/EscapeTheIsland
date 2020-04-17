@@ -26,6 +26,11 @@ class Location {
 
     }
 
+    // Function to mark a location as unlocked
+    unlock() {
+        this.locked = 0
+    }
+
 }
 
 // When a location is clicked on
