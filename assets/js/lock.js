@@ -23,24 +23,26 @@ class Lock{
         // Fill and show the lock modal
         var lockModal = $('#lock-modal')
         lockModal.find('.modal-title').text("The lock needs a combination!")  
-        lockModal.find('.modal-body')   
-            .empty()                                
-            .append('<img class="img-fluid" id="lock-background" src='+lockData[index].lock_img+' alt="Minigame">')
+        var lockModalBody = lockModal.find('.modal-body')   
+                                    .empty()                                
+                                    .append('<img class="img-fluid" id="lock-background" src='+lockData[index].lock_img+' alt="Minigame">')
 
         // Depending on the location, different click options are required for the locks (for now, assuming all are diallocks)
         var locktype = "dial"
 
         switch(locktype) {
             case "dial": 
-                lockModal.append($('<img class="img-fluid" id="diallock-dial" src=assets/images/locks/dial_lock_dial.png alt="Dial">')
+                lockModalBody.append($('<img class="img-fluid" id="diallock-dial" src=assets/images/locks/dial_lock_dial.png alt="Dial">')
                                         .on("click",function(){rotateDial()})
                                     )
-                        .append($('<img class="img-fluid diallock-arrow cw dir-selected" src=assets/images/locks/direction-clockwise.png alt="Arrow CW">')
+                            .append($('<img class="img-fluid diallock-arrow cw dir-selected" src=assets/images/locks/direction-clockwise.png alt="Arrow CW">')
                                         .on("click",function(){changeDirection("cw")})
                                     )
-                        .append($('<img class="img-fluid diallock-arrow ccw dir-unselected" src=assets/images/locks/direction-clockwise.png alt="Arrow CCW">')
+                            .append($('<img class="img-fluid diallock-arrow ccw dir-unselected" src=assets/images/locks/direction-clockwise.png alt="Arrow CCW">')
                                         .on("click",function(){changeDirection("ccw")})
                                     )
+                            // Add a div to flash red or green on success or failure
+                            .append($('<div id="outlineflash"></div>'))
                 break;
         }
         
@@ -73,14 +75,11 @@ class Lock{
 
         var targetLockPath = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,17,16,15,14,13,12,11,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,28,27,26,25]
         // For now, assume unlock was successful
-        if (this.lockPath == targetLockPath) {
+        if (JSON.stringify(this.lockPath) == JSON.stringify(targetLockPath)) {
             var unlocked = 1
         } else {
             var unlocked = 0
         }
-
-        console.log("checking if unlocked")
-        console.log(unlocked)
 
         // If the unlock was successful, move on to the puzzle page
         if (unlocked == 1) {
@@ -97,7 +96,11 @@ class Lock{
 
         } else {
 
-            // Otherwise, flash the lock red and remain on the page
+            // Otherwise, flash the lock red and remain on the page (timeout ensures class is gone, before readding)
+            $('#outlineflash').removeClass('flash-on')
+            setTimeout(function(){$('#outlineflash').addClass('flash-on')},500)
+            
+            // Reset the lock to allow you to try again
             this.resetLock()
 
         }
