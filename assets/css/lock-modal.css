@@ -7,8 +7,41 @@
     /* max-height:60vh; */
     position:relative;
   }
-
-
   #lock-background{
     width:100%;
+  }
+
+
+
+  #diallock-dial{
+    position:absolute;
+    top:60%;
+    left:37.5%;
+    width:26%;
+    transform:rotate(0);
+  }
+  #diallock-dial:hover{
+    cursor:pointer;
+  }
+  .diallock-arrow{
+    position:absolute;
+    /* width:10%; */
+  }
+  .diallock-arrow.cw{
+    top:82%;
+    left:68%;
+    transform:rotate(115deg);
+  }
+  .diallock-arrow.ccw{
+    top:62%;
+    left:68%;
+    transform:rotate(65deg) scaleX(-1);
+  }
+  .diallock-arrow.dir-selected{
+    /* background:green; */
+    width:10%;
+  }
+  .diallock-arrow.dir-unselected{
+    /* background:red; */
+    width:6%;
   }
