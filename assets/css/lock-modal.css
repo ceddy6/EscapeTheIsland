@@ -15,9 +15,9 @@
 
   #diallock-dial{
     position:absolute;
-    top:60%;
-    left:37.5%;
-    width:26%;
+    top:46%;
+    left:28.5%;
+    width:43%;
     transform:rotate(0);
   }
   #diallock-dial:hover{
@@ -27,14 +27,17 @@
     position:absolute;
     /* width:10%; */
   }
+  .diallock-arrow:hover{
+    cursor:pointer;
+  }
   .diallock-arrow.cw{
-    top:82%;
-    left:68%;
+    top:68%;
+    left:79%;
     transform:rotate(115deg);
   }
   .diallock-arrow.ccw{
-    top:62%;
-    left:68%;
+    top:55%;
+    left:79%;
     transform:rotate(65deg) scaleX(-1);
   }
   .diallock-arrow.dir-selected{
@@ -44,4 +47,42 @@
   .diallock-arrow.dir-unselected{
     /* background:red; */
     width:6%;
+  }
+
+  #outlineflash{
+    width:90%;
+    height:90%;
+    position:absolute;
+    top:5%;
+    left:5%;
+    z-index:-1;
+  }
+  #outlineflash.flash-on{
+    animation: show 2s;
+  }
+  @keyframes show{
+    0%{
+      border-style:solid;
+      border-color: red;
+      box-shadow: 0px 0px 40px 20px red;
+      z-index:10;
+    }
+    20%{
+      border-style:solid;
+      border-color: red;
+      box-shadow: 0px 0px 20px 10px red;
+      z-index:10;
+    }
+    90%{
+      border-style:solid;
+      border-color: red;
+      box-shadow: 0px 0px 10px 5px red;
+      z-index:10;
+    }
+    100%{
+      border-style:none;
+      border-color: white;
+      box-shadow: 0px 0px 0px 0px white;
+      z-index:-1;
+    }
   }
