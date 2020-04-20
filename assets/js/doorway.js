@@ -49,7 +49,8 @@ class Doorway{
                                     .css({"width":this.lockSize[0]})
                                     .css({"height":this.lockSize[1]})
                                     .on("click",function(){
-                                        createLock(index)
+                                        // If the lock is clicked on, create a lock object
+                                        lock = new Lock(index)
                                     })
                 )
 
@@ -67,10 +68,3 @@ class Doorway{
 
 }
 
-// Function to create 
-function createLock(index){
-
-    // Create lock instance
-    lock = new Lock(index)
-
-}

@@ -52,9 +52,11 @@ class Lock{
                 break;
         }
         
+        // Hide the doorway modal
+        $('#door-modal').modal('hide')
 
         // Last, display the lock
-        lockModal.modal('show')  
+        setTimeout(function() {lockModal.modal('show')},500)  
 
     }
 
