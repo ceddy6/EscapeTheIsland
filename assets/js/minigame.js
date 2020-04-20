@@ -5,6 +5,11 @@ class Minigame{
     // Constructor
     constructor(index){
 
+        console.log("In the minigame constructor")
+        console.log(locations)
+        console.log(index)
+        console.log(locations[index])
+
         // Create the minigame modal and show
         var minigameModal = $('#minigame-modal')
         minigameModal.find('.modal-title').text("You see a puzzle!")  

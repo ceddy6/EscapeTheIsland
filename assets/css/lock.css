@@ -57,10 +57,13 @@
     left:5%;
     z-index:-1;
   }
-  #outlineflash.flash-on{
-    animation: show 2s;
+  #outlineflash.flash-red{
+    animation: showred 2s;
   }
-  @keyframes show{
+  #outlineflash.flash-green{
+    animation: showgreen 2s;
+  }
+  @keyframes showred{
     0%{
       border-style:solid;
       border-color: red;
@@ -77,6 +80,32 @@
       border-style:solid;
       border-color: red;
       box-shadow: 0px 0px 10px 5px red;
+      z-index:10;
+    }
+    100%{
+      border-style:none;
+      border-color: white;
+      box-shadow: 0px 0px 0px 0px white;
+      z-index:-1;
+    }
+  }
+  @keyframes showgreen{
+    0%{
+      border-style:solid;
+      border-color: green;
+      box-shadow: 0px 0px 40px 20px green;
+      z-index:10;
+    }
+    20%{
+      border-style:solid;
+      border-color: green;
+      box-shadow: 0px 0px 20px 10px green;
+      z-index:10;
+    }
+    90%{
+      border-style:solid;
+      border-color: green;
+      box-shadow: 0px 0px 10px 5px green;
       z-index:10;
     }
     100%{

@@ -1,22 +1,29 @@
 // List of information for the locks
 var lockData = [{name:"Cave",
                     lock_img:"assets/images/locks/padlock.jpg",
-                    lock_text:"Do you have a key?"},
+                    lock_text:"Do you have a key?",
+                    inter_img:"assets/images/locks/padlock_and_key.jpg",
+                    opened_img:"assets/images/locks/opened_padlock.jpg"},
                     {name:"Waterfall",
                     lock_img:"assets/images/locks/stepping-stones.jpg",
-                    lock_text:"Be careful! Some of those stones look slippery..."},
+                    lock_text:"Be careful! Some of those stones look slippery...",
+                    opened_img:"assets/images/locks/stepping-stones.jpg"},
                     {name:"Well",
                     lock_img:"assets/images/locks/dial_lock.jpg",
-                    lock_text:"The lock needs a combination."},
+                    lock_text:"The lock needs a combination.",
+                    opened_img:"assets/images/locks/dial_lock.jpg"},
                     {name:"Volcano",
                     lock_img:"assets/images/locks/dial_lock.jpg",
-                    lock_text:"The door is locked"},
+                    lock_text:"The door is locked",
+                    opened_img:"assets/images/locks/dial_lock.jpg"},
                     {name:"Obelisk",
                     lock_img:"assets/images/locks/dial_lock.jpg",
-                    lock_text:"The door is locked"},
+                    lock_text:"The door is locked",
+                    opened_img:"assets/images/locks/dial_lock.jpg"},
                     {name:"Tree",
                     lock_img:"assets/images/locks/dial_lock.jpg",
-                    lock_text:"The door is locked"},
+                    lock_text:"The door is locked",
+                    opened_img:"assets/images/locks/dial_lock.jpg"},
                     ]
 
 // Class for a door lock
@@ -37,6 +44,15 @@ class Lock{
 
         // Depending on the location, different click options are required for the locks (for now, assuming all are diallocks)
         switch(index) {
+            // For the first task, the lock needs to know whether the key has been clicked on or not
+            case 0:
+                break;
+
+            // The second task is stepping stones
+            case 1:
+                break;
+
+            // For the third task (the dial lock) various clickable bits need to be added
             case 2: 
                 lockModalBody.append($('<img class="img-fluid" id="diallock-dial" src=assets/images/locks/dial_lock_dial.png alt="Dial">')
                                         .on("click",function(){rotateDial()})
@@ -63,26 +79,53 @@ class Lock{
     // Function to reset the lock if you think you've messed it up
     resetLock() {
 
-        // Reset the path to zero, and change the rotation of the dial back to center
-        this.lockPath = [0]
-        $('#diallock-dial').css({"transform":"rotate(0deg)"})
+        switch(this.index) {
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2:
+                // Reset the path to zero, and change the rotation of the dial back to center
+                this.lockPath = []
+                $('#diallock-dial').css({"transform":"rotate(0deg)"})
+                break;
+        }
 
     }
 
     // This function contains the 'path' through the lock. This can be checked against the target path
     addToLockPath(step) {
 
-        // Push the step into the lock path
-        this.lockPath.push(step)
-        console.log(this.lockPath)
+        switch(this.index) {
+            case 0:
+                this.lockPath = ["Key"]
+                break;
+            case 1:
+                break;
+            case 2:
+                // Push the step into the lock path
+                this.lockPath.push(step)
+                break;
+        }
 
     }
 
     // Function to check whether the lock has been activated successfully
     checkCriteria() {
 
-        var targetLockPath = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,17,16,15,14,13,12,11,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,28,27,26,25]
-        // For now, assume unlock was successful
+        // Get the target path for the current puzzle
+        switch(this.index) {
+            case 0:
+                var targetLockPath = ['Key']
+                break;
+            case 1:
+                break;
+            case 2:
+                var targetLockPath = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,17,16,15,14,13,12,11,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,28,27,26,25]
+                break;
+        }
+
+        // Check whether the lock path matches the correct target
         if (JSON.stringify(this.lockPath) == JSON.stringify(targetLockPath)) {
             var unlocked = 1
         } else {
@@ -92,21 +135,31 @@ class Lock{
         // If the unlock was successful, move on to the puzzle page
         if (unlocked == 1) {
 
-            // Hide the open modals
-            $('#lock-modal').modal('hide')
-            $('#door-modal').modal('hide')
+            console.log("Happy that the lock has been undone")
+            console.log(this.index)
 
             // Also need to update the doorway information to mark it as unlocked
             locations[this.index].locked = 0
 
-            // Open the puzzle modal
-            minigame = new Minigame(this.index)
+            // Flash the lock green
+            $('#outlineflash').removeClass('flash-green')
+            setTimeout(function(){
+                $('#outlineflash').addClass('flash-green')
+            },500)
+
+            // Hide the open modal and show the new one
+            setTimeout(function(i){
+                $('#lock-modal').modal('hide');
+                setTimeout(function(ind){
+                    minigame = new Minigame(ind);
+                },500,i)
+            },2000,this.index)
 
         } else {
 
             // Otherwise, flash the lock red and remain on the page (timeout ensures class is gone, before readding)
-            $('#outlineflash').removeClass('flash-on')
-            setTimeout(function(){$('#outlineflash').addClass('flash-on')},500)
+            $('#outlineflash').removeClass('flash-red')
+            setTimeout(function(){$('#outlineflash').addClass('flash-red')},500)
             
             // Reset the lock to allow you to try again
             this.resetLock()
