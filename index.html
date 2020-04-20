@@ -17,9 +17,10 @@
 
     <!-- Page style sheets-->
     <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/minigame-modal.css">
-    <link rel="stylesheet" href="assets/css/doorway-modal.css">
-    <link rel="stylesheet" href="assets/css/lock-modal.css">
+    <link rel="stylesheet" href="assets/css/minigame.css">
+    <link rel="stylesheet" href="assets/css/doorway.css">
+    <link rel="stylesheet" href="assets/css/lock.css">
+    <link rel="stylesheet" href="assets/css/inventory.css">
 
     <!-- Load favicon -->
     <link rel="icon" href="favicon.ico">
@@ -105,6 +106,7 @@
             <!-- The Modal body will be populated by the lock constructors-->
           </div>
           <div class="modal-footer lock">
+            <button type="button" class="btn btn-default" onClick="showInventory('lock-modal')">Inventory</button>
             <button type="button" class="btn btn-default" onClick="resetLock()">Reset</button>
             <button type="button" class="btn btn-default" onClick="checkLock()">Check</button>
           </div>
@@ -137,6 +139,7 @@
           </div>
           <div class="modal-body inventory">
             <!-- The Modal body will be populated as things are collected-->
+            <img class="img-fluid inventory-item" id="inventory-key" src="assets/images/inventory/padlock-key.jpg" alt="Key" onClick="inventoryItemClicked('padlock-key')"> 
           </div>
         </div>
       </div>

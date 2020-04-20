@@ -1,8 +1,10 @@
 // List of information about the doorways
 // List of locations and the player should be available everywhere
-var doorwayData = [{name:"WindowInTheRock",     lockposition:["25%","25%"], locksize:["10%","10%"],
-                    lock_img:"assets/images/locks/dial_lock.jpg"},
+var doorwayData = [{name:"Cave",     lockposition:["50%","31%"], locksize:["10%","13%"],
+                    lock_img:"assets/images/locks/padlock.jpg"},
                     {name:"Waterfall",          lockposition:["25%","25%"], locksize:["10%","10%"],
+                    lock_img:"assets/images/locks/stepping-stones.jpg"},
+                    {name:"Well",            lockposition:["25%","25%"], locksize:["10%","10%"],
                     lock_img:"assets/images/locks/dial_lock.jpg"},
                     {name:"Volcano",            lockposition:["25%","25%"], locksize:["10%","10%"],
                     lock_img:"assets/images/locks/dial_lock.jpg"},
@@ -41,10 +43,11 @@ class Doorway{
                 .append('<img class="img-fluid" id="doorway-background" src='+locations[index].doorway_img+' alt="Doorway">')
             
                 // Add a lock div to be clicked on
-                .append($('<img class="img-fluid" id="doorway-lock" src='+this.lockImg+' alt="Lock">')
+                .append($('<div class="click-region" id="doorway-lock"></div>')
                                     .css({"top":this.lockPosition[0]})
                                     .css({"left":this.lockPosition[1]})
                                     .css({"width":this.lockSize[0]})
+                                    .css({"height":this.lockSize[1]})
                                     .on("click",function(){
                                         createLock(index)
                                     })

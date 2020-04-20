@@ -1,20 +1,4 @@
-// List of locations and the player should be available everywhere
-var locationsList = [{name:"WindowInTheRock", position:["50%","69%"],id:0,locked:1,
-                    doorway_img:"assets/images/doorways/windowintherock.jpg",
-                    minigame_img:"assets/images/minigames/windowintherock.jpg"},
-                    {name:"Waterfall",        position:["38%","55%"],id:1,locked:1,
-                    doorway_img:"assets/images/doorways/waterfall.jpg",
-                    minigame_img:"assets/images/minigames/waterfall.jpg"},
-                    {name:"Volcano",          position:["47%","72%"],id:2,locked:1,
-                    doorway_img:"assets/images/doorways/volcano.jpg",
-                    minigame_img:"assets/images/minigames/volcano.jpg"},
-                    {name:"Obelisk",          position:["80%","10%"],id:3,locked:1,
-                    doorway_img:"assets/images/doorways/obelisk.jfif",
-                    minigame_img:"assets/images/minigames/obelisk.jfif"},
-                    {name:"Tree",             position:["66%","85%"],id:4,locked:1,
-                    doorway_img:"assets/images/doorways/tree.jpg",
-                    minigame_img:"assets/images/minigames/tree.jpg"},
-                    ]
+// Most of these objects should be available everywhere
 var locations
 var player
 var clock
@@ -39,6 +23,43 @@ $(window).on("load",function(){
   player = new Player(1)
 
 })
+
+// On click function to show the inventory
+function showInventory(origin) {
+
+  // Hide the modal that you came from if necessary
+  if (origin) {
+    $('#'+origin).modal('hide')
+  }
+
+  // Show the inventory modal
+  $('#inventory-modal').modal('show')
+
+  // Add an attribute, to provide the origin so we can reopen the lower modal
+  $('#inventory-modal').attr('origin',origin)
+
+}
+
+// Need a function to handle clicks on items in the inventory
+function inventoryItemClicked(item) {
+
+  // Close the inventory modal
+  $('#inventory-modal').modal('hide')
+
+  // Reopen whatever modal it came from
+  var modalOrigin = $('#inventory-modal').attr('origin')
+  $('#'+modalOrigin).modal('show')
+
+  switch(item) {
+
+    case 'padlock-key':
+      console.log("Key clicked on")
+      break;
+
+  }
+
+
+}
 
 
 

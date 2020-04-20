@@ -1,14 +1,22 @@
 // List of information for the locks
-var lockData = [{name:"WindowInTheRock",
-                    lock_img:"assets/images/locks/dial_lock.jpg"},
+var lockData = [{name:"Cave",
+                    lock_img:"assets/images/locks/padlock.jpg",
+                    lock_text:"Do you have a key?"},
                     {name:"Waterfall",
-                    lock_img:"assets/images/locks/dial_lock.jpg"},
+                    lock_img:"assets/images/locks/stepping-stones.jpg",
+                    lock_text:"Be careful! Some of those stones look slippery..."},
+                    {name:"Well",
+                    lock_img:"assets/images/locks/dial_lock.jpg",
+                    lock_text:"The lock needs a combination."},
                     {name:"Volcano",
-                    lock_img:"assets/images/locks/dial_lock.jpg"},
+                    lock_img:"assets/images/locks/dial_lock.jpg",
+                    lock_text:"The door is locked"},
                     {name:"Obelisk",
-                    lock_img:"assets/images/locks/dial_lock.jpg"},
+                    lock_img:"assets/images/locks/dial_lock.jpg",
+                    lock_text:"The door is locked"},
                     {name:"Tree",
-                    lock_img:"assets/images/locks/dial_lock.jpg"},
+                    lock_img:"assets/images/locks/dial_lock.jpg",
+                    lock_text:"The door is locked"},
                     ]
 
 // Class for a door lock
@@ -22,16 +30,14 @@ class Lock{
 
         // Fill and show the lock modal
         var lockModal = $('#lock-modal')
-        lockModal.find('.modal-title').text("The lock needs a combination!")  
+        lockModal.find('.modal-title').text(lockData[index].lock_text)  
         var lockModalBody = lockModal.find('.modal-body')   
                                     .empty()                                
                                     .append('<img class="img-fluid" id="lock-background" src='+lockData[index].lock_img+' alt="Minigame">')
 
         // Depending on the location, different click options are required for the locks (for now, assuming all are diallocks)
-        var locktype = "dial"
-
-        switch(locktype) {
-            case "dial": 
+        switch(index) {
+            case 2: 
                 lockModalBody.append($('<img class="img-fluid" id="diallock-dial" src=assets/images/locks/dial_lock_dial.png alt="Dial">')
                                         .on("click",function(){rotateDial()})
                                     )

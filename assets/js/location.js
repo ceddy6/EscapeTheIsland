@@ -1,3 +1,24 @@
+// List of locations should be available everywhere
+var locationsList = [{name:"Cave", position:["25%","42%"],id:0,locked:1,
+                    doorway_img:"assets/images/doorways/cave.png",
+                    minigame_img:"assets/images/minigames/cave.png"},
+                    {name:"Waterfall",        position:["52%","55%"],id:1,locked:1,
+                    doorway_img:"assets/images/doorways/waterfall.jpg",
+                    minigame_img:"assets/images/minigames/waterfall.jpg"},
+                    {name:"Well",        position:["64%","41%"],id:1,locked:1,
+                    doorway_img:"assets/images/doorways/well.png",
+                    minigame_img:"assets/images/minigames/well.jpg"},
+                    {name:"Volcano",          position:["47%","72%"],id:2,locked:1,
+                    doorway_img:"assets/images/doorways/volcano.jpg",
+                    minigame_img:"assets/images/minigames/volcano.jpg"},
+                    {name:"Obelisk",          position:["80%","10%"],id:3,locked:1,
+                    doorway_img:"assets/images/doorways/obelisk.jfif",
+                    minigame_img:"assets/images/minigames/obelisk.jfif"},
+                    {name:"Tree",             position:["66%","85%"],id:4,locked:1,
+                    doorway_img:"assets/images/doorways/tree.jpg",
+                    minigame_img:"assets/images/minigames/tree.jpg"},
+                    ]
+
 // Every location on the island has a class
 // The class needs its coordinates, some name and description, and probably some onclick functions?
 class Location {
@@ -14,14 +35,14 @@ class Location {
         this.minigame_img = locationsList[index].minigame_img
 
         // Create and append location objects
-        $('#background-map-wrapper').append($('<div class="location-marker"></div>')
+        $('#background-map-wrapper').append($('<div class="location-marker click-region"></div>')
                                             .css({"position":"absolute"})
                                             .css({"top":this.position[0]})
                                             .css({"left":this.position[1]})
                                             .attr('name',this.name)
                                             .attr('index',this.id)
                                             .on("click",function(){locationClicked(index)})
-                                            .append($('<p class="x-text">x</p>'))        
+                                            //.append($('<p class="x-text">x</p>'))        
                                             )
 
     }
