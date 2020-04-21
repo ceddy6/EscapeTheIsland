@@ -1,0 +1,31 @@
+/*Cave Paintings*/
+#cave-paintings{
+    position:absolute;
+    cursor:pointer;
+    top:46%;
+    left:8%;
+    width:8%;
+    height:28%;
+}
+.stone{
+    position:absolute;
+    cursor:pointer;
+    width:5%;
+    height:5%;
+}
+#stone1{
+    top:10%;
+    left:10%;
+}
+#stone2{
+    top:20%;
+    left:20%;
+}
+#stone3{
+    top:30%;
+    left:30%;
+}
+#stone4{
+    top:40%;
+    left:40%;
+}
