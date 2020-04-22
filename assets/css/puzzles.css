@@ -2,8 +2,8 @@
 #cave-paintings{
     position:absolute;
     cursor:pointer;
-    top:46%;
-    left:8%;
+    top:56%;
+    left:37%;
     width:8%;
     height:28%;
 }
@@ -28,4 +28,25 @@
 #stone4{
     top:40%;
     left:40%;
+}
+.hollow{
+    position:absolute;
+    width:5%;
+    height:5%;
+}
+#hollow1{
+    top:56%;
+    left:46%;
+}
+#hollow2{
+    top:62%;
+    left:46%;
+}
+#hollow3{
+    top:71%;
+    left:46%;
+}
+#hollow4{
+    top:78%;
+    left:46%;
 }
