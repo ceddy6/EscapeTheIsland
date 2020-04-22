@@ -1,7 +1,7 @@
 // List of locations should be available everywhere
 var locationsList = [{name:"Cave", position:["25%","42%"],id:0,locked:1,
                     doorway_img:"assets/images/doorways/cave.png",
-                    minigame_img:"assets/images/minigames/cave.jpg"},
+                    minigame_img:"assets/images/minigames/cave.png"},
                     {name:"Waterfall",        position:["52%","55%"],id:1,locked:1,
                     doorway_img:"assets/images/doorways/waterfall.jpg",
                     minigame_img:"assets/images/minigames/waterfall.jpg"},
