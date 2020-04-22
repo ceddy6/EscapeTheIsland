@@ -10,6 +10,13 @@ var puzzle
 //Wrap the construction in a ready function
 $(window).on("load",function(){
 
+  // Setup the modals so that whenever a modal is closed, if available it will reopen the modal underneath
+  $('body').on('hidden.bs.modal', function () {
+      if($('.modal.show').length > 0){
+          $('body').addClass('modal-open');
+      }
+  });
+
   // Create the clock
   clock = new Clock
 

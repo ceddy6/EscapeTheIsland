@@ -37,7 +37,7 @@ function showInventory(origin) {
   
     // Reopen whatever modal it came from
     var modalOrigin = $('#inventory-modal').attr('origin')
-    setTimeout(function(){$('#'+modalOrigin).modal('show')},500)
+    $('#'+modalOrigin).modal('show')
   
   }
   
