@@ -2,7 +2,7 @@
 class Zoom {
 
     // Constructor
-    constructor(path,id,desc){
+    constructor(path,id,desc,snapable){
 
         // Add the attributes
         this.path = path
@@ -15,6 +15,13 @@ class Zoom {
         modal.find('.modal-body').empty()
             .append('<img class="img-fluid" id='+id+'-zoomed src='+path+' alt="Zoomed Image">')
         modal.modal('show')
+
+        // Check whether the zoomed image is capturable, and hide the take a picture button if not
+        if (snapable == 1) {
+            $('#snapshot-button').css({"display":"inline-block"})
+        } else {
+            $('#snapshot-button').css({"display":"none"})
+        }
 
     }
 

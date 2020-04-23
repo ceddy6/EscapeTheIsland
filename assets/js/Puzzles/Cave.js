@@ -16,7 +16,7 @@ class CavePuzzle{
         canvas.append($('<div class="click-region" id="cave-paintings"></div>')
                     .on("click",function(){
                         // Fill the zoom modal with the image and open it
-                        zoom = new Zoom('assets/images/minigames/puzzles/cave/cave-paintings.png','zoomed-cave-paintings','They look like cave paintings')
+                        zoom = new Zoom('assets/images/minigames/puzzles/cave/cave-paintings.png','zoomed-cave-paintings','They look like cave paintings',0)
                     })
                 )
 
@@ -55,7 +55,7 @@ class CavePuzzle{
         //Add on click to the stones to make them zoomable
         $('.stone').on("click",function(){
             // Fill the zoom modal with the image and open it
-            zoom = new Zoom('assets/images/minigames/puzzles/cave/'+this.id+'.png','zoomed-cave-stone','There are markings on the stones')
+            zoom = new Zoom('assets/images/minigames/puzzles/cave/'+this.id+'.png','zoomed-cave-stone','There are markings on the stones',0)
         })
 
         // If the puzzle has been completed, show the opened hiding place
@@ -120,9 +120,9 @@ class CavePuzzle{
 
         // Add the two clues to the image
         var clue1 = $('<img class="img-fluid" id="stepping-stones-clue" src=assets/images/minigames/puzzles/cave/clue.bmp alt="Clue1">')
-                    .on("click",function(){zoom = new Zoom('assets/images/minigames/puzzles/cave/clue.bmp','stepping-stones-clue-zoom','This must be some sort of hint')})
+                    .on("click",function(){zoom = new Zoom('assets/images/minigames/puzzles/cave/clue.bmp','stepping-stones-clue-zoom','This must be some sort of hint',1)})
         var clue2 = $('<img class="img-fluid" id="waterfall-clue" src=assets/images/minigames/puzzles/cave/clue2.bmp alt="Clue2">')
-                    .on("click",function(){zoom = new Zoom('assets/images/minigames/puzzles/cave/clue2.bmp','waterfall-clue-zoom','This must be a clue to the next location')})
+                    .on("click",function(){zoom = new Zoom('assets/images/minigames/puzzles/cave/clue2.bmp','waterfall-clue-zoom','This must be a clue to the next location',1)})
         $('#minigame-modal').find('.modal-body').append(clue1).append(clue2)
 
     }
