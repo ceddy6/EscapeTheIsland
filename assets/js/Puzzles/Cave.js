@@ -55,4 +55,11 @@ class CavePuzzle{
 
     }
 
+    // Method for checking whether the puzzle is complete (needs to be called after dragging events)
+    checkComplete() {
+
+        console.log("The puzzle is being checked")
+
+    }
+
 }
