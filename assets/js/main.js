@@ -6,6 +6,7 @@ var minigame
 var doorway
 var lock
 var puzzle
+var dialogue
 
 //Wrap the construction in a ready function
 $(window).on("load",function(){

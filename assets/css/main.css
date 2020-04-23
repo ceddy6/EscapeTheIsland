@@ -2,6 +2,11 @@ body{
     background-color:rgb(193, 234, 240);
 }
 
+#dialogue-modal{
+    position:absolute;
+    top:50%;
+}
+
 .click-region{
     border:solid;
     border-color:red;

@@ -58,3 +58,18 @@
     top:81.5%;
     left:55%;
 }
+
+#stepping-stones-clue{
+    cursor:pointer;
+    position:absolute;
+    width:1%;
+    top:69%;
+    left:64%;
+}
+#waterfall-clue{
+    cursor:pointer;
+    position:absolute;
+    width:2%;
+    top:72%;
+    left:68%;
+}

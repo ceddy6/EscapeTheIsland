@@ -2,10 +2,23 @@
 class CavePuzzle{
 
     // Constructor adds all the elements
-    constructor(){
+    constructor(index){
 
-        // Select the modal body for content
-        var canvas = $('#minigame-modal').find('.modal-body')
+        // Select the modal body for content (and empty both of them)
+        var canvas = $('#minigame-modal').find('.modal-body').empty()
+        var title = $('#minigame-modal').find('.modal-title').empty()
+
+        // Add the the background and the title
+        if (locations[index].complete == 0) {
+            canvas.append('<img class="img-fluid" id="minigame-background" src='+locations[index].minigame_img+' alt="Minigame">')
+        } else {
+            canvas.append('<img class="img-fluid" id="minigame-background" src='+locations[index].completed_img+' alt="Minigame">')
+                // Add the two clues to the image
+                .append('<img class="img-fluid" id="stepping-stones-clue" src=assets/images/minigames/puzzles/cave/clue.bmp alt="Clue1">')
+                .append('<img class="img-fluid" id="waterfall-clue" src=assets/images/minigames/puzzles/cave/clue2.bmp alt="Clue2">')
+    
+        }
+        title.text("There are some strange icons carved into the floor...")
 
         // Append a div for the cave paintings
         canvas.append($('<div class="click-region" id="cave-paintings"></div>')
@@ -35,8 +48,11 @@ class CavePuzzle{
         var stone6 = $('<img class="img-fluid click-region stone" id="stone_rat" src=assets/images/minigames/puzzles/cave/stone_rat.png alt="Stone6">')
         canvas.append(stone1).append(stone2).append(stone3).append(stone4).append(stone5).append(stone6)
       
-        // Put the check of puzzle completion on all stones on mouseup
-        $('.stone').on("mouseup",function(){puzzle.checkComplete()})
+        
+        // Put the check of puzzle completion on all stones on mouseup (if the puzzle hasn't already been compeleted)
+        if (locations[index].complete == 0) {
+            $('.stone').on("mouseup",function(){puzzle.checkComplete()})
+        }
 
         // Add jquery method to make the stones draggable
         $('.stone').draggable({
@@ -57,6 +73,9 @@ class CavePuzzle{
                 .append('<img class="img-fluid" id="zoomed-cave-stone" src=assets/images/minigames/puzzles/cave/'+this.id+'.png alt="Cave Stones">')
             zoom.modal('show')
         })
+
+        // Show the modal
+        $('#minigame-modal').modal('show')
 
     }
 
@@ -98,7 +117,18 @@ class CavePuzzle{
     // This method replaces the background with one with an open hiding space
     openHidingPlace(){
 
-        console.log("A hole opens up in the wall. A message tells you to head to the waterfall")
+        // Show a dialogue modal, describing the entry opening
+        $('#dialogue-modal').find('.modal-title').text('A stone in the wall swings aside...')
+        $('#dialogue-modal').modal('show')
+
+        // Replace the background image with the door opened image
+        $('#minigame-background').remove()
+        $('#minigame-modal').find('.modal-body')                                
+            .append('<img class="img-fluid" id="minigame-background" src=assets/images/minigames/cave_opened.png alt="Minigame">')
+
+        // Add the two clues to the image
+            .append('<img class="img-fluid" id="stepping-stones-clue" src=assets/images/minigames/puzzles/cave/clue.bmp alt="Clue1">')
+            .append('<img class="img-fluid" id="waterfall-clue" src=assets/images/minigames/puzzles/cave/clue2.bmp alt="Clue2">')
 
     }
 
