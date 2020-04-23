@@ -84,16 +84,12 @@ class CavePuzzle{
         var bugx = $('#stone_bug').css("left")
         var bugy = $('#stone_bug').css("top")
         
-        if (obamax == llamax && obamay == llamay && tinx == finx && tiny == finy && catx == ratx && caty == raty && rugx == bugx && rugy == bugy) {
-            console.log(locations)
-            var i = locations.find(function(entry){
-                console.log(entry)
-                console.log(locations)
-                return entry.name=="Cave"
-            })
-            console.log(i)
-            i.complete = 1
-            console.log(i)
+        if (obamax == llamax && obamay == llamay && 
+            tinx == finx && tiny == finy && 
+            catx == ratx && caty == raty && 
+            rugx == bugx && rugy == bugy) 
+        {
+            locations.find(function(entry){return entry.name=="Cave"}).complete = 1
             puzzle.openHidingPlace()
         } 
 
