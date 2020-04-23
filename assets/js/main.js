@@ -7,6 +7,8 @@ var doorway
 var lock
 var puzzle
 var dialogue
+var zoom
+var inventory
 
 //Wrap the construction in a ready function
 $(window).on("load",function(){

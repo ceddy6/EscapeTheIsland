@@ -9,26 +9,14 @@ class CavePuzzle{
         var title = $('#minigame-modal').find('.modal-title').empty()
 
         // Add the the background and the title
-        if (locations[index].complete == 0) {
-            canvas.append('<img class="img-fluid" id="minigame-background" src='+locations[index].minigame_img+' alt="Minigame">')
-        } else {
-            canvas.append('<img class="img-fluid" id="minigame-background" src='+locations[index].completed_img+' alt="Minigame">')
-                // Add the two clues to the image
-                .append('<img class="img-fluid" id="stepping-stones-clue" src=assets/images/minigames/puzzles/cave/clue.bmp alt="Clue1">')
-                .append('<img class="img-fluid" id="waterfall-clue" src=assets/images/minigames/puzzles/cave/clue2.bmp alt="Clue2">')
-    
-        }
+        canvas.append('<img class="img-fluid" id="minigame-background" src='+locations[index].minigame_img+' alt="Minigame">')
         title.text("There are some strange icons carved into the floor...")
 
         // Append a div for the cave paintings
         canvas.append($('<div class="click-region" id="cave-paintings"></div>')
                     .on("click",function(){
                         // Fill the zoom modal with the image and open it
-                        var zoom = $('#zoom-modal')
-                        zoom.find('.modal-title').text("They look like cave paintings")  
-                        zoom.find('.modal-body').empty()
-                                                .append('<img class="img-fluid" id="zoomed-cave-paintings" src=assets/images/minigames/puzzles/cave/cave-paintings.png alt="Cave Paintings">')
-                        zoom.modal('show')
+                        zoom = new Zoom('assets/images/minigames/puzzles/cave/cave-paintings.png','zoomed-cave-paintings','They look like cave paintings')
                     })
                 )
 
@@ -67,12 +55,13 @@ class CavePuzzle{
         //Add on click to the stones to make them zoomable
         $('.stone').on("click",function(){
             // Fill the zoom modal with the image and open it
-            var zoom = $('#zoom-modal')
-            zoom.find('.modal-title').text("There are markings on the stones") 
-            zoom.find('.modal-body').empty()
-                .append('<img class="img-fluid" id="zoomed-cave-stone" src=assets/images/minigames/puzzles/cave/'+this.id+'.png alt="Cave Stones">')
-            zoom.modal('show')
+            zoom = new Zoom('assets/images/minigames/puzzles/cave/'+this.id+'.png','zoomed-cave-stone','There are markings on the stones')
         })
+
+        // If the puzzle has been completed, show the opened hiding place
+        if (locations[index].complete == 1) {
+            this.openHidingPlace()
+        }
 
         // Show the modal
         $('#minigame-modal').modal('show')
@@ -108,7 +97,14 @@ class CavePuzzle{
             catx == ratx && caty == raty && 
             rugx == bugx && rugy == bugy) 
         {
+            // Mark puzzle as complete
             locations.find(function(entry){return entry.name=="Cave"}).complete = 1
+            
+            // Show a dialogue modal, describing the entry opening
+            $('#dialogue-modal').find('.modal-title').text('A stone in the wall swings aside...')
+            $('#dialogue-modal').modal('show')
+
+            // Show the opened hiding place
             puzzle.openHidingPlace()
         } 
 
@@ -117,18 +113,17 @@ class CavePuzzle{
     // This method replaces the background with one with an open hiding space
     openHidingPlace(){
 
-        // Show a dialogue modal, describing the entry opening
-        $('#dialogue-modal').find('.modal-title').text('A stone in the wall swings aside...')
-        $('#dialogue-modal').modal('show')
-
         // Replace the background image with the door opened image
         $('#minigame-background').remove()
         $('#minigame-modal').find('.modal-body')                                
             .append('<img class="img-fluid" id="minigame-background" src=assets/images/minigames/cave_opened.png alt="Minigame">')
 
         // Add the two clues to the image
-            .append('<img class="img-fluid" id="stepping-stones-clue" src=assets/images/minigames/puzzles/cave/clue.bmp alt="Clue1">')
-            .append('<img class="img-fluid" id="waterfall-clue" src=assets/images/minigames/puzzles/cave/clue2.bmp alt="Clue2">')
+        var clue1 = $('<img class="img-fluid" id="stepping-stones-clue" src=assets/images/minigames/puzzles/cave/clue.bmp alt="Clue1">')
+                    .on("click",function(){zoom = new Zoom('assets/images/minigames/puzzles/cave/clue.bmp','stepping-stones-clue-zoom','This must be some sort of hint')})
+        var clue2 = $('<img class="img-fluid" id="waterfall-clue" src=assets/images/minigames/puzzles/cave/clue2.bmp alt="Clue2">')
+                    .on("click",function(){zoom = new Zoom('assets/images/minigames/puzzles/cave/clue2.bmp','waterfall-clue-zoom','This must be a clue to the next location')})
+        $('#minigame-modal').find('.modal-body').append(clue1).append(clue2)
 
     }
 

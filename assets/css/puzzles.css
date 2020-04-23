@@ -6,6 +6,7 @@
     left:40%;
     width:11%;
     height:28%;
+    z-index:1;
 }
 .stone{
     position:absolute;
