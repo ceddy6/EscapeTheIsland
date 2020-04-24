@@ -2,7 +2,7 @@
 // List of locations and the player should be available everywhere
 var doorwayData = [{name:"Cave",     lockposition:["50%","31%"], locksize:["10%","13%"],
                     lock_img:"assets/images/locks/padlock.jpg"},
-                    {name:"Waterfall",          lockposition:["25%","25%"], locksize:["10%","10%"],
+                    {name:"Waterfall",          lockposition:["83%","17%"], locksize:["37%","14%"],
                     lock_img:"assets/images/locks/stepping-stones.jpg"},
                     {name:"Well",            lockposition:["25%","25%"], locksize:["10%","10%"],
                     lock_img:"assets/images/locks/dial_lock.jpg"},

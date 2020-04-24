@@ -4,7 +4,7 @@ var locationsList = [{name:"Cave", position:["25%","42%"],id:0,locked:1,complete
                     minigame_img:"assets/images/minigames/cave.png",
                     completed_img:"assets/images/minigames/cave_opened.png"},
                     {name:"Waterfall",        position:["52%","55%"],id:1,locked:1,complete:0,
-                    doorway_img:"assets/images/doorways/waterfall.jpg",
+                    doorway_img:"assets/images/doorways/waterfall.png",
                     minigame_img:"assets/images/minigames/waterfall.jpg",
                     completed_img:"assets/images/minigames/waterfall.jpg"},
                     {name:"Well",        position:["64%","41%"],id:1,locked:1,complete:0,
