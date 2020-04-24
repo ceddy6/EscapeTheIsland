@@ -28,9 +28,10 @@ class Zoom {
     // Function to add the image to the inventory
     takeAPicture(){
 
+        console.log("Taking a picture")
+
         // Select the inventory modal, and append the correct picture
-        inventory = $('#inventory-modal').find('.modal-body')
-        inventory.append('<img class="img-fluid" id='+this.id+'-inventory src='+this.path+' alt="Inventory Image">')
+        inventory.addItem(this.id)
 
         // Close the zoom modal, and open the inventory
         $('#zoom-modal').modal('hide')

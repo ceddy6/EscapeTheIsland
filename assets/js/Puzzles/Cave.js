@@ -120,9 +120,9 @@ class CavePuzzle{
 
         // Add the two clues to the image
         var clue1 = $('<img class="img-fluid" id="stepping-stones-clue" src=assets/images/minigames/puzzles/cave/clue.bmp alt="Clue1">')
-                    .on("click",function(){zoom = new Zoom('assets/images/minigames/puzzles/cave/clue.bmp','stepping-stones-clue-zoom','This must be some sort of hint',1)})
+                    .on("click",function(){zoom = new Zoom('assets/images/minigames/puzzles/cave/clue.bmp','stepping-stones-clue','This must be some sort of hint',1)})
         var clue2 = $('<img class="img-fluid" id="waterfall-clue" src=assets/images/minigames/puzzles/cave/clue2.bmp alt="Clue2">')
-                    .on("click",function(){zoom = new Zoom('assets/images/minigames/puzzles/cave/clue2.bmp','waterfall-clue-zoom','This must be a clue to the next location',1)})
+                    .on("click",function(){zoom = new Zoom('assets/images/minigames/puzzles/cave/clue2.bmp','waterfall-clue','This must be a clue to the next location',1)})
         $('#minigame-modal').find('.modal-body').append(clue1).append(clue2)
 
     }

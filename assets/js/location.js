@@ -1,5 +1,5 @@
 // List of locations should be available everywhere
-var locationsList = [{name:"Cave", position:["25%","42%"],id:0,locked:0,complete:1,
+var locationsList = [{name:"Cave", position:["25%","42%"],id:0,locked:1,complete:0,
                     doorway_img:"assets/images/doorways/cave.png",
                     minigame_img:"assets/images/minigames/cave.png",
                     completed_img:"assets/images/minigames/cave_opened.png"},

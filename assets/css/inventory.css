@@ -1,5 +1,6 @@
+.inventory-item{
+    width:20vw;
+}
 .inventory-item:hover{
-
     cursor:pointer;
-
 }

@@ -135,8 +135,10 @@ class Lock{
         // If the unlock was successful, move on to the puzzle page
         if (unlocked == 1) {
 
-            console.log("Happy that the lock has been undone")
-            console.log(this.index)
+            // If it's the padlock that's been undone, remove the key from the inventory
+            if (this.index == 0) {
+                inventory.removeItem('padlock-key')
+            }
 
             // Also need to update the doorway information to mark it as unlocked
             locations[this.index].locked = 0
@@ -147,7 +149,7 @@ class Lock{
                 $('#outlineflash').addClass('flash-green')
             },500)
 
-            // Hide the open modal and show the new one
+            // Hide the open lock modal and show the new minigame one
             setTimeout(function(i){
                 $('#lock-modal').modal('hide');
                 setTimeout(function(ind){
