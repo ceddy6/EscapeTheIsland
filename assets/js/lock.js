@@ -33,7 +33,7 @@ class Lock{
     constructor(index){
 
         this.index = index
-        this.lockPath = [0]
+        this.lockPath = []
 
         // Fill and show the lock modal
         var lockModal = $('#lock-modal')
@@ -50,6 +50,13 @@ class Lock{
 
             // The second task is stepping stones
             case 1:
+                // Append a clickable div to each stepping stone
+                for (var i = 0; i<10; i++) {
+                    lockModalBody.append($('<div class="stepping-stone click-region" id="stepping-stone-'+i+'"></div>')
+                                        .attr('data-stone-index',i)
+                                        .on("click",function(){lock.addToLockPath($(this).attr('data-stone-index'))})
+                    )
+                }
                 break;
 
             // For the third task (the dial lock) various clickable bits need to be added
@@ -101,6 +108,7 @@ class Lock{
                 this.lockPath = ["Key"]
                 break;
             case 1:
+                this.lockPath.push(parseInt(step))
                 break;
             case 2:
                 // Push the step into the lock path

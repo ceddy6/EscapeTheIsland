@@ -1,7 +1,7 @@
 // Outside the inventory class, keep a list of the possible items that could go into the inventory
 var inventoryItems = [
     {title:"padlock-key",path:"assets/images/locks/padlock-key.jpg",description:"An old key",useability:"inventory-item-useable"},
-    {title:"stepping-stones-clue",path:"assets/images/minigames/puzzles/cave/clue.bmp",description:"Some kind of diagram",useability:"inventory-item-viewable"},
+    {title:"stepping-stones-clue",path:"assets/images/minigames/puzzles/cave/waterfall-clue.png",description:"Some kind of diagram",useability:"inventory-item-viewable"},
     {title:"waterfall-clue",path:"assets/images/minigames/puzzles/cave/clue2.bmp",description:"Sounds like a riddle",useability:"inventory-item-viewable"}
 ]
 
@@ -27,10 +27,11 @@ class Inventory {
 
         // Add the image to the modal 
         $('#inventory-modal').find('.modal-body')
-            .append('<img class="img-fluid inventory-item '+details.useability+'" id='+item+'-inventory src='+details.path+' alt='+item+'>')
-        
-            // Include an on-click method for that specific item
-            .on("click",function(){inventory.itemClicked(item)})
+            .append($('<img class="img-fluid inventory-item '+details.useability+'" id='+item+'-inventory src='+details.path+' alt='+item+'>')
+                .attr('data-item',item)
+                // Include an on-click method for that specific item
+                .on("click",function(){inventory.itemClicked($(this).attr('data-item'))})
+            )
 
     }
 

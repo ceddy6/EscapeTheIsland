@@ -56,24 +56,6 @@
         <div class="clock-digit minutes-units"><span class="digital-no">0</span></div>
     </div>
 
-    <!-- Modal for a minigame -->
-    <div id="minigame-modal" class="modal fade minigame" role="dialog">
-      <div class="modal-dialog minigame">
-        <div class="modal-content minigame">
-          <div class="modal-header minigame">
-            <h4 class="modal-title minigame">Description</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-          <div class="modal-body minigame">
-            <!-- The Modal body will be populated by the minigame constructors-->
-          </div>
-          <div class="modal-footer minigame">
-            <button type="button" class="btn btn-default" id="inventory-button" onClick="showInventory()">Inventory</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- Modal for a locked door to enter a minigame -->
     <div id="door-modal" class="modal fade door" role="dialog">
       <div class="modal-dialog door">
@@ -89,19 +71,19 @@
       </div>
     </div>
 
-    <!-- Modal for a zoomed in view of a feature of interest -->
-    <div id="zoom-modal" class="modal fade zoom" role="dialog">
-      <div class="modal-dialog zoom">
-        <div class="modal-content zoom">
-          <div class="modal-header zoom">
-            <h4 class="modal-title zoom">Description</h4>
+    <!-- Modal for a minigame -->
+    <div id="minigame-modal" class="modal fade minigame" role="dialog">
+      <div class="modal-dialog minigame">
+        <div class="modal-content minigame">
+          <div class="modal-header minigame">
+            <h4 class="modal-title minigame">Description</h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
-          <div class="modal-body zoon">
-            <!-- The Modal body will be populated by the zoomed view constructors-->
+          <div class="modal-body minigame">
+            <!-- The Modal body will be populated by the minigame constructors-->
           </div>
-          <div class="modal-footer zoom">
-            <button type="button" class="btn btn-default" id="snapshot-button" onClick="takeAPicture()">Take a Picture</button>
+          <div class="modal-footer minigame">
+            <button type="button" class="btn btn-default" id="inventory-button" onClick="showInventory()">Inventory</button>
           </div>
         </div>
       </div>
@@ -127,6 +109,39 @@
       </div>
     </div>
 
+    <!-- Modal for inventory -->
+    <div id="inventory-modal" class="modal fade inventory" role="dialog">
+      <div class="modal-dialog inventory">
+        <div class="modal-content inventory">
+          <div class="modal-header inventory">
+            <h4 class="modal-title inventory">Inventory</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body inventory">
+            <!-- The Modal body will be populated as things are collected-->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for a zoomed in view of a feature of interest -->
+    <div id="zoom-modal" class="modal fade zoom" role="dialog">
+      <div class="modal-dialog zoom">
+        <div class="modal-content zoom">
+          <div class="modal-header zoom">
+            <h4 class="modal-title zoom">Description</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body zoon">
+            <!-- The Modal body will be populated by the zoomed view constructors-->
+          </div>
+          <div class="modal-footer zoom">
+            <button type="button" class="btn btn-default" id="snapshot-button" onClick="takeAPicture()">Take a Picture</button>
+          </div>
+        </div>
+      </div>
+    </div>    
+
     <!-- Modal for dialogue messages -->
     <div id="dialogue-modal" class="modal fade dialogue" role="dialog">
       <div class="modal-dialog dialogue">
@@ -140,21 +155,6 @@
           <!-- </div> -->
           <div class="modal-footer dialogue">
             <button type="button" class="btn btn-default" data-dismiss="modal">Continue</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal for inventory -->
-    <div id="inventory-modal" class="modal fade inventory" role="dialog">
-      <div class="modal-dialog inventory">
-        <div class="modal-content inventory">
-          <div class="modal-header inventory">
-            <h4 class="modal-title inventory">Inventory</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-          <div class="modal-body inventory">
-            <!-- The Modal body will be populated as things are collected-->
           </div>
         </div>
       </div>

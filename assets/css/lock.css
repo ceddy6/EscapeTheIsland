@@ -1,3 +1,4 @@
+/* For all lock modals */
 .modal-dialog.lock{
     max-width:60vw;
     /* max-height:60vh; */
@@ -11,8 +12,56 @@
     width:100%;
   }
 
+/* For the waterfall stepping stones */
+  .stepping-stone{
+    position:absolute;
+    width:10%;
+    height:10%;
+  }
+  #stepping-stone-0{
+    top:76%;
+    left:2%;
+  }
+  #stepping-stone-1{
+    top:76%;
+    left:17%;
+  }
+  #stepping-stone-2{
+    top:59%;
+    left:19%;
+  }
+  #stepping-stone-3{
+    top:60%;
+    left:39%;
+  }
+  #stepping-stone-4{
+    top:43%;
+    left:39%;
+  }
+  #stepping-stone-5{
+    top:47%;
+    left:59%;
+  }
+  #stepping-stone-6{
+    top:28%;
+    left:60%;
+  }
+  #stepping-stone-7{
+    top:32%;
+    left:77%;
+  }
+  #stepping-stone-8{
+    top:17%;
+    left:73%;
+  }
+  #stepping-stone-9{
+    top:12%;
+    left:88%;
+  }
 
 
+
+/* For the dial lock */
   #diallock-dial{
     position:absolute;
     top:46%;
@@ -49,6 +98,8 @@
     width:6%;
   }
 
+
+  /* For checking a lock*/
   #outlineflash{
     width:90%;
     height:90%;
