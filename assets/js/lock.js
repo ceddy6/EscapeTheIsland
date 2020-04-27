@@ -54,9 +54,15 @@ class Lock{
                 for (var i = 0; i<10; i++) {
                     lockModalBody.append($('<div class="stepping-stone click-region" id="stepping-stone-'+i+'"></div>')
                                         .attr('data-stone-index',i)
-                                        .on("click",function(){lock.addToLockPath($(this).attr('data-stone-index'))})
+                                        .on("click",function(){
+                                            $(this).animate({top:'+=6px'})
+                                            $(this).animate({top:'-=6px'})
+                                            lock.addToLockPath($(this).attr('data-stone-index'))
+                                        })
                     )
                 }
+                // Add a check of the lock on click of the final stone
+                $('#stepping-stone-9').on("click",function(){lock.checkCriteria()})
                 break;
 
             // For the third task (the dial lock) various clickable bits need to be added
@@ -70,11 +76,12 @@ class Lock{
                             .append($('<img class="img-fluid diallock-arrow ccw dir-unselected" src=assets/images/locks/direction-clockwise.png alt="Arrow CCW">')
                                         .on("click",function(){changeDirection("ccw")})
                                     )
-                            // Add a div to flash red or green on success or failure
-                            .append($('<div id="outlineflash"></div>'))
                 break;
         }
         
+        // Add a div to flash red or green on success or failure
+        lockModalBody.append($('<div id="outlineflash"></div>'))
+
         // Hide the doorway modal
         $('#door-modal').modal('hide')
 
@@ -90,6 +97,8 @@ class Lock{
             case 0:
                 break;
             case 1:
+                // Reset the path to zero
+                this.lockPath = []
                 break;
             case 2:
                 // Reset the path to zero, and change the rotation of the dial back to center
@@ -109,6 +118,8 @@ class Lock{
                 break;
             case 1:
                 this.lockPath.push(parseInt(step))
+                console.log("Checking lock path")
+                console.log(this.lockPath)
                 break;
             case 2:
                 // Push the step into the lock path
@@ -121,12 +132,16 @@ class Lock{
     // Function to check whether the lock has been activated successfully
     checkCriteria() {
 
+        console.log("Checking the lock")
+        console.log(this.lockPath)
+
         // Get the target path for the current puzzle
         switch(this.index) {
             case 0:
                 var targetLockPath = ['Key']
                 break;
             case 1:
+                var targetLockPath = [0,1,3,4,6,8,9]
                 break;
             case 2:
                 var targetLockPath = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,17,16,15,14,13,12,11,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,28,27,26,25]

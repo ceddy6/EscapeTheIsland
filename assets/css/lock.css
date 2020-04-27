@@ -15,6 +15,7 @@
 /* For the waterfall stepping stones */
   .stepping-stone{
     position:absolute;
+    cursor:pointer;
     width:10%;
     height:10%;
   }
