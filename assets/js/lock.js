@@ -167,10 +167,11 @@ class Lock{
             locations[this.index].locked = 0
 
             // Flash the lock green
-            $('#outlineflash').removeClass('flash-green')
-            setTimeout(function(){
-                $('#outlineflash').addClass('flash-green')
-            },500)
+            $('#outlineflash').animate({
+                'borderWidth':'4px',
+                'borderColor':'green',
+                'z-index':'1'
+            })
 
             // Hide the open lock modal and show the new minigame one
             setTimeout(function(i){
@@ -182,9 +183,17 @@ class Lock{
 
         } else {
 
-            // Otherwise, flash the lock red and remain on the page (timeout ensures class is gone, before readding)
-            $('#outlineflash').removeClass('flash-red')
-            setTimeout(function(){$('#outlineflash').addClass('flash-red')},500)
+            // Otherwise, flash the lock red and remain on the page
+            $('#outlineflash').animate({
+                'borderWidth':'4px',
+                'borderColor':'red',
+                'z-index':'1'
+            })
+            $('#outlineflash').animate({
+                'borderWidth':'4px',
+                'borderColor':'transparent',
+                'z-index':'-1'
+            })
             
             // Reset the lock to allow you to try again
             this.resetLock()
