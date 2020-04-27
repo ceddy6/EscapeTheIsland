@@ -168,9 +168,9 @@ class Lock{
 
             // Flash the lock green
             $('#outlineflash').animate({
-                'borderWidth':'4px',
-                'borderColor':'green',
-                'z-index':'1'
+                borderWidth:'4px',
+                borderColor:'#31C110',
+                boxShadow:'0px 0px 10px 10px #31C110'
             })
 
             // Hide the open lock modal and show the new minigame one
@@ -179,20 +179,21 @@ class Lock{
                 setTimeout(function(ind){
                     minigame = new Minigame(ind);
                 },500,i)
-            },2000,this.index)
+            },1000,this.index)
 
+        // If that wasn't a successful unlock attempt    
         } else {
 
             // Otherwise, flash the lock red and remain on the page
             $('#outlineflash').animate({
-                'borderWidth':'4px',
-                'borderColor':'red',
-                'z-index':'1'
+                borderWidth:'4px',
+                borderColor:'#FF0000',
+                boxShadow:'0px 0px 10px 10px #FF0000'
             })
             $('#outlineflash').animate({
-                'borderWidth':'4px',
-                'borderColor':'transparent',
-                'z-index':'-1'
+                borderWidth:'4px',
+                borderColor:'transparent',
+                boxShadow:'0px 0px 0px 0px transparent'
             })
             
             // Reset the lock to allow you to try again
