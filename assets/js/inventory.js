@@ -2,7 +2,9 @@
 var inventoryItems = [
     {title:"padlock-key",path:"assets/images/locks/padlock-key.jpg",description:"An old key",useability:"inventory-item-useable"},
     {title:"stepping-stones-clue",path:"assets/images/minigames/puzzles/cave/waterfall-clue.png",description:"Some kind of diagram",useability:"inventory-item-viewable"},
-    {title:"waterfall-clue",path:"assets/images/minigames/puzzles/cave/clue2.bmp",description:"Sounds like a riddle",useability:"inventory-item-viewable"}
+    {title:"waterfall-clue",path:"assets/images/minigames/puzzles/cave/clue2.bmp",description:"Sounds like a riddle",useability:"inventory-item-viewable"},
+    {title:"well-stones-clue",path:"assets/images/minigames/puzzles/waterfall/well-stones-clue.png",description:"Some kind of diagram",useability:"inventory-item-viewable"},
+    {title:"well-clue",path:"assets/images/minigames/puzzles/waterfall/well-clue.bmp",description:"Sounds like a riddle",useability:"inventory-item-viewable"}
 ]
 
 // Create a class for the inventory

@@ -10,6 +10,9 @@ class Minigame{
             case 0:
                 puzzle = new CavePuzzle(index)
                 break;
+            case 1: 
+                puzzle = new WaterfallPuzzle(index)
+                break;
             default:
                 break;
         } 

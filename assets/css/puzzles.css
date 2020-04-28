@@ -74,3 +74,105 @@
     top:72%;
     left:68%;
 }
+
+/* Waterfall jugs */
+.jug{
+    position:absolute;
+    cursor:pointer;
+    width:10%;
+    height:10%;
+}
+.jug.jug-capacity-3{
+    top:50%;
+    left:25%;
+}
+.jug.jug-capacity-5{
+    top:50%;
+    left:75%;
+}
+.jug-action{
+    position:absolute;
+    cursor:pointer;
+    width:10%;
+    height:2%;
+    display:none;
+}
+.jug-capacity-3.jug-action-fill{
+    left:25%;
+    top:30%;
+}
+.jug-capacity-3.jug-action-pour{
+    left:25%;
+    top:35%;   
+}
+.jug-capacity-3.jug-action-empty{
+    left:25%;
+    top:40%;
+}
+.jug-capacity-3.jug-action-weigh{
+    left:25%;
+    top:45%;
+}
+.jug-capacity-5.jug-action-fill{
+    left:75%;
+    top:30%;
+}
+.jug-capacity-5.jug-action-pour{
+    left:75%;
+    top:35%;
+}
+.jug-capacity-5.jug-action-empty{
+    left:75%;
+    top:40%;
+}
+.jug-capacity-5.jug-action-weigh{
+    left:75%;
+    top:45%;
+}
+
+.jug-contents{
+    position:absolute;
+    width:6%;
+    bottom:41.75%;
+    background:blue;
+    pointer-events:none;
+}
+.jug-contents.jug-capacity-3{
+    left:27%;
+    height:0%;
+}
+.jug-contents.jug-capacity-5{
+    left:77%;
+    height:0%;
+}
+
+#scales{
+    position:absolute;
+    width:31%;
+    height:34%;
+    top:20%;
+    left:40%;
+}
+#scales-pointer{
+    position:absolute;
+    width:2%;
+    height:8%;
+    top:26%;
+    left:54.8%;
+    transform:rotate(180deg)
+}
+
+#well-clue{
+    cursor:pointer;
+    position:absolute;
+    width:6%;
+    top:44%;
+    left:50%;
+}
+#well-stones-clue{
+    cursor:pointer;
+    position:absolute;
+    width:3%;
+    top:43%;
+    left:60%;
+}
