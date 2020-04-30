@@ -172,7 +172,8 @@
 #well-stones-clue{
     cursor:pointer;
     position:absolute;
-    width:3%;
-    top:43%;
-    left:60%;
+    width:1.5%;
+    top:36%;
+    left:55%;
+    transform:rotate(90deg);
 }
