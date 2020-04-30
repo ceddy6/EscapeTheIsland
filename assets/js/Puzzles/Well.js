@@ -28,6 +28,8 @@ class WellPuzzle{
     // Function for creating a grid of stones
     createGrid(){
 
+        var self = this
+
         // Get the canvas to work on
         var canvas = $('#minigame-modal').find('.modal-body')
 
@@ -42,13 +44,33 @@ class WellPuzzle{
             var trow = $('<tr class="well-grid-col" id="well-grid-col-'+i+'"></tr>')
             for (var j=0; j<5; j++) {
                 var tcell = $('<td class="well-grid-cell well-grid-col-'+i+' well-grid-row-'+j+'"></td>')
-                var cell = $('<div class="well-grid-cell-wrapper">T</div>')
+                var cell = $('<div class="well-grid-cell-wrapper"></div>')
+                                .attr('data-grid-row',i)
+                                .attr('data-grid-col',j)
+                                .attr('data-stone-clicked',0)
+                var stone = $('<img class="img-fluid well-stone" src=assets/images/minigames/puzzles/well/well-stone-in0.jpg alt="Stone">')
+                cell.append(stone)
                 tcell.append(cell)
                 trow.append(tcell)
             }
             tbody.append(trow)
         }
 
+        // Add an on-click method for each cell, to move the stone in on click
+        $('.well-grid-cell-wrapper').on("click",function(){self.moveStoneIn(this)})
+
+    }
+
+    // Method for moving a stone's image 'in'
+    moveStoneIn(stone){
+        console.log("Moving stone")
+        var stoneDepth = $(stone).attr('data-stone-clicked')
+        var newStoneDepth = parseInt(stoneDepth) + 1
+        if (newStoneDepth == 6) {newStoneDepth = 0}
+        $(stone).empty()
+        var newStone = $('<img class="img-fluid well-stone" src=assets/images/minigames/puzzles/well/well-stone-in'+newStoneDepth+'.jpg alt="Stone">')
+        $(stone).append(newStone)
+        $(stone).attr('data-stone-clicked',newStoneDepth)
     }
 
     // Method for checking whether the puzzle is complete (needs to be called after dragging events)
