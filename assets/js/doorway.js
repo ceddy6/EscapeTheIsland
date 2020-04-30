@@ -4,7 +4,7 @@ var doorwayData = [{name:"Cave",     lockposition:["50%","31%"], locksize:["10%"
                     lock_img:"assets/images/locks/padlock.jpg"},
                     {name:"Waterfall",          lockposition:["83%","17%"], locksize:["37%","14%"],
                     lock_img:"assets/images/locks/stepping-stones.jpg"},
-                    {name:"Well",            lockposition:["25%","25%"], locksize:["10%","10%"],
+                    {name:"Well",            lockposition:["62%","55%"], locksize:["12%","12%"],
                     lock_img:"assets/images/locks/dial_lock.jpg"},
                     {name:"Volcano",            lockposition:["25%","25%"], locksize:["10%","10%"],
                     lock_img:"assets/images/locks/dial_lock.jpg"},

@@ -13,6 +13,9 @@ class Minigame{
             case 1: 
                 puzzle = new WaterfallPuzzle(index)
                 break;
+            case 2: 
+                puzzle = new WellPuzzle(index)
+                break;
             default:
                 break;
         } 
