@@ -68,7 +68,7 @@ class WellPuzzle{
     addIcons(){
 
         // Icon sizes make the icon smaller as the stone moves in
-        this.iconSizes = ['32px','28px','24px','20px','16px','12px']
+        this.iconSizes = ['32px','30px','28px','26px','24px','22px']
 
         // Add elements for all the icons
         var iconConifer = $('<div class="well-icon-wrapper"><span class="well-icon fas fa-tree" id="icon-conifer"></span></div>')
@@ -139,24 +139,70 @@ class WellPuzzle{
         // Update the stone, add the new icon
         $(stone).empty()
         var newStone = $('<img class="img-fluid well-stone" src=assets/images/minigames/puzzles/well/well-stone-in'+newStoneDepth+'.jpg alt="Stone">')
-        var newIcon = stoneIcon.icon
         $(stone).append(newStone)
-        $(stone).append(newIcon)
         $(stone).attr('data-stone-clicked',newStoneDepth)
 
-        // Update the font size of the icon
-        $('#'+stoneIcon.id).css({"font-size":puzzle.iconSizes[parseInt(newStoneDepth)]})
+        // If the stone has an icon, add it
+        if (stoneIcon) {
+            var newIcon = stoneIcon.icon
+            $(stone).append(newIcon)
+
+            // Update the font size of the icon
+            $('#'+stoneIcon.id).css({"font-size":puzzle.iconSizes[parseInt(newStoneDepth)]})
+        }
+
+        // Whenever you move a stone in, check for completion
+        this.checkComplete()
+
     }
 
     // Method for checking whether the puzzle is complete (needs to be called after dragging events)
     checkComplete(){
-    
+
+        console.log("Checking stones")
+
+        // Get the depth of the five stones
+        var stone1Depth = $('.well-grid-cell-wrapper[data-grid-row=6][data-grid-col=2]').attr('data-stone-clicked')
+        var stone2Depth = $('.well-grid-cell-wrapper[data-grid-row=28][data-grid-col=1]').attr('data-stone-clicked')
+        var stone3Depth = $('.well-grid-cell-wrapper[data-grid-row=46][data-grid-col=1]').attr('data-stone-clicked')
+        var stone4Depth = $('.well-grid-cell-wrapper[data-grid-row=50][data-grid-col=0]').attr('data-stone-clicked')
+        var stone5Depth = $('.well-grid-cell-wrapper[data-grid-row=67][data-grid-col=4]').attr('data-stone-clicked')
+        // Use these if you want a quick test
+        //var stone1Depth = $('.well-grid-cell-wrapper[data-grid-row="0"][data-grid-col="0"]').attr('data-stone-clicked')
+        //var stone2Depth = $('.well-grid-cell-wrapper[data-grid-row="0"][data-grid-col="1"]').attr('data-stone-clicked')
+        //var stone3Depth = $('.well-grid-cell-wrapper[data-grid-row="0"][data-grid-col="2"]').attr('data-stone-clicked')
+        //var stone4Depth = $('.well-grid-cell-wrapper[data-grid-row="0"][data-grid-col="3"]').attr('data-stone-clicked')
+        //var stone5Depth = $('.well-grid-cell-wrapper[data-grid-row="0"][data-grid-col="4"]').attr('data-stone-clicked')
+
+        // Compare the depths to the targets
+        if ((parseInt(stone1Depth) == 1) &&
+            (parseInt(stone2Depth) == 2) &&
+            (parseInt(stone3Depth) == 3) &&
+            (parseInt(stone4Depth) == 4) &&
+            (parseInt(stone5Depth) == 5)) {
+                console.log("All the tests were passed!")
+
+                // Set a timeout so that you can see the stone finish
+                setTimeout(function(){
+                    // Show a dialogue modal, describing the entry opening
+                    $('#dialogue-modal').find('.modal-title').text('The fifth stone slides back into the wall...')
+                    $('#dialogue-modal').modal('show')
+                    // Show the updated background and clues
+                    puzzle.openHidingPlace()
+                },1000)
+        } 
 
     }
 
     // This method replaces the background with one with an open hiding space
     openHidingPlace(){
 
+        // Append a black div to the fifth stone
+        $('.well-grid-cell-wrapper[data-grid-row="67"][data-grid-col="4"]')
+            .empty()
+            .append('<div class="well-stone" id="black-well-stone"></div>')
+
+        // Append the clues
 
     }
 
