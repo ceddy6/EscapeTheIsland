@@ -67,6 +67,9 @@ class WellPuzzle{
     // Method for applying icons to the labels
     addIcons(){
 
+        // Icon sizes make the icon smaller as the stone moves in
+        this.iconSizes = ['32px','28px','24px','20px','16px','12px']
+
         // Add elements for all the icons
         var iconConifer = $('<div class="well-icon-wrapper"><span class="well-icon fas fa-tree" id="icon-conifer"></span></div>')
         var iconScissors = $('<div class="well-icon-wrapper"><span class="well-icon fas fa-cut" id="icon-scissors"></span></div>')
@@ -74,7 +77,7 @@ class WellPuzzle{
         var iconCamera = $('<div class="well-icon-wrapper"><span class="well-icon fas fa-camera" id="icon-camera"></span></div>')
         var iconFlag = $('<div class="well-icon-wrapper"><span class="well-icon fas fa-flag" id="icon-flag"></span></div>')
         var iconHeadphones = $('<div class="well-icon-wrapper"><span class="well-icon fas fa-headphones" id="icon-headphones"></span></div>')
-        var iconCase = $('<div class="well-icon-wrapper"><span class="well-icon fas fa-lock" id="icon-case"></span></div>')
+        var iconSuitcase = $('<div class="well-icon-wrapper"><span class="well-icon fas fa-lock" id="icon-suitcase"></span></div>')
         var iconClock = $('<div class="well-icon-wrapper"><span class="well-icon fas fa-clock" id="icon-clock"></span></div>')
         var iconMusic = $('<div class="well-icon-wrapper"><span class="well-icon fas fa-music" id="icon-music"></span></div>')
         var iconPencil = $('<div class="well-icon-wrapper"><span class="well-icon fas fa-pen" id="icon-pencil"></span></div>')
@@ -82,29 +85,35 @@ class WellPuzzle{
         var iconHeart = $('<div class="well-icon-wrapper"><span class="well-icon fas fa-heart" id="icon-heart"></span></div>')
 
         // Create a list of all their icons and positions
-        var iconsList = [{icon:iconConifer,col:0,row:0},
-                        {icon:iconScissors,col:0,row:1},
-                        {icon:iconBell,col:0,row:2},
-                        {icon:iconCamera,col:0,row:3},
-                        {icon:iconFlag,col:0,row:4},
-                        {icon:iconHeadphones,col:0,row:5},
-                        {icon:iconCase,col:0,row:6},
-                        {icon:iconClock,col:0,row:7},
-                        {icon:iconMusic,col:0,row:8},
-                        {icon:iconPencil,col:0,row:9},
-                        {icon:iconEnvelope,col:0,row:10},
-                        {icon:iconHeart,col:0,row:11}
+        this.iconsList = [{icon:iconConifer,id:"icon-conifer",col:0,row:0},
+                        {icon:iconScissors,id:"icon-scissors",col:0,row:1},
+                        {icon:iconBell,id:"icon-bell",col:0,row:2},
+                        {icon:iconCamera,id:"icon-camera",col:0,row:3},
+                        {icon:iconFlag,id:"icon-flag",col:0,row:4},
+                        {icon:iconHeadphones,id:"icon-headphones",col:0,row:5},
+                        {icon:iconSuitcase,id:"icon-suitcase",col:0,row:6},
+                        {icon:iconClock,id:"icon-clock",col:0,row:7},
+                        {icon:iconMusic,id:"icon-music",col:0,row:8},
+                        {icon:iconPencil,id:"icon-pencil",col:0,row:9},
+                        {icon:iconEnvelope,id:"icon-envelope",col:0,row:10},
+                        {icon:iconHeart,id:"icon-heart",col:0,row:11}
                         ]
 
         // Loop through all icons and add them 
-        for (var icon of iconsList) {
+        for (var icon of this.iconsList) {
 
+            // Get the row and column to add it to from the list of icons
             var iconRow = icon.row
             var iconCol = icon.col
 
+            // Select the right stone
             var stone = $('.well-grid-cell-wrapper[data-grid-row="'+icon.row+'"][data-grid-col="'+icon.col+'"]')
 
+            // Append the icon to the stone
             stone.append(icon.icon)
+        
+            // Set the font size of the icons
+            $('.well-icon').css({"font-size":"32px"})
 
         }
 
@@ -112,14 +121,31 @@ class WellPuzzle{
 
     // Method for moving a stone's image 'in'
     moveStoneIn(stone){
-        console.log("Moving stone")
+
+        // Get the stone's depth, row and column
         var stoneDepth = $(stone).attr('data-stone-clicked')
+        var stoneRow = $(stone).attr('data-grid-row')
+        var stoneCol = $(stone).attr('data-grid-col')
+
+        // Get the icon by searching the list
+        var stoneIcon = puzzle.iconsList.find(function(entry){
+            return entry.row == stoneRow && entry.col == stoneCol
+        })
+
+        // Update the depth
         var newStoneDepth = parseInt(stoneDepth) + 1
         if (newStoneDepth == 6) {newStoneDepth = 0}
+
+        // Update the stone, add the new icon
         $(stone).empty()
         var newStone = $('<img class="img-fluid well-stone" src=assets/images/minigames/puzzles/well/well-stone-in'+newStoneDepth+'.jpg alt="Stone">')
+        var newIcon = stoneIcon.icon
         $(stone).append(newStone)
+        $(stone).append(newIcon)
         $(stone).attr('data-stone-clicked',newStoneDepth)
+
+        // Update the font size of the icon
+        $('#'+stoneIcon.id).css({"font-size":puzzle.iconSizes[parseInt(newStoneDepth)]})
     }
 
     // Method for checking whether the puzzle is complete (needs to be called after dragging events)
