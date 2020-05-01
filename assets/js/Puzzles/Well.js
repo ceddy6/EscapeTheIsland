@@ -85,18 +85,18 @@ class WellPuzzle{
         var iconHeart = $('<div class="well-icon-wrapper"><span class="well-icon fas fa-heart" id="icon-heart"></span></div>')
 
         // Create a list of all their icons and positions
-        this.iconsList = [{icon:iconConifer,id:"icon-conifer",col:0,row:0},
-                        {icon:iconScissors,id:"icon-scissors",col:0,row:1},
-                        {icon:iconBell,id:"icon-bell",col:0,row:2},
-                        {icon:iconCamera,id:"icon-camera",col:0,row:3},
-                        {icon:iconFlag,id:"icon-flag",col:0,row:4},
-                        {icon:iconHeadphones,id:"icon-headphones",col:0,row:5},
-                        {icon:iconSuitcase,id:"icon-suitcase",col:0,row:6},
-                        {icon:iconClock,id:"icon-clock",col:0,row:7},
-                        {icon:iconMusic,id:"icon-music",col:0,row:8},
-                        {icon:iconPencil,id:"icon-pencil",col:0,row:9},
-                        {icon:iconEnvelope,id:"icon-envelope",col:0,row:10},
-                        {icon:iconHeart,id:"icon-heart",col:0,row:11}
+        this.iconsList = [{icon:iconConifer,id:"icon-conifer",      col:1,row:51},
+                        {icon:iconScissors,id:"icon-scissors",      col:3,row:7},
+                        {icon:iconBell,id:"icon-bell",              col:1,row:49},
+                        {icon:iconCamera,id:"icon-camera",          col:4,row:36},
+                        {icon:iconFlag,id:"icon-flag",              col:0,row:30},
+                        {icon:iconHeadphones,id:"icon-headphones",  col:3,row:59},
+                        {icon:iconSuitcase,id:"icon-suitcase",      col:2,row:26},
+                        {icon:iconClock,id:"icon-clock",            col:0,row:13},
+                        {icon:iconMusic,id:"icon-music",            col:1,row:73},
+                        {icon:iconPencil,id:"icon-pencil",          col:1,row:74},
+                        {icon:iconEnvelope,id:"icon-envelope",      col:4,row:55},
+                        {icon:iconHeart,id:"icon-heart",            col:0,row:67}
                         ]
 
         // Loop through all icons and add them 
