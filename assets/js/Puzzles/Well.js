@@ -59,6 +59,55 @@ class WellPuzzle{
         // Add an on-click method for each cell, to move the stone in on click
         $('.well-grid-cell-wrapper').on("click",function(){self.moveStoneIn(this)})
 
+        // Add icons to the stones
+        this.addIcons()
+
+    }
+
+    // Method for applying icons to the labels
+    addIcons(){
+
+        // Add elements for all the icons
+        var iconConifer = $('<div class="well-icon-wrapper"><span class="well-icon fas fa-tree" id="icon-conifer"></span></div>')
+        var iconScissors = $('<div class="well-icon-wrapper"><span class="well-icon fas fa-cut" id="icon-scissors"></span></div>')
+        var iconBell = $('<div class="well-icon-wrapper"><span class="well-icon fas fa-bell" id="icon-bell"></span></div>')
+        var iconCamera = $('<div class="well-icon-wrapper"><span class="well-icon fas fa-camera" id="icon-camera"></span></div>')
+        var iconFlag = $('<div class="well-icon-wrapper"><span class="well-icon fas fa-flag" id="icon-flag"></span></div>')
+        var iconHeadphones = $('<div class="well-icon-wrapper"><span class="well-icon fas fa-headphones" id="icon-headphones"></span></div>')
+        var iconCase = $('<div class="well-icon-wrapper"><span class="well-icon fas fa-lock" id="icon-case"></span></div>')
+        var iconClock = $('<div class="well-icon-wrapper"><span class="well-icon fas fa-clock" id="icon-clock"></span></div>')
+        var iconMusic = $('<div class="well-icon-wrapper"><span class="well-icon fas fa-music" id="icon-music"></span></div>')
+        var iconPencil = $('<div class="well-icon-wrapper"><span class="well-icon fas fa-pen" id="icon-pencil"></span></div>')
+        var iconEnvelope = $('<div class="well-icon-wrapper"><span class="well-icon fas fa-envelope" id="icon-envelope"></span></div>')
+        var iconHeart = $('<div class="well-icon-wrapper"><span class="well-icon fas fa-heart" id="icon-heart"></span></div>')
+
+        // Create a list of all their icons and positions
+        var iconsList = [{icon:iconConifer,col:0,row:0},
+                        {icon:iconScissors,col:0,row:1},
+                        {icon:iconBell,col:0,row:2},
+                        {icon:iconCamera,col:0,row:3},
+                        {icon:iconFlag,col:0,row:4},
+                        {icon:iconHeadphones,col:0,row:5},
+                        {icon:iconCase,col:0,row:6},
+                        {icon:iconClock,col:0,row:7},
+                        {icon:iconMusic,col:0,row:8},
+                        {icon:iconPencil,col:0,row:9},
+                        {icon:iconEnvelope,col:0,row:10},
+                        {icon:iconHeart,col:0,row:11}
+                        ]
+
+        // Loop through all icons and add them 
+        for (var icon of iconsList) {
+
+            var iconRow = icon.row
+            var iconCol = icon.col
+
+            var stone = $('.well-grid-cell-wrapper[data-grid-row="'+icon.row+'"][data-grid-col="'+icon.col+'"]')
+
+            stone.append(icon.icon)
+
+        }
+
     }
 
     // Method for moving a stone's image 'in'
