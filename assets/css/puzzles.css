@@ -232,3 +232,57 @@
     padding:none;
     background-color:black;
 }
+
+
+
+/* Obelisk Stones */
+.ob-grid-wrapper{
+    position:absolute;
+    top:4%;
+    left:4%;
+}
+#ob-grid{
+    position:relative;
+    display:block;
+    background-color:brown;
+}
+#ob-grid > tbody > tr > td {
+    border:1px solid black;
+}
+.ob-grid-cell-outer{
+    background-color:red;
+    width:60px;
+    height:60px;
+    padding:5px;
+}
+.ob-grid-cell-inner{
+    position:relative;
+    width:50px;
+    height:50px;
+    background-color:blue;
+}
+
+.block{
+    position:absolute;
+    cursor:pointer;
+    background-color:black;
+    padding:0px;
+    top:10%;
+    left:10%;
+}
+.block-size-2.block-hor{
+    width:110px;    
+    height:50px;
+}
+.block-size-3.block-hor{
+    width:170px;
+    height:50px;
+}
+.block-size-2.block-ver{
+    width:50px;
+    height:110px;
+}
+.block-size-3.block-ver{
+    width:50px;
+    height:170px;
+}

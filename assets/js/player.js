@@ -26,9 +26,15 @@ class Player {
         // Get the position of the location
         var newPos = locationsList[index].position
 
+        // Add an offset to keep the player piece from getting in the way of the location
+        var t = newPos[0].slice(0,2)
+        var l = newPos[1].slice(0,2)
+        t = parseInt(t) + 2
+        l = parseInt(l) + 2
+
         // Update the player's position to that position
-        $('.player-token').css({"top":newPos[0]})
-                        .css({"left":newPos[1]})
+        $('.player-token').css({"top":t+"%"})
+                        .css({"left":l+"%"})
 
     }
 
