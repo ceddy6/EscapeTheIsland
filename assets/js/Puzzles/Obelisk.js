@@ -115,6 +115,7 @@ class Block{
 
         // Create a block div
         var block = $('<div class="block" id="block-'+num+'"></div>')
+                    .attr("data-num",num)
         // Add classes for the orientation and size
         switch(orientation){
             case "hor":
@@ -213,49 +214,126 @@ function calculateConstraints(puzzle) {
 
     console.log("Calculating constraints")
 
-    // Get the origin row and column of the block
-    var b = $('#block-0')
-    var ori_left = b.css("left")
-    var ori_top = b.css("top")
-    ori_top = parseInt(ori_top.slice(0,-2))
-    ori_left = parseInt(ori_left.slice(0,-2))
-    ori_row = Math.round((ori_top-5)/60)
-    ori_col = Math.round((ori_left-5)/60)
+    // Grab a list of all the blocks
+    var blockList = $('.block')
 
-    console.log("Checking whether block is horizontal")
+    // Loop through all the blocks 
+    blockList.each(function(){
 
-    // For horizontal blocks (vertical blocks have a different method)
-    if (b.hasClass("block-hor")) {
+        // Get the origin row and column of the block
+        var ori_left = $(this).css("left")
+        var ori_top = $(this).css("top")
+        ori_top2 = parseInt(ori_top.slice(0,-2))
+        ori_left2 = parseInt(ori_left.slice(0,-2))
+        ori_row = Math.round((ori_top2-5)/60)
+        ori_col = Math.round((ori_left2-5)/60)
 
-        console.log("Block is horizontal")
+        console.log("Checking whether block is horizontal")
 
-        // Loop through the columns moving left, until you find a blocked one
-        var left_point_found = 0
-        var left_point = ori_col
-        console.log(left_point)
-        console.log(puzzle.gridState)
-        while (left_point_found == 0) {
-            if (puzzle.gridState[ori_row][left_point-1] == 1 || left_point == 0) {
-                left_point_found = 1
-            } else {
-                left_point = left_point - 1
+        // For horizontal blocks (vertical blocks have a different method)
+        if ($(this).hasClass("block-hor")) {
+
+            console.log("Block is horizontal")
+
+            // Loop through the columns moving left, until you find a blocked one
+            var left_point_found = 0
+            var left_point = ori_col
+            while (left_point_found == 0) {
+                if (left_point - 1 >= 0) {
+                    if (puzzle.gridState[ori_row][left_point-1] == 1 || left_point == 0) {
+                        left_point_found = 1
+                    } else {
+                        left_point = left_point - 1
+                    }
+                } else {
+                    left_point = 0
+                    left_point_found = 1
+                }
             }
-        }
-        // Loop through moving right, then add 1 to get the right edge
-        var right_point_found = 0
-        var right_point = ori_col + 1
-        if (b.hasClass("block-size-3")) {right_point = right_point+1}
-        while (right_point_found == 0) {
-            if (puzzle.gridState[ori_row][right_point+1] == 1 || right_point == 5) {
-                right_point_found = 1
-            } else {
-                right_point = right_point + 1
+            // Loop through moving right, then add 1 to get the right edge
+            var right_point_found = 0
+            var right_point = ori_col + 1
+            if ($(this).hasClass("block-size-3")) {right_point = right_point+1}
+            while (right_point_found == 0) {
+                if (right_point + 1 <= 5) {
+                    if (puzzle.gridState[ori_row][right_point+1] == 1 || right_point == 5) {
+                        right_point_found = 1
+                    } else {
+                        right_point = right_point + 1
+                    }
+                } else {
+                    right_point = 5
+                    right_point_found = 1
+                }
             }
+            right_point = Math.min(right_point + 1,6)
+            var divWidth = (right_point - left_point)*60
+
+            // Create an element the shape of the left and right points
+            var wrapDiv = $('<div class="wrap-constraint"></div>')
+                    .css({"width":divWidth})
+                    .css({"height":"60px"})
+                    .css({"top":(ori_top2-5)+"px"})
+                    .css({"left":(left_point*60)+"px"})
+
+            // Append the div to the grid
+            $('#ob-grid-body').append(wrapDiv)
+
+        } else {
+
+            console.log("Block is vertical")
+
+            // Loop through the rows moving up, until you find a blocked one
+            var top_point_found = 0
+            var top_point = ori_row
+            while (top_point_found == 0) {
+                if (top_point - 1 >= 0) {
+                    if (puzzle.gridState[top_point-1][ori_col] == 1 || top_point == 0) {
+                        top_point_found = 1
+                        console.log("Setting top point found to 1")
+                    } else {
+                        top_point = top_point - 1
+                        console.log("Reducing top point")
+                    }
+                } else {
+                    top_point = 0
+                    top_point_found = 1
+                }
+            }
+            console.log("Done the up side")
+            // Loop through moving down, then add 1 to get the bottom edge
+            var low_point_found = 0
+            var low_point = ori_row + 1
+            if ($(this).hasClass("block-size-3")) {low_point = low_point+1}
+            while (low_point_found == 0) {
+                if (low_point + 1 <= 5) {
+                    if (puzzle.gridState[low_point+1][ori_col] == 1 || low_point == 5) {
+                        low_point_found = 1
+                    } else {
+                        low_point = low_point + 1
+                    }
+                } else {
+                    low_point = 5
+                    low_point_found = 1
+                }
+            }
+            low_point = Math.min(low_point + 1,6)
+            console.log("Bottom" + low_point)
+            console.log("Top" + top_point)
+            var divHeight = (low_point - top_point)*60
+
+            // Create an element the shape of the left and right points
+            var wrapDiv = $('<div class="wrap-constraint wrap-constraint-'+$(this).attr("data-num")+'"></div>')
+                    .css({"width":"60px"})
+                    .css({"height":divHeight})
+                    .css({"top":(top_point*60)+"px"})
+                    .css({"left":(ori_left2-5)+"px"})
+
         }
-        right_point = right_point + 1
 
-        // Create an element the shape of the left and right points
+        // Append the div to the grid
+        $('#ob-grid-body').append(wrapDiv)
 
-    }
+    })
 
 }
