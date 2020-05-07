@@ -30,16 +30,16 @@ class ObeliskPuzzle{
                         ]
 
         // Add cars ([row,col], 0-indexed)
-        var b0 = new Block(this,2,"hor",[2,1],0,this.rowCoords,this.colCoords)
-        var b1 = new Block(this,2,"ver",[0,1],1,this.rowCoords,this.colCoords)
-        var b2 = new Block(this,2,"ver",[3,2],2,this.rowCoords,this.colCoords)
-        var b3 = new Block(this,2,"ver",[1,3],3,this.rowCoords,this.colCoords)
-        var b4 = new Block(this,2,"ver",[1,5],4,this.rowCoords,this.colCoords)
-        var b5 = new Block(this,2,"ver",[4,5],5,this.rowCoords,this.colCoords)
-        var b6 = new Block(this,2,"hor",[4,3],6,this.rowCoords,this.colCoords)
-        var b7 = new Block(this,3,"ver",[1,0],7,this.rowCoords,this.colCoords)
-        var b8 = new Block(this,3,"hor",[0,3],8,this.rowCoords,this.colCoords)
-        var b9 = new Block(this,3,"hor",[3,3],9,this.rowCoords,this.colCoords)
+        var b0 = new Block(this,2,"hor",[2,1],0)
+        var b1 = new Block(this,2,"ver",[0,1],1)
+        var b2 = new Block(this,2,"ver",[3,2],2)
+        var b3 = new Block(this,2,"ver",[1,3],3)
+        var b4 = new Block(this,2,"ver",[1,5],4)
+        var b5 = new Block(this,2,"ver",[4,5],5)
+        var b6 = new Block(this,2,"hor",[4,3],6)
+        var b7 = new Block(this,3,"ver",[1,0],7)
+        var b8 = new Block(this,3,"hor",[0,3],8)
+        var b9 = new Block(this,3,"hor",[3,3],9)
 
         // If the puzzle has been completed, show the opened hiding place
         if (locations[index].complete == 1) {
@@ -108,7 +108,9 @@ class ObeliskPuzzle{
 class Block{
 
     // Constructor
-    constructor(puzzle,size,orientation,position,num,rowCoords,colCoords){
+    constructor(puzzle,size,orientation,position,num){
+
+        console.log("Creating block: " + num)
 
         var blockSize = 60
         var margin = 5
@@ -148,6 +150,9 @@ class Block{
         // Starting positions for the blocks
         block.css({"top":(position[0]*blockSize+margin) + "px"})
             .css({"left":(position[1]*blockSize+margin) + "px"})
+
+        // Update grid state to initialise
+        //updateGridState(puzzle)    
 
     }
 
@@ -202,8 +207,6 @@ function updateGridState(puzzle){
 
     })
 
-    console.log(puzzle.gridState)
-
     // Create a limiting block for each of the blocks
     calculateConstraints(puzzle)
 
@@ -220,6 +223,9 @@ function calculateConstraints(puzzle) {
     // Loop through all the blocks 
     blockList.each(function(){
 
+        // Get the number of the block
+        var n = $(this).attr("data-num")
+
         // Get the origin row and column of the block
         var ori_left = $(this).css("left")
         var ori_top = $(this).css("top")
@@ -228,12 +234,8 @@ function calculateConstraints(puzzle) {
         ori_row = Math.round((ori_top2-5)/60)
         ori_col = Math.round((ori_left2-5)/60)
 
-        console.log("Checking whether block is horizontal")
-
         // For horizontal blocks (vertical blocks have a different method)
         if ($(this).hasClass("block-hor")) {
-
-            console.log("Block is horizontal")
 
             // Loop through the columns moving left, until you find a blocked one
             var left_point_found = 0
@@ -270,7 +272,7 @@ function calculateConstraints(puzzle) {
             var divWidth = (right_point - left_point)*60
 
             // Create an element the shape of the left and right points
-            var wrapDiv = $('<div class="wrap-constraint"></div>')
+            var wrapDiv = $('<div class="wrap-constraint wrap-constraint-'+n+'"></div>')
                     .css({"width":divWidth})
                     .css({"height":"60px"})
                     .css({"top":(ori_top2-5)+"px"})
@@ -281,8 +283,6 @@ function calculateConstraints(puzzle) {
 
         } else {
 
-            console.log("Block is vertical")
-
             // Loop through the rows moving up, until you find a blocked one
             var top_point_found = 0
             var top_point = ori_row
@@ -290,17 +290,14 @@ function calculateConstraints(puzzle) {
                 if (top_point - 1 >= 0) {
                     if (puzzle.gridState[top_point-1][ori_col] == 1 || top_point == 0) {
                         top_point_found = 1
-                        console.log("Setting top point found to 1")
                     } else {
                         top_point = top_point - 1
-                        console.log("Reducing top point")
                     }
                 } else {
                     top_point = 0
                     top_point_found = 1
                 }
             }
-            console.log("Done the up side")
             // Loop through moving down, then add 1 to get the bottom edge
             var low_point_found = 0
             var low_point = ori_row + 1
@@ -318,12 +315,10 @@ function calculateConstraints(puzzle) {
                 }
             }
             low_point = Math.min(low_point + 1,6)
-            console.log("Bottom" + low_point)
-            console.log("Top" + top_point)
             var divHeight = (low_point - top_point)*60
 
             // Create an element the shape of the left and right points
-            var wrapDiv = $('<div class="wrap-constraint wrap-constraint-'+$(this).attr("data-num")+'"></div>')
+            var wrapDiv = $('<div class="wrap-constraint wrap-constraint-'+n+'"></div>')
                     .css({"width":"60px"})
                     .css({"height":divHeight})
                     .css({"top":(top_point*60)+"px"})
@@ -332,8 +327,43 @@ function calculateConstraints(puzzle) {
         }
 
         // Append the div to the grid
+        $('.wrap-constraint-'+n).remove()
         $('#ob-grid-body').append(wrapDiv)
 
+        // Apply draggable
+        applyDraggable()
+
     })
+
+}
+
+// Function to apply draggable (with appropriate constraint) to each block
+function applyDraggable(){
+
+    console.log("Applying draggable")
+
+    // Loop through all the blocks. Remove the existing draggable and reapply it
+    for (b = 0; b<=9; b++) {
+
+        // Select the block
+        var block = $('#block-'+b)
+
+        // Check whether the orientation is horizontal or vertical
+        if (block.hasClass("block-hor")) {
+            var axis = "x"
+        } else {
+            var axis = "y"
+        }
+
+        // Apply the correct draggable
+        block.draggable({
+            containment:$('.wrap-constraint-'+b),
+            snap:'.ob-grid-cell-inner',
+            snapMode:"inner",
+            snapTolerance:"30",
+            axis:axis
+        })
+
+    }
 
 }

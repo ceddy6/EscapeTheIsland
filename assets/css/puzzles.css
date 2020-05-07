@@ -289,6 +289,5 @@
 
 .wrap-constraint{
     position:absolute;
-    border:2px solid green;
     pointer-events:none;
 }
