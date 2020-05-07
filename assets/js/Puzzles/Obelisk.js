@@ -19,22 +19,35 @@ class ObeliskPuzzle{
         this.rowCoords = ["4.5%","9.5%","14.5%","19.5%","24.5%","29.5%"]
         this.colCoords = ["5%","11.5%","18%","24.5%","31%","37.5%"]
 
+        // On and off grid for squares
+        this.gridState = [  
+                            [0,0,0,0,0,0],
+                            [0,0,0,0,0,0],
+                            [0,0,0,0,0,0],
+                            [0,0,0,0,0,0],
+                            [0,0,0,0,0,0],
+                            [0,0,0,0,0,0]
+                        ]
+
         // Add cars ([row,col], 0-indexed)
-        var b0 = new Block(2,"hor",[2,1],0,this.rowCoords,this.colCoords)
-        var b1 = new Block(2,"ver",[0,1],1,this.rowCoords,this.colCoords)
-        var b2 = new Block(2,"ver",[3,2],2,this.rowCoords,this.colCoords)
-        var b3 = new Block(2,"ver",[1,3],3,this.rowCoords,this.colCoords)
-        var b4 = new Block(2,"ver",[1,5],4,this.rowCoords,this.colCoords)
-        var b5 = new Block(2,"ver",[4,5],5,this.rowCoords,this.colCoords)
-        var b6 = new Block(2,"hor",[4,3],6,this.rowCoords,this.colCoords)
-        var b7 = new Block(3,"ver",[1,0],7,this.rowCoords,this.colCoords)
-        var b8 = new Block(3,"hor",[0,3],8,this.rowCoords,this.colCoords)
-        var b9 = new Block(3,"hor",[3,3],9,this.rowCoords,this.colCoords)
+        var b0 = new Block(this,2,"hor",[2,1],0,this.rowCoords,this.colCoords)
+        var b1 = new Block(this,2,"ver",[0,1],1,this.rowCoords,this.colCoords)
+        var b2 = new Block(this,2,"ver",[3,2],2,this.rowCoords,this.colCoords)
+        var b3 = new Block(this,2,"ver",[1,3],3,this.rowCoords,this.colCoords)
+        var b4 = new Block(this,2,"ver",[1,5],4,this.rowCoords,this.colCoords)
+        var b5 = new Block(this,2,"ver",[4,5],5,this.rowCoords,this.colCoords)
+        var b6 = new Block(this,2,"hor",[4,3],6,this.rowCoords,this.colCoords)
+        var b7 = new Block(this,3,"ver",[1,0],7,this.rowCoords,this.colCoords)
+        var b8 = new Block(this,3,"hor",[0,3],8,this.rowCoords,this.colCoords)
+        var b9 = new Block(this,3,"hor",[3,3],9,this.rowCoords,this.colCoords)
 
         // If the puzzle has been completed, show the opened hiding place
         if (locations[index].complete == 1) {
             this.openHidingPlace()
         }
+
+        // Call the function to update the grid state
+        updateGridState(this)
 
         // Show the modal
         $('#minigame-modal').modal('show')
@@ -95,7 +108,7 @@ class ObeliskPuzzle{
 class Block{
 
     // Constructor
-    constructor(size,orientation,position,num,rowCoords,colCoords){
+    constructor(puzzle,size,orientation,position,num,rowCoords,colCoords){
 
         // Create a block div
         var block = $('<div class="block" id="block-'+num+'"></div>')
@@ -127,10 +140,73 @@ class Block{
             axis:axis
         })
 
+        // Update the grid on mouseup
+        //block.on("mouseup",function(){updateGridState(puzzle)})
+
         // Starting positions for the blocks
         block.css({"top":rowCoords[position[0]]})
             .css({"left":colCoords[position[1]]})
 
     }
+
+}
+
+// Function 
+function updateGridState(puzzle){
+    
+    console.log("Updating grid state!")
+
+    // On and off grid for squares (set all to 0)
+    puzzle.gridState = [  
+        [0,0,0,0,0,0],
+        [0,0,0,0,0,0],
+        [0,0,0,0,0,0],
+        [0,0,0,0,0,0],
+        [0,0,0,0,0,0],
+        [0,0,0,0,0,0]
+    ]
+    // Get the coordinates from the puzzle
+    rowCoords = puzzle.rowCoords
+    colCoords = puzzle.colCoords
+
+    //Select the block
+    var blockList = $('.block')
+
+    blockList.each(function(){
+
+        // Get its position and convert to coordinates
+        var top = $(this).css("top")
+        var left = $(this).css("left")
+        console.log(top)
+        var row = rowCoords.findIndex(function(e){
+            var e2 = e.slice(0,-1)
+            var top2 = top.slice(0,-1)
+            return Math.abs(e2-top2) <= 1;
+        })
+        var col = colCoords.findIndex(function(e){
+            var e2 = e.slice(0,-1)
+            var left2 = left.slice(0,-1)
+            return Math.abs(e2-left2) <= 1;
+        })
+
+        // Add the 1 to the state
+        puzzle.gridState[row][col] = 1
+
+        // Find out whether it's vertical or horizontal, and how big it is, and add ones as needed
+        if ($(this).hasClass("block-hor")) {
+            puzzle.gridState[row][col+1] = 1
+            if ($(this).hasClass("block-size-3")) {
+                puzzle.gridState[row][col+2] = 1
+            }
+        } else {
+            puzzle.gridState[row+1][col] = 1
+            if ($(this).hasClass("block-size-3")) {
+                puzzle.gridState[row+2][col] = 1
+            }
+        }
+
+    })
+
+    console.log(puzzle.gridState)
 
 }

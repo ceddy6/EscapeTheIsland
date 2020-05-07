@@ -20,8 +20,6 @@ class Doorway{
     // Constructor
     constructor(index){
 
-        console.log("Constructing doorway: " + index)
-
         this.lockPosition = doorwayData[index].lockposition
         this.lockSize = doorwayData[index].locksize
         this.lockImg = doorwayData[index].lock_img
