@@ -16,8 +16,8 @@ class ObeliskPuzzle{
         this.createGrid()
 
         // Position coordinates for the grid rows
-        this.rowCoords = ["4.5%","9.5%","14.5%","19.5%","24.5%","29.5%"]
-        this.colCoords = ["5%","11.5%","18%","24.5%","31%","37.5%"]
+        //this.rowCoords = ["0px","60px","","","",""]
+        //this.colCoords = ["","","","","",""]
 
         // On and off grid for squares
         this.gridState = [  
@@ -110,6 +110,9 @@ class Block{
     // Constructor
     constructor(puzzle,size,orientation,position,num,rowCoords,colCoords){
 
+        var blockSize = 60
+        var margin = 5
+
         // Create a block div
         var block = $('<div class="block" id="block-'+num+'"></div>')
         // Add classes for the orientation and size
@@ -125,10 +128,8 @@ class Block{
         }
         block.addClass("block-size-"+size)
 
-        // Get the canvas, and append the block
-        var canvas = $('#minigame-modal').find('.modal-body')
-        //blockWrapper.append(block)
-        canvas.append(block)
+        // Get the grid, and append the block
+        $('#ob-grid-body').append(block)
 
         // Make the block draggable
         block.draggable({
@@ -141,11 +142,11 @@ class Block{
         })
 
         // Update the grid on mouseup
-        //block.on("mouseup",function(){updateGridState(puzzle)})
+        block.on("mouseup",function(){updateGridState(puzzle)})
 
         // Starting positions for the blocks
-        block.css({"top":rowCoords[position[0]]})
-            .css({"left":colCoords[position[1]]})
+        block.css({"top":(position[0]*blockSize+margin) + "px"})
+            .css({"left":(position[1]*blockSize+margin) + "px"})
 
     }
 
@@ -177,17 +178,10 @@ function updateGridState(puzzle){
         // Get its position and convert to coordinates
         var top = $(this).css("top")
         var left = $(this).css("left")
-        console.log(top)
-        var row = rowCoords.findIndex(function(e){
-            var e2 = e.slice(0,-1)
-            var top2 = top.slice(0,-1)
-            return Math.abs(e2-top2) <= 1;
-        })
-        var col = colCoords.findIndex(function(e){
-            var e2 = e.slice(0,-1)
-            var left2 = left.slice(0,-1)
-            return Math.abs(e2-left2) <= 1;
-        })
+        top = parseInt(top.slice(0,-2))
+        left = parseInt(left.slice(0,-2))
+        row = Math.round((top-5)/60)
+        col = Math.round((left-5)/60)
 
         // Add the 1 to the state
         puzzle.gridState[row][col] = 1
@@ -208,5 +202,60 @@ function updateGridState(puzzle){
     })
 
     console.log(puzzle.gridState)
+
+    // Create a limiting block for each of the blocks
+    calculateConstraints(puzzle)
+
+}
+
+// Function creates a constraint block for each of the blocks based on the grid in use
+function calculateConstraints(puzzle) {
+
+    console.log("Calculating constraints")
+
+    // Get the origin row and column of the block
+    var b = $('#block-0')
+    var ori_left = b.css("left")
+    var ori_top = b.css("top")
+    ori_top = parseInt(ori_top.slice(0,-2))
+    ori_left = parseInt(ori_left.slice(0,-2))
+    ori_row = Math.round((ori_top-5)/60)
+    ori_col = Math.round((ori_left-5)/60)
+
+    console.log("Checking whether block is horizontal")
+
+    // For horizontal blocks (vertical blocks have a different method)
+    if (b.hasClass("block-hor")) {
+
+        console.log("Block is horizontal")
+
+        // Loop through the columns moving left, until you find a blocked one
+        var left_point_found = 0
+        var left_point = ori_col
+        console.log(left_point)
+        console.log(puzzle.gridState)
+        while (left_point_found == 0) {
+            if (puzzle.gridState[ori_row][left_point-1] == 1 || left_point == 0) {
+                left_point_found = 1
+            } else {
+                left_point = left_point - 1
+            }
+        }
+        // Loop through moving right, then add 1 to get the right edge
+        var right_point_found = 0
+        var right_point = ori_col + 1
+        if (b.hasClass("block-size-3")) {right_point = right_point+1}
+        while (right_point_found == 0) {
+            if (puzzle.gridState[ori_row][right_point+1] == 1 || right_point == 5) {
+                right_point_found = 1
+            } else {
+                right_point = right_point + 1
+            }
+        }
+        right_point = right_point + 1
+
+        // Create an element the shape of the left and right points
+
+    }
 
 }

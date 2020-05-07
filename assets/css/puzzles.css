@@ -238,8 +238,8 @@
 /* Obelisk Stones */
 .ob-grid-wrapper{
     position:absolute;
-    top:4%;
-    left:4%;
+    top:50px;
+    left:50px;
 }
 #ob-grid{
     position:relative;
@@ -247,7 +247,7 @@
     background-color:brown;
 }
 #ob-grid > tbody > tr > td {
-    border:1px solid black;
+    border:0px solid black;
 }
 .ob-grid-cell-outer{
     background-color:red;
