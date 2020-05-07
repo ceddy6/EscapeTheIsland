@@ -110,7 +110,7 @@ class Block{
         console.log("Creating block: " + num)
 
         var blockSize = 60
-        var margin = 5
+        var margin = 0
 
         // Create a block div
         var block = $('<div class="block" id="block-'+num+'"></div>')
