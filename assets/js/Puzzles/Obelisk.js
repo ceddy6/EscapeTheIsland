@@ -10,14 +10,10 @@ class ObeliskPuzzle{
 
         // Add the the background and the title
         canvas.append('<img class="img-fluid" id="minigame-background" src='+locations[index].minigame_img+' alt="Minigame">')
-        title.text("On of these stones looks a different shade...")
+        title.text("One of these stones looks a different shade...")
 
         // Add the grid for the cars
         this.createGrid()
-
-        // Position coordinates for the grid rows
-        //this.rowCoords = ["0px","60px","","","",""]
-        //this.colCoords = ["","","","","",""]
 
         // On and off grid for squares
         this.gridState = [  
@@ -40,6 +36,7 @@ class ObeliskPuzzle{
         var b7 = new Block(this,3,"ver",[1,0],7)
         var b8 = new Block(this,3,"hor",[0,3],8)
         var b9 = new Block(this,3,"hor",[3,3],9)
+        var b10 = new Block(this,1,"hor",[5,0],10)
 
         // If the puzzle has been completed, show the opened hiding place
         if (locations[index].complete == 1) {
@@ -134,25 +131,26 @@ class Block{
         // Get the grid, and append the block
         $('#ob-grid-body').append(block)
 
-        // Make the block draggable
-        block.draggable({
-            // Keep them in the right window
-            containment:$('#minigame-modal').find('.ob-grid-wrapper'),
-            snap:'.ob-grid-cell-inner',
-            snapMode:"inner",
-            snapTolerance:"30",
-            axis:axis
-        })
+        // Block 10 isn't draggable
+        if (num != 10) {
 
-        // Update the grid on mouseup
-        block.on("mouseup",function(){updateGridState(puzzle)})
+            // Make the block draggable
+            block.draggable({
+                // Keep them in the right window
+                containment:$('#minigame-modal').find('.ob-grid-wrapper'),
+                snap:'.ob-grid-cell-inner',
+                snapMode:"inner",
+                snapTolerance:"30",
+                axis:axis
+            })
+
+            // Update the grid on mouseup
+            block.on("mouseup",function(){updateGridState(puzzle)})
+        }
 
         // Starting positions for the blocks
         block.css({"top":(position[0]*blockSize+margin) + "px"})
             .css({"left":(position[1]*blockSize+margin) + "px"})
-
-        // Update grid state to initialise
-        //updateGridState(puzzle)    
 
     }
 
@@ -172,9 +170,6 @@ function updateGridState(puzzle){
         [0,0,0,0,0,0],
         [0,0,0,0,0,0]
     ]
-    // Get the coordinates from the puzzle
-    rowCoords = puzzle.rowCoords
-    colCoords = puzzle.colCoords
 
     //Select the block
     var blockList = $('.block')
@@ -194,15 +189,19 @@ function updateGridState(puzzle){
 
         // Find out whether it's vertical or horizontal, and how big it is, and add ones as needed
         if ($(this).hasClass("block-hor")) {
-            puzzle.gridState[row][col+1] = 1
-            if ($(this).hasClass("block-size-3")) {
-                puzzle.gridState[row][col+2] = 1
+            if ($(this).attr("data-num") != 10) {
+                puzzle.gridState[row][col+1] = 1
+                if ($(this).hasClass("block-size-3")) {
+                    puzzle.gridState[row][col+2] = 1
+                }
             }
         } else {
-            puzzle.gridState[row+1][col] = 1
-            if ($(this).hasClass("block-size-3")) {
-                puzzle.gridState[row+2][col] = 1
-            }
+            if ($(this).attr("data-num") != 10) {
+                puzzle.gridState[row+1][col] = 1
+                if ($(this).hasClass("block-size-3")) {
+                    puzzle.gridState[row+2][col] = 1
+                }
+            }   
         }
 
     })
