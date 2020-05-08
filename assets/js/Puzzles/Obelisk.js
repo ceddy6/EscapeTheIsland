@@ -27,15 +27,15 @@ class ObeliskPuzzle{
 
         // Add cars ([row,col], 0-indexed)
         var b0 = new Block(this,2,"hor",[2,1],0)
-        var b1 = new Block(this,2,"ver",[0,1],1)
-        var b2 = new Block(this,2,"ver",[3,2],2)
-        var b3 = new Block(this,2,"ver",[1,3],3)
-        var b4 = new Block(this,2,"ver",[1,5],4)
-        var b5 = new Block(this,2,"ver",[4,5],5)
-        var b6 = new Block(this,2,"hor",[4,3],6)
-        var b7 = new Block(this,3,"ver",[1,0],7)
-        var b8 = new Block(this,3,"hor",[0,3],8)
-        var b9 = new Block(this,3,"hor",[3,3],9)
+        //var b1 = new Block(this,2,"ver",[0,1],1)
+        //var b2 = new Block(this,2,"ver",[3,2],2)
+        //var b3 = new Block(this,2,"ver",[1,3],3)
+        //var b4 = new Block(this,2,"ver",[1,5],4)
+        //var b5 = new Block(this,2,"ver",[4,5],5)
+        //var b6 = new Block(this,2,"hor",[4,3],6)
+        //var b7 = new Block(this,3,"ver",[1,0],7)
+        //var b8 = new Block(this,3,"hor",[0,3],8)
+        //var b9 = new Block(this,3,"hor",[3,3],9)
         var b10 = new Block(this,1,"hor",[5,0],10)
 
         // If the puzzle has been completed, show the opened hiding place
@@ -80,6 +80,10 @@ class ObeliskPuzzle{
             tbody.append(trow)
         }
 
+        // Append a 'doorway'
+        var doorway = $('<div id="doorway"></div>')
+        canvas.append(doorway)
+
     }
 
     // This method replaces the background with one with an open hiding space
@@ -107,7 +111,7 @@ class Block{
     // Constructor
     constructor(puzzle,size,orientation,position,num){
 
-        console.log("Creating block: " + num)
+        //console.log("Creating block: " + num)
 
         var blockSize = 60
         var margin = 0
@@ -145,7 +149,10 @@ class Block{
             })
 
             // Update the grid on mouseup
-            block.on("mouseup",function(){updateGridState(puzzle)})
+            $(window).on("mouseup",function(){
+                updateGridState(puzzle)
+                checkPuzzleCompletion()
+            })
         }
 
         // Starting positions for the blocks
@@ -156,10 +163,10 @@ class Block{
 
 }
 
-// Function 
+// Function to maintain a grid with the state of the puzzle
 function updateGridState(puzzle){
     
-    console.log("Updating grid state!")
+    //console.log("Updating grid state!")
 
     // On and off grid for squares (set all to 0)
     puzzle.gridState = [  
@@ -214,7 +221,7 @@ function updateGridState(puzzle){
 // Function creates a constraint block for each of the blocks based on the grid in use
 function calculateConstraints(puzzle) {
 
-    console.log("Calculating constraints")
+    //console.log("Calculating constraints")
 
     // Grab a list of all the blocks
     var blockList = $('.block')
@@ -267,7 +274,11 @@ function calculateConstraints(puzzle) {
                     right_point_found = 1
                 }
             }
-            right_point = Math.min(right_point + 1,6)
+            right_point = Math.min(right_point + 1,6)            
+            // If the block is the key block and the right point includes the edge, extend it
+            if (n == 0 && right_point == 6) {
+                right_point = 8
+            }
             var divWidth = (right_point - left_point)*60
 
             // Create an element the shape of the left and right points
@@ -339,7 +350,7 @@ function calculateConstraints(puzzle) {
 // Function to apply draggable (with appropriate constraint) to each block
 function applyDraggable(){
 
-    console.log("Applying draggable")
+    //console.log("Applying draggable")
 
     // Loop through all the blocks. Remove the existing draggable and reapply it
     for (b = 0; b<=9; b++) {
@@ -363,6 +374,19 @@ function applyDraggable(){
             axis:axis
         })
 
+    }
+
+}
+
+// Check whether the important block has reached the edge
+function checkPuzzleCompletion(){
+
+    //console.log("Checking puzzle completion")
+    var block = $('#block-0')
+    var l = block.position().left
+    // If it's further right than the grid edge, the puzzle is complete
+    if (l > 310) {
+        console.log("Puzzle complete")
     }
 
 }

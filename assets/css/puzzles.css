@@ -241,7 +241,7 @@
     top:60px;
     left:60px;
     background-color:transparent;
-    border:5px solid brown;
+    border:10px solid brown;
 }
 #ob-grid{
     position:relative;
@@ -311,4 +311,12 @@
 .wrap-constraint{
     position:absolute;
     pointer-events:none;
+}
+#doorway{
+    position:absolute;
+    width:18px;
+    height:60px;
+    top:190px;
+    left:426px;
+    background:black;
 }
