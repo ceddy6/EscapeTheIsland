@@ -320,3 +320,11 @@
     left:426px;
     background:black;
 }
+.hollowBlock{
+    position:absolute;
+    width:80px;
+    height:40px;
+    top:10px;
+    left:20px;
+    background:black;
+}

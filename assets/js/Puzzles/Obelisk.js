@@ -4,6 +4,8 @@ class ObeliskPuzzle{
     // Constructor adds all the elements
     constructor(index){
 
+        this.index = index
+
         // Select the modal body for content (and empty both of them)
         var canvas = $('#minigame-modal').find('.modal-body').empty()
         var title = $('#minigame-modal').find('.modal-title').empty()
@@ -89,8 +91,11 @@ class ObeliskPuzzle{
     // This method replaces the background with one with an open hiding space
     openHidingPlace(){
 
-        // Append a black div to the fifth stone
-        //$('.well-grid-cell-wrapper[data-grid-row="67"][data-grid-col="4"]')
+        console.log("Opening hiding place")
+
+        // Append a black div to the main block
+        var hollowBlock = $('<div class="hollowBlock"></div>')
+        $('#block-0').append(hollowBlock)
         //    .empty()
         //    .append('<div class="well-stone" id="black-well-stone"></div>')
 
@@ -387,6 +392,20 @@ function checkPuzzleCompletion(){
     // If it's further right than the grid edge, the puzzle is complete
     if (l > 310) {
         console.log("Puzzle complete")
+
+        if (locations[puzzle.index].complete == 0) {
+
+            // Show a dialogue modal, describing the entry opening
+            $('#dialogue-modal').find('.modal-title').text('The back of the block is hollow...')
+            $('#dialogue-modal').modal('show')
+
+            // Open the hiding place
+            puzzle.openHidingPlace()
+
+            // Mark puzle as complete
+            locations[puzzle.index].complete = 1
+
+        }
     }
 
 }
