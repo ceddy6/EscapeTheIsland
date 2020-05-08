@@ -4,7 +4,9 @@ var inventoryItems = [
     {title:"stepping-stones-clue",path:"assets/images/minigames/puzzles/cave/waterfall-clue.png",description:"Some kind of diagram",useability:"inventory-item-viewable"},
     {title:"waterfall-clue",path:"assets/images/minigames/puzzles/cave/clue2.bmp",description:"Sounds like a riddle",useability:"inventory-item-viewable"},
     {title:"well-stones-clue",path:"assets/images/minigames/puzzles/waterfall/well-stones-clue.jpg",description:"Some kind of diagram",useability:"inventory-item-viewable"},
-    {title:"well-clue",path:"assets/images/minigames/puzzles/waterfall/well-clue.bmp",description:"Sounds like a riddle",useability:"inventory-item-viewable"}
+    {title:"well-clue",path:"assets/images/minigames/puzzles/waterfall/well-clue.bmp",description:"Sounds like a riddle",useability:"inventory-item-viewable"},
+    {title:"skeleton-clue",path:"assets/images/minigames/puzzles/obelisk/skeleton-clue.bmp",description:"Some kind of clue",useability:"inventory-item-viewable"},
+    {title:"skeleton-clue-2",path:"assets/images/minigames/puzzles/obelisk/skeleton-clue-2.jpg",description:"A clue!",useability:"inventory-item-viewable"}
 ]
 
 // Create a class for the inventory

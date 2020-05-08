@@ -11,7 +11,7 @@ var locationsList = [{name:"Cave", position:["25%","42%"],id:0,locked:0,complete
                     doorway_img:"assets/images/doorways/well.png",
                     minigame_img:"assets/images/minigames/well2.jpg",
                     completed_img:"assets/images/minigames/well.jpg"},
-                    {name:"Obelisk",          position:["19%","52%"],id:3,locked:0,complete:0,
+                    {name:"Obelisk",          position:["19%","52%"],id:3,locked:0,complete:[0,0],
                     doorway_img:"assets/images/doorways/obelisk.jfif",
                     minigame_img:"assets/images/minigames/obelisk.jfif",
                     completed_img:"assets/images/minigames/obelisk.jfif"},
