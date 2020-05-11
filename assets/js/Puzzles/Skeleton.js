@@ -1,5 +1,5 @@
 // Minigame for the cave
-class ObeliskPuzzle{
+class SkeletonPuzzle{
 
     // Constructor adds all the elements
     constructor(index){
