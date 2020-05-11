@@ -357,3 +357,35 @@
     top:19px;
     left:29px;
 }
+
+/* Volcano */
+.v-grid-wrapper{
+    position:absolute;
+    /* background-color:blue; */
+    border:10px solid brown;
+}
+.v-grid-wrapper{
+    top:60px;
+    left:60px;
+}
+.v-grid{
+    position:relative;
+    display:block;
+    background-color:transparent;
+}
+.v-grid > tbody > tr > td {
+    border:1px solid black;
+}
+.v-grid-cell-outer{
+    background-color:brown;
+    width:30px;
+    height:30px;
+    padding:0px;
+    background-color:transparent;
+}
+.v-grid-cell-inner{
+    position:relative;
+    width:30px;
+    height:30px;
+    background-color:blue;
+}
