@@ -14,18 +14,37 @@ class VolcanoPuzzle{
         canvas.append('<img class="img-fluid" id="minigame-background" src='+locations[index].minigame_img+' alt="Minigame">')
         title.text("It looks like the lava could be used to power something...")
 
-        // Add the grid for the cars
-        this.createGrid()
-
         // On and off grid for squares
-        this.gridState = [  
-                            [0,0,0,0,0,0],
-                            [0,0,0,0,0,0],
-                            [0,0,0,0,0,0],
-                            [0,0,0,0,0,0],
-                            [0,0,0,0,0,0],
-                            [0,0,0,0,0,0]
-                        ]
+        this.gridRotationState = [  
+                                    [3,1,1,1,3,3,0,2,1,2,1],
+                                    [3,2,2,2,0,3,3,1,1,3,0],
+                                    [0,0,1,0,0,3,3,3,1,0,2],
+                                    [3,2,0,0,1,1,0,3,3,1,2],
+                                    [1,0,0,3,1,2,0,3,1,1,3],
+                                    [1,3,2,2,0,0,0,1,1,1,0],
+                                    [1,1,0,0,1,1,0,3,3,1,3],
+                                    [3,0,0,2,2,1,1,1,0,0,1],
+                                    [2,3,2,2,0,0,1,1,3,2,0],
+                                    [3,1,3,0,3,0,0,1,2,0,0],
+                                    [0,1,1,3,2,1,0,1,0,1,2],
+                                ]
+        // 0 = end, 1 = straigh, 2 = corner, 3 = tri                        
+        this.gridTile =         [ 
+                                    [2,1,1,1,2,0,2,2,1,0,0],
+                                    [0,0,2,0,3,3,3,3,0,0,1],
+                                    [0,1,3,1,1,2,0,0,0,3,3],
+                                    [0,2,2,3,2,3,2,3,3,1,0],
+                                    [2,2,0,3,1,3,1,0,1,1,0],
+                                    [1,2,3,2,2,4,0,2,3,3,1],
+                                    [2,3,1,3,2,3,3,3,0,2,3],
+                                    [0,3,1,2,0,1,3,3,3,0,1],
+                                    [2,2,3,2,0,3,1,1,3,2,1],
+                                    [0,0,3,0,2,3,1,0,0,1,1],
+                                    [0,1,3,0,0,0,2,1,0,0,0],
+                                ]
+
+      // Add the grid for the pipes
+      this.createGrid()
 
         // If the puzzle has been completed, show the opened hiding place
         if (locations[index].complete == 1) {
@@ -57,9 +76,40 @@ class VolcanoPuzzle{
             var trow = $('<tr class="v-grid-col v-grid-col-'+i+'"></tr>')
             for (var j=0; j<11; j++) {
                 var tcell = $('<td class="v-grid-cell-outer v-grid-col-'+i+' v-grid-row-'+j+'"></td>')
+
+                // Get the starting angle and type from the setup grids
+                var tileIndex = self.gridTile[i][j]
+                var tileAngle = self.gridRotationState[i][j] * 90
+
+                // Create the cell
                 var cell = $('<div class="v-grid-cell-inner"></div>')
                                 .attr('data-grid-row',i)
                                 .attr('data-grid-col',j)
+                                
+                switch(tileIndex){
+                    case 0:
+                        cell.append('<img class="img-fluid lava-tile" src=assets/images/minigames/puzzles/volcano/end.bmp alt="Tile">')
+                        break;
+                    case 1:
+                        cell.append('<img class="img-fluid lava-tile" src=assets/images/minigames/puzzles/volcano/line.bmp alt="Tile">')
+                        break;
+                    case 2:
+                        cell.append('<img class="img-fluid lava-tile" src=assets/images/minigames/puzzles/volcano/corner.bmp alt="Tile">')
+                        break;
+                    case 3:
+                        cell.append('<img class="img-fluid lava-tile" src=assets/images/minigames/puzzles/volcano/tri.bmp alt="Tile">')
+                        break;
+                    case 4:
+                        cell.append('<img class="img-fluid lava-tile" src=assets/images/minigames/puzzles/volcano/start.bmp alt="Tile">')
+                        break;
+                }
+                // Apply a rotation to the tile, and an on-click to rotate
+                cell.find('.lava-tile').css({"transform":"rotate("+tileAngle+"deg)"})
+                                        .attr('data-cell-type',tileIndex)
+                                        .attr('data-cell-angle',tileAngle)
+                                        .attr('data-cell-live',0)
+                                        .on("click",function(){rotateTile(this)})
+                  
                 tcell.append(cell)
                 trow.append(tcell)
             }
@@ -88,5 +138,19 @@ class VolcanoPuzzle{
         // }
 
     }
+
+}
+
+
+// Function to rotate the tile
+function rotateTile(tile){
+
+    // Get the current angle, add 90 degress
+    var currentAngle = $(tile).attr('data-cell-angle')
+    var newAngle = parseInt(currentAngle)+90 
+
+    // Apply the new angle to the element
+    $(tile).css({"transform":"rotate("+newAngle+"deg)"})
+    $(tile).attr('data-cell-angle',newAngle)
 
 }

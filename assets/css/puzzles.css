@@ -378,14 +378,15 @@
 }
 .v-grid-cell-outer{
     background-color:brown;
-    width:30px;
-    height:30px;
+    width:45px;
+    height:45px;
     padding:0px;
     background-color:transparent;
 }
 .v-grid-cell-inner{
     position:relative;
-    width:30px;
-    height:30px;
+    width:45px;
+    height:45px;
     background-color:blue;
+    cursor:pointer;
 }
