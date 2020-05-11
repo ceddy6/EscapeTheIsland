@@ -10,7 +10,7 @@ var doorwayData = [{name:"Cave",     lockposition:["50%","31%"], locksize:["10%"
                     lock_img:"assets/images/locks/dial_lock.jpg"},
                     {name:"Volcano",            lockposition:["25%","25%"], locksize:["10%","10%"],
                     lock_img:"assets/images/locks/dial_lock.jpg"},
-                    {name:"Tree",               lockposition:["25%","25%"], locksize:["10%","10%"],
+                    {name:"Skeleton",               lockposition:["25%","25%"], locksize:["10%","10%"],
                     lock_img:"assets/images/locks/dial_lock.jpg"},
                     ]
 
