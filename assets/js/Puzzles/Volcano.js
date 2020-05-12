@@ -83,35 +83,43 @@ class VolcanoPuzzle{
 
                 // Create the cell
                 var cell = $('<div class="v-grid-cell-inner"></div>')
-                                .attr('data-grid-row',i)
-                                .attr('data-grid-col',j)
                                 
                 switch(tileIndex){
                     case 0:
-                        cell.append('<img class="img-fluid lava-tile" src=assets/images/minigames/puzzles/volcano/end.bmp alt="Tile">')
+                        cell.append('<img class="img-fluid lava-tile tile-inactive tile-0" src=assets/images/minigames/puzzles/volcano/end.bmp alt="Tile">')
+                        var neighbours = JSON.stringify([0])
                         break;
                     case 1:
-                        cell.append('<img class="img-fluid lava-tile" src=assets/images/minigames/puzzles/volcano/line.bmp alt="Tile">')
+                        cell.append('<img class="img-fluid lava-tile tile-inactive tile-1" src=assets/images/minigames/puzzles/volcano/line.bmp alt="Tile">')
+                        var neighbours = JSON.stringify([1,3])
                         break;
                     case 2:
-                        cell.append('<img class="img-fluid lava-tile" src=assets/images/minigames/puzzles/volcano/corner.bmp alt="Tile">')
+                        cell.append('<img class="img-fluid lava-tile tile-inactive tile-2" src=assets/images/minigames/puzzles/volcano/corner.bmp alt="Tile">')
+                        var neighbours = JSON.stringify([0,3])
                         break;
                     case 3:
-                        cell.append('<img class="img-fluid lava-tile" src=assets/images/minigames/puzzles/volcano/tri.bmp alt="Tile">')
+                        cell.append('<img class="img-fluid lava-tile tile-inactive tile-3" src=assets/images/minigames/puzzles/volcano/tri.bmp alt="Tile">')
+                        var neighbours = JSON.stringify([0,1,3])
                         break;
                     case 4:
-                        cell.append('<img class="img-fluid lava-tile" src=assets/images/minigames/puzzles/volcano/start.bmp alt="Tile">')
+                        cell.append('<img class="img-fluid lava-tile tile-inactive tile-4" src=assets/images/minigames/puzzles/volcano/start.bmp alt="Tile">')
+                        var neighbours = JSON.stringify([0,1,3])
                         break;
                 }
                 // Apply a rotation to the tile, and an on-click to rotate
                 cell.find('.lava-tile').css({"transform":"rotate("+tileAngle+"deg)"})
                                         .attr('data-cell-type',tileIndex)
                                         .attr('data-cell-angle',tileAngle)
-                                        .attr('data-cell-live',0)
+                                        .attr('data-grid-row',i)
+                                        .attr('data-grid-col',j)
+                                        .attr('data-base-neighbours',neighbours)
+                                        .attr('data-cell-neighbours',neighbours)
                                         .on("click",function(){rotateTile(this)})
                   
                 tcell.append(cell)
                 trow.append(tcell)
+
+                updateNeighbours(cell.find('.lava-tile'))
             }
             tbody.append(trow)
         }
@@ -145,6 +153,8 @@ class VolcanoPuzzle{
 // Function to rotate the tile
 function rotateTile(tile){
 
+    console.log("Rotating Tile")
+
     // Get the current angle, add 90 degress
     var currentAngle = $(tile).attr('data-cell-angle')
     var newAngle = parseInt(currentAngle)+90 
@@ -152,5 +162,159 @@ function rotateTile(tile){
     // Apply the new angle to the element
     $(tile).css({"transform":"rotate("+newAngle+"deg)"})
     $(tile).attr('data-cell-angle',newAngle)
+
+    // Update the neighbours
+    updateNeighbours(tile)
+
+    // Update the flow
+    updateFlow(tile)
+
+}
+
+// Function to update the flow of the lava
+function updateFlow(tile){
+   
+    console.log("Updating flow")
+
+    // Set all tiles to inactive
+    $('.lava-tiles').removeClass('tile-active')
+
+    // List of points to be checked whether they're connected to the center
+    var toCheck = [[5,5]] // [row,col]
+    var nIter = 0
+
+    // // Keep looping down branches until you run out of things to check
+    while (toCheck.length > 0  && nIter < 20) {
+
+        console.log("Checking a tile")
+        console.log(toCheck[0])
+
+        // Take the first tile from the to check list, get its bordering tiles, 
+        // and check whether they are connected. If they are connected, add them
+        // to the list of tiles to check, and fill them in.
+
+        // Get the tile
+        var c = toCheck[0]
+        var tile = $('.lava-tile[data-grid-row='+c[0]+'][data-grid-col='+c[1]+']')
+
+        // Get the surrounding tiles
+        var above = $('.lava-tile[data-grid-row='+(c[0]-1)+'][data-grid-col='+c[1]+']')
+        var below = $('.lava-tile[data-grid-row='+(c[0]+1)+'][data-grid-col='+c[1]+']')
+        var left =  $('.lava-tile[data-grid-row='+c[0]+'][data-grid-col='+(c[1]-1)+']')
+        var right = $('.lava-tile[data-grid-row='+c[0]+'][data-grid-col='+(c[1]+1)+']')
+
+        // Check which sides of the current tile have outflows
+        var neighbours = JSON.parse(tile.attr('data-cell-neighbours'))
+    
+        //console.log("Neighbours: " + neighbours)
+
+        // For each of the neighbours, check whether the neighbour has a matching connection
+        for (var neighbour of neighbours) {
+
+            //console.log("Checking a neighbour")
+
+            // Loop through all neighbours
+            switch(neighbour){
+
+                // Depending on which side it's on, get the neighbour and the required neighbour's neighbour for a connection
+                case 0:
+                    var next = above 
+                    var req = 2
+                    break;
+                case 1:
+                    var next = right
+                    var req = 3
+                    break;
+                case 2:
+                    var next = below
+                    var req = 0
+                    break;
+                case 3:
+                    var next = left
+                    var req = 1
+                    break;
+
+            }
+
+            // Get the neighbours of the neighbour
+            var nextNeighbours = JSON.parse(next.attr('data-cell-neighbours'))
+
+            //console.log("Next neighbours: " +nextNeighbours)
+
+            // Loop through the neighbours of the neighbour - if 'req' is in there, a connection is made
+            var connection = 0
+            for (var nextNeighbour of nextNeighbours) {
+
+                //console.log("Checking a neighbours neighbour")
+
+                // If there is a connection, do some things
+                if (nextNeighbour == req) {
+
+                    //console.log("Connection found: " + req)
+
+                    // Add the tile to the 'to check' list (if it hasn't already been added)
+                    if (next.hasClass('tile-inactive')) {
+                        var newRow = next.attr('data-grid-row')
+                        var newCol = next.attr('data-grid-col')
+                        toCheck.push([parseInt(newRow),parseInt(newCol)])
+                    }
+
+                    // Activate the tile
+                    next.addClass('tile-active')
+                    next.removeClass('tile-inactive')
+
+                    // Update the image
+                    var tileType = parseInt(next.attr('data-cell-type'))
+                    switch(tileType){
+
+                        case 0:
+                            var newSrc = 'assets/images/minigames/puzzles/volcano/end_full.bmp'
+                            break;
+                        case 1:
+                            var newSrc = 'assets/images/minigames/puzzles/volcano/line_full.bmp'
+                            break;
+                        case 2:
+                            var newSrc = 'assets/images/minigames/puzzles/volcano/corner_full.bmp'
+                            break;
+                        case 3:
+                            var newSrc = 'assets/images/minigames/puzzles/volcano/tri_full.bmp'
+                            break;
+
+                    }
+                    next.attr('src',newSrc)
+
+                }
+
+            }
+
+        }
+
+        // Remove the current tile from the toCheck list
+        toCheck.shift()
+
+        nIter = nIter + 1
+
+    }
+
+}
+
+// This function is to update the neighbours of a tile given the current angle
+function updateNeighbours(tile){
+
+    // Check which sides of the current tile have outflows
+    var baseNeighbours = JSON.parse($(tile).attr('data-base-neighbours'))
+    var neighbours = []
+    var angle = parseInt($(tile).attr('data-cell-angle')/90)
+
+    // Add the angle to each of the base neighbours
+    for (i in baseNeighbours){
+        neighbours[i] = parseInt(baseNeighbours[i]) + angle
+        while (neighbours[i] > 3) {
+            neighbours[i] = neighbours[i]-4
+        }
+    }
+
+    // Apply the attribute to the tile
+    $(tile).attr('data-cell-neighbours',JSON.stringify(neighbours))
 
 }
