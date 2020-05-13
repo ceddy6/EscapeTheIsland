@@ -265,47 +265,51 @@ function updateFlow(){
 
             }
 
-            // Get the neighbours of the neighbour
-            var nextNeighbours = JSON.parse(next.attr('data-cell-neighbours'))
+            if (next.length > 0) {
 
-            // Loop through the neighbours of the neighbour - if 'req' is in there, a connection is made
-            for (var nextNeighbour of nextNeighbours) {
+                // Get the neighbours of the neighbour
+                var nextNeighbours = JSON.parse(next.attr('data-cell-neighbours'))
 
-                // If there is a connection, do some things
-                if (nextNeighbour == req) {
+                // Loop through the neighbours of the neighbour - if 'req' is in there, a connection is made
+                for (var nextNeighbour of nextNeighbours) {
 
-                    // Add the tile to the 'to check' list (if it hasn't already been added)
-                    if (next.hasClass('tile-inactive')) {
-                        var newRow = next.attr('data-grid-row')
-                        var newCol = next.attr('data-grid-col')
-                        toCheck.push([parseInt(newRow),parseInt(newCol)])
+                    // If there is a connection, do some things
+                    if (nextNeighbour == req) {
+
+                        // Add the tile to the 'to check' list (if it hasn't already been added)
+                        if (next.hasClass('tile-inactive')) {
+                            var newRow = next.attr('data-grid-row')
+                            var newCol = next.attr('data-grid-col')
+                            toCheck.push([parseInt(newRow),parseInt(newCol)])
+                        }
+
+                        // Activate the tile
+                        next.addClass('tile-active')
+                        next.removeClass('tile-inactive')
+
+                        // Update the image
+                        var tileType = parseInt(next.attr('data-cell-type'))
+                        switch(tileType){
+
+                            case 0:
+                                var newSrc = 'assets/images/minigames/puzzles/volcano/end_full.bmp'
+                                break;
+                            case 1:
+                                var newSrc = 'assets/images/minigames/puzzles/volcano/line_full.bmp'
+                                break;
+                            case 2:
+                                var newSrc = 'assets/images/minigames/puzzles/volcano/corner_full.bmp'
+                                break;
+                            case 3:
+                                var newSrc = 'assets/images/minigames/puzzles/volcano/tri_full.bmp'
+                                break;
+                            case 4:
+                                var newSrc = 'assets/images/minigames/puzzles/volcano/start.bmp'
+
+                        }
+                        next.attr('src',newSrc)
+
                     }
-
-                    // Activate the tile
-                    next.addClass('tile-active')
-                    next.removeClass('tile-inactive')
-
-                    // Update the image
-                    var tileType = parseInt(next.attr('data-cell-type'))
-                    switch(tileType){
-
-                        case 0:
-                            var newSrc = 'assets/images/minigames/puzzles/volcano/end_full.bmp'
-                            break;
-                        case 1:
-                            var newSrc = 'assets/images/minigames/puzzles/volcano/line_full.bmp'
-                            break;
-                        case 2:
-                            var newSrc = 'assets/images/minigames/puzzles/volcano/corner_full.bmp'
-                            break;
-                        case 3:
-                            var newSrc = 'assets/images/minigames/puzzles/volcano/tri_full.bmp'
-                            break;
-                        case 4:
-                            var newSrc = 'assets/images/minigames/puzzles/volcano/start.bmp'
-
-                    }
-                    next.attr('src',newSrc)
 
                 }
 
