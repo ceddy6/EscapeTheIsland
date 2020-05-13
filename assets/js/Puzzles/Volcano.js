@@ -279,6 +279,8 @@ function updateFlow(tile){
                         case 3:
                             var newSrc = 'assets/images/minigames/puzzles/volcano/tri_full.bmp'
                             break;
+                        case 4:
+                            var newSrc = 'assets/images/minigames/puzzles/volcano/start.bmp'
 
                     }
                     next.attr('src',newSrc)
