@@ -43,6 +43,15 @@ class VolcanoPuzzle{
                                     [0,1,3,0,0,0,2,1,0,0,0],
                                 ]
 
+        // Number of rows and columns
+        this.nRows = 11
+        this.nCols = 11
+
+        // this.gridRotationState = [[0,0,0],[0,0,0],[0,0,0],]
+        // this.gridTile = [[2,1,2],[3,3,3],[2,3,2],]
+        // this.nRows = 3
+        // this.nCols = 3
+
         // Add the grid for the pipes
         this.createGrid()
 
@@ -75,9 +84,9 @@ class VolcanoPuzzle{
         tbody.append('<tbody class="v-grid-body"></tbody>')
 
         // Append 11 rows
-        for (var i=0; i<11; i++) {
+        for (var i=0; i<self.nRows; i++) {
             var trow = $('<tr class="v-grid-col v-grid-col-'+i+'"></tr>')
-            for (var j=0; j<11; j++) {
+            for (var j=0; j<self.nCols; j++) {
                 var tcell = $('<td class="v-grid-cell-outer v-grid-col-'+i+' v-grid-row-'+j+'"></td>')
 
                 // Get the starting angle and type from the setup grids
