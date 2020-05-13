@@ -54,11 +54,10 @@ body{
 }
 
 .background-clock-wrapper{
-    position: relative;
-    width:25%;
-    top:0px;
-    left:0px;
-    transform: translate(0%,0%);
+    position: absolute;
+    width:28%;
+    top:3%;
+    left:71%;
 }
 
 #background-clock{
@@ -67,38 +66,58 @@ body{
 
 .clock-digit{
     position:absolute;
-    width:17%;
+    width:11%;
     height:45%;
     background-color:black;
-    color:white;
 }
 
 .clock-digit.hours-tens{ 
     top:27%;
-    left:14%;
+    left:11%;
 }
 .clock-digit.hours-units{ 
     top:27%;
-    left:30%;
+    left:23%;
 }
 .clock-digit.minutes-tens{ 
     top:27%;
-    left:53%;
+    left:40%;
 }
 .clock-digit.minutes-units{ 
     top:27%;
-    left:69%;
+    left:52%;
+}
+.clock-digit.seconds-tens{ 
+    top:27%;
+    left:68%;
+}
+.clock-digit.seconds-units{ 
+    top:27%;
+    left:80%;
+}
+.clock-digit.separator-1{ 
+    top:27%;
+    left:28%;
+    background:transparent;
+}
+.clock-digit.separator-2{ 
+    top:27%;
+    left:57%;
+    background:transparent;
 }
 
 .digital-no{
-    display:inline-block;
-    color: white;
+    /* display:inline-block; */
+    color: #00FF41;
+    text-shadow:0 0 10px #00FF41;
     font-family:'Orbitron';
     font-weight: bold;
-    font-size:4vw;
-    text-align:center;
+    font-size:3vw;
+    text-align:right;
     vertical-align:middle;
     padding:0px;
-    padding-left:4px;
+    float:right;
+    position:relative;
+    padding-right:2px;
 }
 

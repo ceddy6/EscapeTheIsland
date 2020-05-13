@@ -35,5 +35,8 @@ $(window).on("load",function(){
     //Run the location creator to instantiate locations
     player = new Player(1)
 
+    // Tick the clock every second
+    setInterval(function(){clock.tick()},1000)
+
 })
 

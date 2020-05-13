@@ -68,7 +68,15 @@ function locationClicked(index) {
     // Send the player token to the location
     player.goToLocation(index)
 
-    // Create and show the doorway modal
-    doorway = new Doorway(index)
+    // Add time to the clock
+    clock.addTravelTime(60)
+    
+    // Delay opening the modal to show the travel
+    setTimeout(function(){
+
+        // Create and show the doorway modal
+        doorway = new Doorway(index)
+
+    },2000)
 
 }
