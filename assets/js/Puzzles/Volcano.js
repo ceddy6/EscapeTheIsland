@@ -43,13 +43,16 @@ class VolcanoPuzzle{
                                     [0,1,3,0,0,0,2,1,0,0,0],
                                 ]
 
-      // Add the grid for the pipes
-      this.createGrid()
+        // Add the grid for the pipes
+        this.createGrid()
 
         // If the puzzle has been completed, show the opened hiding place
         if (locations[index].complete == 1) {
             this.openHidingPlace()
         }
+
+        // Update the flow
+        updateFlow()
 
         // Show the modal
         $('#minigame-modal').modal('show')
@@ -102,7 +105,7 @@ class VolcanoPuzzle{
                         var neighbours = JSON.stringify([0,1,3])
                         break;
                     case 4:
-                        cell.append('<img class="img-fluid lava-tile tile-inactive tile-4" src=assets/images/minigames/puzzles/volcano/start.bmp alt="Tile">')
+                        cell.append('<img class="img-fluid lava-tile tile-active tile-4" src=assets/images/minigames/puzzles/volcano/start.bmp alt="Tile">')
                         var neighbours = JSON.stringify([0,1,3])
                         break;
                 }
@@ -128,6 +131,8 @@ class VolcanoPuzzle{
 
     // This method replaces the background with one with an open hiding space
     openHidingPlace(){
+
+        console.log("Opening hiding place")
 
         // // Append a black div to the main block
         // var hollowBlock = $('<div class="hollowBlock puzzle-'+puzzid+'"></div>')
@@ -167,27 +172,46 @@ function rotateTile(tile){
     updateNeighbours(tile)
 
     // Update the flow
-    updateFlow(tile)
+    updateFlow()
 
 }
 
 // Function to update the flow of the lava
-function updateFlow(tile){
+function updateFlow(){
    
-    console.log("Updating flow")
-
     // Set all tiles to inactive
-    $('.lava-tiles').removeClass('tile-active')
+    $('.lava-tile').removeClass('tile-active')
+                                    .addClass('tile-inactive')
+                                
+    // Update the image for each tile
+    $('.lava-tile').each(function(){
+        var tileType = parseInt($(this).attr('data-cell-type'))
+        switch(tileType){
+            case 0:
+                var newSrc = 'assets/images/minigames/puzzles/volcano/end.bmp'
+                break;
+            case 1:
+                var newSrc = 'assets/images/minigames/puzzles/volcano/line.bmp'
+                break;
+            case 2:
+                var newSrc = 'assets/images/minigames/puzzles/volcano/corner.bmp'
+                break;
+            case 3:
+                var newSrc = 'assets/images/minigames/puzzles/volcano/tri.bmp'
+                break;
+            case 4:
+                var newSrc = 'assets/images/minigames/puzzles/volcano/start.bmp'
+                break;
+        }
+        $(this).attr('src',newSrc)
+    })
 
     // List of points to be checked whether they're connected to the center
-    var toCheck = [[5,5]] // [row,col]
+    var toCheck = [[5,5]] 
     var nIter = 0
 
     // // Keep looping down branches until you run out of things to check
-    while (toCheck.length > 0  && nIter < 20) {
-
-        console.log("Checking a tile")
-        console.log(toCheck[0])
+    while (toCheck.length > 0  && nIter < 125) {
 
         // Take the first tile from the to check list, get its bordering tiles, 
         // and check whether they are connected. If they are connected, add them
@@ -205,13 +229,9 @@ function updateFlow(tile){
 
         // Check which sides of the current tile have outflows
         var neighbours = JSON.parse(tile.attr('data-cell-neighbours'))
-    
-        //console.log("Neighbours: " + neighbours)
 
         // For each of the neighbours, check whether the neighbour has a matching connection
         for (var neighbour of neighbours) {
-
-            //console.log("Checking a neighbour")
 
             // Loop through all neighbours
             switch(neighbour){
@@ -239,18 +259,11 @@ function updateFlow(tile){
             // Get the neighbours of the neighbour
             var nextNeighbours = JSON.parse(next.attr('data-cell-neighbours'))
 
-            //console.log("Next neighbours: " +nextNeighbours)
-
             // Loop through the neighbours of the neighbour - if 'req' is in there, a connection is made
-            var connection = 0
             for (var nextNeighbour of nextNeighbours) {
-
-                //console.log("Checking a neighbours neighbour")
 
                 // If there is a connection, do some things
                 if (nextNeighbour == req) {
-
-                    //console.log("Connection found: " + req)
 
                     // Add the tile to the 'to check' list (if it hasn't already been added)
                     if (next.hasClass('tile-inactive')) {
@@ -298,6 +311,9 @@ function updateFlow(tile){
 
     }
 
+    // Check puzzle for completion
+    checkCompletion()
+
 }
 
 // This function is to update the neighbours of a tile given the current angle
@@ -318,5 +334,33 @@ function updateNeighbours(tile){
 
     // Apply the attribute to the tile
     $(tile).attr('data-cell-neighbours',JSON.stringify(neighbours))
+
+}
+
+// This function checks whether the puzzle is completed
+function checkCompletion(){
+
+    // Select all end tiles with inactive classes
+    var inactiveEnds = $('.tile-0.tile-inactive')
+
+    // If there are no inactive ends, the puzzle is complete
+    if (inactiveEnds.length == 0) {
+
+        // Check whether the location is already open
+        if (locations[puzzle.index].complete == 0) {
+
+            // Show a dialogue modal, describing the entry opening
+            $('#dialogue-modal').find('.modal-title').text('With a loud grinding sound, a part of the wall rolls aside...')
+            $('#dialogue-modal').modal('show')
+
+            // Open the hiding place
+            puzzle.openHidingPlace()
+
+            // Mark puzle as complete
+            locations[puzzle.index].complete = 1
+
+        }
+
+    }
 
 }
