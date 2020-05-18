@@ -421,3 +421,48 @@
 .lava-tile.tile-active.tile-4{
     background-image:url("../images/minigames/puzzles/volcano/start.bmp");
 } */
+
+
+/* Skeleton tile grid */
+.sk-grid-wrapper{
+    position:absolute;
+    background-color:transparent;
+    border:2px solid red;
+}
+.sk-grid-wrapper.pkey{
+    top:30px;
+    left:30px;
+}
+.sk-grid-wrapper.ptile{
+    top:30px;
+    left:300px;
+}
+.sk-grid{
+    position:relative;
+    display:block;
+    background-color:transparent;
+}
+.sk-grid > tbody > tr > td {
+    border:1px solid black;
+}
+.sk-grid-cell-outer{
+    background-color:transparent;
+    width:50px;
+    height:50px;
+    padding:0px;
+    background-color:#FFCC00;
+    cursor:pointer;
+}
+.sk-grid-cell-inner{
+    position:relative;
+    width:50px;
+    height:50px;
+    background-color:blue;
+    visibility:hidden;
+    pointer-events:none;
+}
+.tile-row{
+    position:absolute;
+    height:50px;
+    width:250px;
+}

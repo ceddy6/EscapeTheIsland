@@ -6,7 +6,12 @@ var inventoryItems = [
     {title:"well-stones-clue",path:"assets/images/minigames/puzzles/waterfall/well-stones-clue.jpg",description:"Some kind of diagram",useability:"inventory-item-viewable"},
     {title:"well-clue",path:"assets/images/minigames/puzzles/waterfall/well-clue.bmp",description:"Sounds like a riddle",useability:"inventory-item-viewable"},
     {title:"skeleton-clue",path:"assets/images/minigames/puzzles/obelisk/skeleton-clue.bmp",description:"Some kind of clue",useability:"inventory-item-viewable"},
-    {title:"skeleton-clue-2",path:"assets/images/minigames/puzzles/obelisk/skeleton-clue-2.jpg",description:"A clue!",useability:"inventory-item-viewable"}
+    {title:"skeleton-clue-2",path:"assets/images/minigames/puzzles/obelisk/skeleton-clue-2.jpg",description:"A clue!",useability:"inventory-item-viewable"},
+    {title:"key-line-2",path:"assets/images/minigames/puzzles/skeleton/key-line-2.bmp",description:"A gold tile!",useability:"inventory-item-useable"},
+    {title:"key-line-3",path:"assets/images/minigames/puzzles/skeleton/key-line-3.bmp",description:"A gold tile!",useability:"inventory-item-useable"},
+    {title:"key-line-4",path:"assets/images/minigames/puzzles/skeleton/key-line-4.bmp",description:"A gold tile!",useability:"inventory-item-useable"},
+    {title:"key-line-5",path:"assets/images/minigames/puzzles/skeleton/key-line-5.bmp",description:"A gold tile!",useability:"inventory-item-useable"},
+    {title:"key-line-6",path:"assets/images/minigames/puzzles/skeleton/key-line-6.bmp",description:"A gold tile!",useability:"inventory-item-useable"}
 ]
 
 // Create a class for the inventory
@@ -20,6 +25,13 @@ class Inventory {
 
         // Add the padlock key to it
         this.addItem("padlock-key")
+
+        // Temporarily add the gold tiles to the inventory for debugging purposes
+        this.addItem("key-line-2")
+        this.addItem("key-line-3")
+        this.addItem("key-line-4")
+        this.addItem("key-line-5")
+        this.addItem("key-line-6")
 
     }
 
@@ -58,9 +70,6 @@ class Inventory {
     // Inventory has a method to handle items in the inventory being clicked on
     itemClicked(item) {
 
-        // Close the inventory modal
-        $('#inventory-modal').modal('hide')
-
         // Get the entry of the image from the inventory list
         var details = inventoryItems.find(function(entry){return entry.title == item})
 
@@ -82,11 +91,106 @@ class Inventory {
                             .append($('<div id="outlineflash"></div>'))
                     }
                     lock.addToLockPath("none")
+
+                    // Close the inventory modal
+                    $('#inventory-modal').modal('hide')
+
                     break;
+
+                // If it's one of the gold tiles
+                case 'key-line-2':
+                    // If the puzzle is the right one, add a full sized tile to the puzzle
+                    if (puzzle.index == 5) {
+                        $('#minigame-modal').find('.modal-body')
+                            .append($('<img class="img-fluid tile-row tile-row-draggable" id="key-row-2" src=assets/images/minigames/puzzles/skeleton/key-line-2.bmp alt="Key Row">')
+                                    .css({"top":"40px"})
+                                    .css({"left":"575px"})
+                                    .css({"cursor":"pointer"})
+                                    .css({"position":"absolute"})
+                                    .draggable({
+                                        snap:'.sk-grid-row.pkey',
+                                        snapMode:"inner",
+                                        snapTolerance:"30",
+                                    }))
+                        inventory.removeItem(item)
+                    }
+                    break;
+                case 'key-line-3':
+                    // If the puzzle is the right one, add a full sized tile to the puzzle
+                    if (puzzle.index == 5) {
+                        $('#minigame-modal').find('.modal-body')
+                            .append($('<img class="img-fluid tile-row tile-row-draggable" id="key-row-3" src=assets/images/minigames/puzzles/skeleton/key-line-3.bmp alt="Key Row">')
+                                    .css({"top":"100px"})
+                                    .css({"left":"575px"})
+                                    .css({"cursor":"pointer"})
+                                    .css({"position":"absolute"})
+                                    .draggable({
+                                        snap:'.sk-grid-row.pkey',
+                                        snapMode:"inner",
+                                        snapTolerance:"30",
+                                    }))
+                        inventory.removeItem(item)
+                    }
+                    break;
+                case 'key-line-4':
+                    // If the puzzle is the right one, add a full sized tile to the puzzle
+                    if (puzzle.index == 5) {
+                        $('#minigame-modal').find('.modal-body')
+                            .append($('<img class="img-fluid tile-row tile-row-draggable" id="key-row-4" src=assets/images/minigames/puzzles/skeleton/key-line-4.bmp alt="Key Row">')
+                                    .css({"top":"160px"})
+                                    .css({"left":"575px"})
+                                    .css({"cursor":"pointer"})
+                                    .css({"position":"absolute"})
+                                    .draggable({
+                                        snap:'.sk-grid-row.pkey',
+                                        snapMode:"inner",
+                                        snapTolerance:"30",
+                                    }))
+                        inventory.removeItem(item)
+                    }
+                    break;
+                case 'key-line-5':
+                    // If the puzzle is the right one, add a full sized tile to the puzzle
+                    if (puzzle.index == 5) {
+                        $('#minigame-modal').find('.modal-body')
+                            .append($('<img class="img-fluid tile-row tile-row-draggable" id="key-row-5" src=assets/images/minigames/puzzles/skeleton/key-line-5.bmp alt="Key Row">')
+                                    .css({"top":"220px"})
+                                    .css({"left":"575px"})
+                                    .css({"cursor":"pointer"})
+                                    .css({"position":"absolute"})
+                                    .draggable({
+                                        snap:'.sk-grid-row.pkey',
+                                        snapMode:"inner",
+                                        snapTolerance:"30",
+                                    }))
+                        inventory.removeItem(item)
+                    }
+                    break;
+                case 'key-line-6':
+                    // If the puzzle is the right one, add a full sized tile to the puzzle
+                    if (puzzle.index == 5) {
+                        $('#minigame-modal').find('.modal-body')
+                            .append($('<img class="img-fluid tile-row tile-row-draggable" id="key-row-6" src=assets/images/minigames/puzzles/skeleton/key-line-6.bmp alt="Key Row">')
+                                    .css({"top":"280px"})
+                                    .css({"left":"575px"})
+                                    .css({"cursor":"pointer"})
+                                    .css({"position":"absolute"})
+                                    .draggable({
+                                        snap:'.sk-grid-row.pkey',
+                                        snapMode:"inner",
+                                        snapTolerance:"30",
+                                    }))
+                        inventory.removeItem(item)
+                    }
+                    break;
+
             }
 
         // The item is a 'viewable' item, so open a zoom
         } else {
+
+            // Close the inventory modal
+            $('#inventory-modal').modal('hide')
 
             // Open up a zoom modal
             zoom = new Zoom(details.path,details.title,details.description,0)

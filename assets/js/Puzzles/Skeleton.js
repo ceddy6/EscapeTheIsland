@@ -12,20 +12,22 @@ class SkeletonPuzzle{
 
         // Add the the background and the title
         canvas.append('<img class="img-fluid" id="minigame-background" src='+locations[index].minigame_img+' alt="Minigame">')
-        title.text("It looks like the lava could be used to power something...")
+        title.text("Under the old bones you find a locked box and some stone tiles...")
 
         // Add the grid for the cars
         this.createGrid()
 
-        // On and off grid for squares
-        this.gridState = [  
-                            [0,0,0,0,0,0],
-                            [0,0,0,0,0,0],
-                            [0,0,0,0,0,0],
-                            [0,0,0,0,0,0],
-                            [0,0,0,0,0,0],
-                            [0,0,0,0,0,0]
-                        ]
+        // Grid of letters
+        this.letterGrid = [["1","A","L","E","W"],
+                            ["1","M","K","U","+"],
+                            ["2","J","O","F","X"],
+                            ["3","R","B","V","S"],
+                            ["5","G","N","Z","T"],
+                            ["8","C","H","Y","D"],
+                            ["13","Q","I","","P"]]
+
+        // Create a 'word'
+        this.word = []
 
         // If the puzzle has been completed, show the opened hiding place
         if (locations[index].complete == 1) {
@@ -46,18 +48,17 @@ class SkeletonPuzzle{
         // Get the canvas to work on
         var canvas = $('#minigame-modal').find('.modal-body')
 
-        // Append a table
-        canvas.append('<div class="ob-grid-wrapper puzzle-'+puzzid+'"></div>')
-        $('.ob-grid-wrapper.puzzle-'+puzzid).append('<table class="table-fixed puzzle'+puzzid+' ob-grid"></table')
-        var tbody = $('.ob-grid.puzzle'+puzzid)
-        tbody.append('<tbody class="ob-grid-body puzzle-'+puzzid+'"></tbody>')
-
-        // Append 6 rows
-        for (var i=0; i<6; i++) {
-            var trow = $('<tr class="ob-grid-col ob-grid-col-'+i+' puzzle-'+puzzid+'"></tr>')
-            for (var j=0; j<6; j++) {
-                var tcell = $('<td class="ob-grid-cell-outer ob-grid-col-'+i+' ob-grid-row-'+j+' puzzle-'+puzzid+'"></td>')
-                var cell = $('<div class="ob-grid-cell-inner puzzle-'+puzzid+'"></div>')
+        // Append a table for the key
+        canvas.append('<div class="sk-grid-wrapper pkey"></div>')
+        $('.sk-grid-wrapper.pkey').append('<table class="table-fixed sk-grid pkey"></table')
+        var tbody = $('.sk-grid.pkey')
+        tbody.append('<tbody class="sk-grid-body pkey"></tbody>')
+        // Append 4 rows
+        for (var i=0; i<7; i++) {
+            var trow = $('<tr class="sk-grid-row sk-grid-row-'+i+' pkey"></tr>')
+            for (var j=0; j<5; j++) {
+                var tcell = $('<td class="sk-grid-cell-outer sk-grid-col-'+i+' sk-grid-row-'+j+' pkey"></td>')
+                var cell = $('<div class="sk-grid-cell-inner pkey"></div>')
                                 .attr('data-grid-row',i)
                                 .attr('data-grid-col',j)
                 tcell.append(cell)
@@ -66,9 +67,47 @@ class SkeletonPuzzle{
             tbody.append(trow)
         }
 
-        // Append a 'doorway'
-        var doorway = $('<div class="doorway puzzle-'+puzzid+'"></div>')
-        canvas.append(doorway)
+        // Append a table for the buttons
+        canvas.append('<div class="sk-grid-wrapper ptile"></div>')
+        $('.sk-grid-wrapper.ptile').append('<table class="table-fixed sk-grid ptile"></table')
+        var tbody = $('.sk-grid.ptile')
+        tbody.append('<tbody class="sk-grid-body ptile"></tbody>')
+        // Append 4 rows
+        for (var i=0; i<7; i++) {
+            var trow = $('<tr class="sk-grid-row sk-grid-row-'+i+' ptile"></tr>')
+            for (var j=0; j<5; j++) {
+                var tcell = $('<td class="sk-grid-cell-outer sk-grid-col-'+i+' sk-grid-row-'+j+' ptile"></td>')
+                var cell = $('<div class="sk-grid-cell-inner ptile"></div>')
+                                .attr('data-grid-row',i)
+                                .attr('data-grid-col',j)
+                tcell.append(cell)
+                trow.append(tcell)
+            }
+            tbody.append(trow)
+        }
+
+        // Append the first and last rows of the key to the grid
+        $('.sk-grid-row.sk-grid-row-0.pkey').append($('<img class="img-fluid tile-row tile-row-fixed" id="key-row-0" src=assets/images/minigames/puzzles/skeleton/key-line-1.bmp alt="Key Row">')
+            .css({"top":"1px"})
+            .css({"left":"4px"}))
+        $('.sk-grid-row.sk-grid-row-6.pkey').append($('<img class="img-fluid tile-row tile-row-fixed" id="key-row-6" src=assets/images/minigames/puzzles/skeleton/key-line-7.bmp alt="Key Row">')
+            .css({"top":"308px"})
+            .css({"left":"4px"}))
+
+        // On click method for when a cell is clicked
+        $('.sk-grid-cell-outer.ptile').on("click",function(){
+            console.log("Cell clicked")
+            var r = $(this).find('.sk-grid-cell-inner').attr('data-grid-row')
+            var c = $(this).find('.sk-grid-cell-inner').attr('data-grid-col')
+            var letter = self.letterGrid[r][c]
+            if (letter == "") {
+                console.log("Deleting")
+                self.word.pop()
+            } else {
+                self.word.push(letter)
+            }
+            console.log(self.word)
+        })
 
     }
 
