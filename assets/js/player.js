@@ -36,6 +36,11 @@ class Player {
         $('.player-token').css({"top":t+"%"})
                         .css({"left":l+"%"})
 
+        // Update the players index and name
+        this.id = index
+        this.name = locationsList[index].name
+        this.position = newPos
+
     }
 
 }

@@ -65,18 +65,33 @@ class Location {
 // When a location is clicked on
 function locationClicked(index) {
 
-    // Send the player token to the location
-    player.goToLocation(index)
+    console.log(player.id)
+    console.log(index)
 
-    // Add time to the clock
-    clock.addTravelTime(60)
-    
-    // Delay opening the modal to show the travel
-    setTimeout(function(){
+    // If the player isn't already at the location, send it there and open the doorway on arrival
+    if (player.id != index) {
 
-        // Create and show the doorway modal
+        // Send the player token to the location
+        player.goToLocation(index)
+
+        // Add time to the clock
+        clock.addTravelTime(60)
+
+        // Delay opening the modal to show the travel
+        setTimeout(function(){
+
+            // Create and show the doorway modal
+            doorway = new Doorway(index)
+
+        },2000)
+        
+    } else {
+
+        // If the player is already there, open the doorway straight away
         doorway = new Doorway(index)
 
-    },2000)
+    }
+
+
 
 }

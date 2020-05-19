@@ -96,18 +96,49 @@ class SkeletonPuzzle{
 
         // On click method for when a cell is clicked
         $('.sk-grid-cell-outer.ptile').on("click",function(){
-            console.log("Cell clicked")
+            // Get the row and column and convert to a letter
             var r = $(this).find('.sk-grid-cell-inner').attr('data-grid-row')
             var c = $(this).find('.sk-grid-cell-inner').attr('data-grid-col')
             var letter = self.letterGrid[r][c]
+            // Add or remove the letter from the word
             if (letter == "") {
-                console.log("Deleting")
                 self.word.pop()
             } else {
                 self.word.push(letter)
             }
-            console.log(self.word)
+            // Add a check of whether the word is complete
+            self.confirmComplete()
         })
+
+    }
+
+    // Function to check whether the password is complete
+    confirmComplete(){
+
+        console.log("Checking complete")
+        console.log(this.word)
+
+        // Check whether the password is correct
+        var password = ["S","E","V","E","N"]
+        if (JSON.stringify(this.word) == JSON.stringify(password)) {
+            console.log("Password successful!")
+
+            // Check whether the location is already open
+            if (locations[puzzle.index].complete == 0) {
+
+                // Show a dialogue modal, describing the entry opening
+                $('#dialogue-modal').find('.modal-title').text('The box clicks open...')
+                $('#dialogue-modal').modal('show')
+
+                // Open the hiding place
+                puzzle.openHidingPlace()
+
+                // Mark puzle as complete
+                locations[puzzle.index].complete = 1
+
+            }
+
+        }
 
     }
 
