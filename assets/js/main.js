@@ -35,8 +35,52 @@ $(window).on("load",function(){
     //Run the location creator to instantiate locations
     player = new Player(1)
 
-    // Tick the clock every second
-    setInterval(function(){clock.tick()},1000)
+    // Create the opening dialogue
+    var d1 = "Welcome adventurers! After months at sea, a mighty storm has wrecked your ship on the shores of a mysterious island"
+    var d2 = "The locals welcome you, but will require payment for transport off the island"
+    var d3 = "You are charged with recovering an ancient artifact, but be quick! You only have until midnight. The islanders hand of you a backpack to help you."
 
+    // Put the dialogues into modals and nest the on click methods
+    $('#dialogue-modal').find('.modal-title').text(d1)
+    $('#dialogue-modal').find('.modal-footer').find('.btn').text('Next')
+    $('#dialogue-modal').find('.modal-footer').find('.btn')
+            // On click method to move to the next dialogue block
+            .on("click",function(){
+                    // Unbind the 'next' dialogue listener
+                    $(this).off("click")
+                    // Open a new dialogue
+                    setTimeout(function(){
+                        $('#dialogue-modal').find('.modal-title').text(d2)
+                        $('#dialogue-modal').find('.modal-footer').find('.btn').text('Next')
+                        $('#dialogue-modal').find('.modal-footer').find('.btn')
+                            // On click method to move to the next dialogue block
+                            .on("click",function(){
+                                    // Unbind
+                                    $(this).off("click")
+                                    // Open a new dialogue
+                                    setTimeout(function(){
+                                        $('#dialogue-modal').find('.modal-title').text(d3)
+                                        $('#dialogue-modal').find('.modal-footer').find('.btn').text('Begin!')
+                                        $('#dialogue-modal').find('.modal-footer').find('.btn')
+                                                    // On click method to start the timer and close the modal
+                                                    .on("click",function(){
+                                                        // Unbind the 'start timer' listener 
+                                                        $(this).off("click")
+                                                        // Tick the clock every second
+                                                        setInterval(function(){clock.tick()},1000)
+                                                    })
+                                        // Show the third modal
+                                        $('#dialogue-modal').modal('show')
+                                    // Short delay to keep open
+                                    },500)
+                            })
+                        // Show the second modal
+                        $('#dialogue-modal').modal('show')
+                    // Delay to keep open
+                    },500)
+            })
+    // Show the first modal
+    $('#dialogue-modal').modal('show')
+    
 })
 
