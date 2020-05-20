@@ -58,6 +58,12 @@ class CavePuzzle{
             zoom = new Zoom('assets/images/minigames/puzzles/cave/'+this.id+'.png','zoomed-cave-stone','There are markings on the stones',0)
         })
 
+        // Add on click to the hollows to give them an explanation dialogue
+        $('.hollow').on("click",function(){
+            $('#dialogue-modal').find('.modal-title').text('There are small depressions in the floor')
+            $('#dialogue-modal').modal('show')    
+        })
+
         // If the puzzle has been completed, show the opened hiding place
         if (locations[index].complete == 1) {
             this.openHidingPlace()
