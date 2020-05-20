@@ -148,18 +148,21 @@
 
 #scales{
     position:absolute;
-    width:31%;
-    height:34%;
+    width:83%;
+    height:49%;
     top:20%;
-    left:40%;
+    left:13%;
+    pointer-events:none;
 }
 #scales-pointer{
     position:absolute;
     width:2%;
     height:8%;
-    top:26%;
-    left:54.8%;
-    transform:rotate(180deg)
+    top:33%;
+    left:54.25%;
+    transform:rotate(180deg);
+    transform-origin:50% 90%;
+    pointer-events:none;
 }
 
 #well-clue{

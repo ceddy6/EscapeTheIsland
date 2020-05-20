@@ -37,7 +37,7 @@ class WaterfallPuzzle{
         // Replace the background image with the door opened image
         $('#scales').remove()
         $('#minigame-modal').find('.modal-body')                                
-            .append('<img class="img-fluid" id="scales" src=assets/images/minigames/puzzles/waterfall/scales-opened.bmp alt="Scales">')
+            .append('<img class="img-fluid" id="scales" src=assets/images/minigames/puzzles/waterfall/scales-opened.png alt="Scales">')
             .append('<img class="img-fluid" id="scales-pointer" src=assets/images/minigames/puzzles/waterfall/scales-pointer.png alt="scales">')
 
         // Add the two clues to the image
@@ -260,7 +260,7 @@ class Scales{
 
         // Select the canvas and add the scales and pointer to it
         var canvas = $('#minigame-modal').find('.modal-body')
-                    .append($('<img class="img-fluid" id="scales" src=assets/images/minigames/puzzles/waterfall/scales.bmp alt="Scales">'))
+                    .append($('<img class="img-fluid" id="scales" src=assets/images/minigames/puzzles/waterfall/scales.png alt="Scales">'))
                     .append($('<img class="img-fluid" id="scales-pointer" src=assets/images/minigames/puzzles/waterfall/scales-pointer.png alt="scales">'))
     
     }
