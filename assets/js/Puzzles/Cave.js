@@ -141,14 +141,14 @@ class CavePuzzle{
             .append('<img class="img-fluid" id="minigame-background" src=assets/images/minigames/cave_opened.png alt="Minigame">')
 
         // Add the two clues to the image
-        var clue1 = $('<img class="img-fluid" id="stepping-stones-clue" src=assets/images/clues/stepping-stones-clue.png alt="Clue1">')
-                    .on("click",function(){zoom = new Zoom('assets/images/clues/stepping-stones-clue.png','stepping-stones-clue','This must be some sort of hint',1)})
-        var clue2 = $('<img class="img-fluid" id="waterfall-clue" src=assets/images/clues/waterfall-clue.jpg alt="Clue2">')
-                    .on("click",function(){zoom = new Zoom('assets/images/clues/waterfall-clue.jpg','waterfall-clue','This must be a clue to the next location',1)})
-        var clue3 = $('<img class="img-fluid" id="key-line-cave" src=assets/images/clues/key-line-cave.bmp alt="Clue3">')
+        //var clue1 = $('<img class="img-fluid" id="stepping-stones-clue" src=assets/images/clues/stepping-stones-clue.png alt="Clue1">')
+        //            .on("click",function(){zoom = new Zoom('assets/images/clues/stepping-stones-clue.png','stepping-stones-clue','This must be some sort of hint',1)})
+        var clue1 = $('<img class="img-fluid" id="obelisk-clue" src=assets/images/clues/obelisk-clue.jpg alt="Clue1">')
+                    .on("click",function(){zoom = new Zoom('assets/images/clues/obelisk-clue.jpg','obelisk-clue','This must be a clue to the next location',1)})
+        var clue2 = $('<img class="img-fluid" id="key-line-cave" src=assets/images/clues/key-line-cave.bmp alt="Clue2">')
                     .on("click",function(){zoom = new Zoom('assets/images/clues/key-line-cave.bmp','key-line-cave','A gold bar, stamped with characters',2)})
-        $('#minigame-modal').find('.modal-body').append(clue1).append(clue2).append(clue3)
-
+        $('#minigame-modal').find('.modal-body').append(clue1).append(clue2)
+        
     }
 
 }
