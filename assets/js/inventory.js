@@ -1,17 +1,17 @@
 // Outside the inventory class, keep a list of the possible items that could go into the inventory
 var inventoryItems = [
     {title:"padlock-key",path:"assets/images/locks/padlock-key.jpg",description:"An old key",useability:"inventory-item-useable"},
-    {title:"stepping-stones-clue",path:"assets/images/minigames/puzzles/cave/waterfall-clue.png",description:"Some kind of diagram",useability:"inventory-item-viewable"},
-    {title:"waterfall-clue",path:"assets/images/minigames/puzzles/cave/clue2.bmp",description:"Sounds like a riddle",useability:"inventory-item-viewable"},
+    {title:"stepping-stones-clue",path:"assets/images/clues/stepping-stones-clue.png",description:"Some kind of diagram",useability:"inventory-item-viewable"},
+    {title:"waterfall-clue",path:"assets/images/clues/waterfall-clue.jpg",description:"Must be a clue to the next location",useability:"inventory-item-viewable"},
     {title:"well-stones-clue",path:"assets/images/minigames/puzzles/waterfall/well-stones-clue.jpg",description:"Some kind of diagram",useability:"inventory-item-viewable"},
     {title:"well-clue",path:"assets/images/minigames/puzzles/waterfall/well-clue.bmp",description:"Sounds like a riddle",useability:"inventory-item-viewable"},
     {title:"skeleton-clue",path:"assets/images/minigames/puzzles/obelisk/skeleton-clue.bmp",description:"Some kind of clue",useability:"inventory-item-viewable"},
     {title:"skeleton-clue-2",path:"assets/images/minigames/puzzles/obelisk/skeleton-clue-2.jpg",description:"A clue!",useability:"inventory-item-viewable"},
-    {title:"key-line-2",path:"assets/images/minigames/puzzles/skeleton/key-line-2.bmp",description:"A gold tile!",useability:"inventory-item-useable"},
-    {title:"key-line-3",path:"assets/images/minigames/puzzles/skeleton/key-line-3.bmp",description:"A gold tile!",useability:"inventory-item-useable"},
-    {title:"key-line-4",path:"assets/images/minigames/puzzles/skeleton/key-line-4.bmp",description:"A gold tile!",useability:"inventory-item-useable"},
-    {title:"key-line-5",path:"assets/images/minigames/puzzles/skeleton/key-line-5.bmp",description:"A gold tile!",useability:"inventory-item-useable"},
-    {title:"key-line-6",path:"assets/images/minigames/puzzles/skeleton/key-line-6.bmp",description:"A gold tile!",useability:"inventory-item-useable"}
+    {title:"key-line-waterfall",path:"assets/images/clues/key-line-waterfall.bmp",description:"A gold tile!",useability:"inventory-item-useable"},
+    {title:"key-line-well",path:"assets/images/clues/key-line-well.bmp",description:"A gold tile!",useability:"inventory-item-useable"},
+    {title:"key-line-cave",path:"assets/images/clues/key-line-cave.bmp",description:"A gold tile!",useability:"inventory-item-useable"},
+    {title:"key-line-volcano",path:"assets/images/clues/key-line-volcano.bmp",description:"A gold tile!",useability:"inventory-item-useable"},
+    {title:"key-line-obelisk",path:"assets/images/clues/key-line-obelisk.bmp",description:"A gold tile!",useability:"inventory-item-useable"}
 ]
 
 // Create a class for the inventory
@@ -27,11 +27,11 @@ class Inventory {
         this.addItem("padlock-key")
 
         // Temporarily add the gold tiles to the inventory for debugging purposes
-        this.addItem("key-line-2")
-        this.addItem("key-line-3")
-        this.addItem("key-line-4")
-        this.addItem("key-line-5")
-        this.addItem("key-line-6")
+        //this.addItem("key-line-2")
+        //this.addItem("key-line-3")
+        //this.addItem("key-line-4")
+        //this.addItem("key-line-5")
+        //this.addItem("key-line-6")
 
     }
 

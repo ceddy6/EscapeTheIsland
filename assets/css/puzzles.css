@@ -38,6 +38,10 @@
     top:91%;
     left:84%;
 }
+#stone_fez{
+    top:60%;
+    left:55%;
+}
 .hollow{
     position:absolute;
     width:7%;
@@ -64,15 +68,22 @@
 #stepping-stones-clue{
     cursor:pointer;
     position:absolute;
-    width:1%;
+    width:2%;
     top:69%;
     left:64%;
 }
 #waterfall-clue{
     cursor:pointer;
     position:absolute;
-    width:2%;
-    top:72%;
+    width:3%;
+    top:71%;
+    left:67%;
+}
+#key-line-cave{
+    cursor:pointer;
+    position:absolute;
+    width:3%;
+    top:73%;
     left:68%;
 }
 

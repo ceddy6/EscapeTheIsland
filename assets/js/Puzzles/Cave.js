@@ -34,12 +34,12 @@ class CavePuzzle{
         var stone4 = $('<img class="img-fluid click-region stone" id="stone_fin" src=assets/images/minigames/puzzles/cave/stone_fin.png alt="Stone4">')
         var stone5 = $('<img class="img-fluid click-region stone" id="stone_iron" src=assets/images/minigames/puzzles/cave/stone_iron.png alt="Stone5">')
         var stone6 = $('<img class="img-fluid click-region stone" id="stone_rat" src=assets/images/minigames/puzzles/cave/stone_rat.png alt="Stone6">')
-        canvas.append(stone1).append(stone2).append(stone3).append(stone4).append(stone5).append(stone6)
-      
+        var stone7 = $('<img class="img-fluid click-region stone" id="stone_fez" src=assets/images/minigames/puzzles/cave/stone_fez.png alt="Stone7">')
+        canvas.append(stone1).append(stone2).append(stone3).append(stone4).append(stone5).append(stone6).append(stone7)
         
         // Put the check of puzzle completion on all stones on mouseup (if the puzzle hasn't already been compeleted)
         if (locations[index].complete == 0) {
-            $('.stone').on("mouseup",function(){puzzle.checkComplete()})
+            $('#minigame-modal').on("mouseup",function(){puzzle.checkComplete()})
         }
 
         // Add jquery method to make the stones draggable
@@ -77,32 +77,45 @@ class CavePuzzle{
     // Method for checking whether the puzzle is complete (needs to be called after dragging events)
     checkComplete(){
 
+        console.log("Checking complete")
+
         // Not the neatest method....
-        var obamax = $('#hollow1').css("left")
-        var obamay = $('#hollow1').css("top")
-        var llamax = $('#stone_llama').css("left")
-        var llamay = $('#stone_llama').css("top")
+        var obamax = parseInt($('#hollow1').css("left").slice(0,-2))
+        var obamay = parseInt($('#hollow1').css("top").slice(0,-2))
+        var llamax = parseInt($('#stone_llama').css("left").slice(0,-2))
+        var llamay = parseInt($('#stone_llama').css("top").slice(0,-2))
         
-        var tinx = $('#hollow2').css("left")
-        var tiny = $('#hollow2').css("top")
-        var finx = $('#stone_fin').css("left")
-        var finy = $('#stone_fin').css("top")
+        var tinx = parseInt($('#hollow2').css("left").slice(0,-2))
+        var tiny = parseInt($('#hollow2').css("top").slice(0,-2))
+        var finx = parseInt($('#stone_fin').css("left").slice(0,-2))
+        var finy = parseInt($('#stone_fin').css("top").slice(0,-2))
         
-        var catx = $('#hollow3').css("left")
-        var caty = $('#hollow3').css("top")
-        var ratx = $('#stone_rat').css("left")
-        var raty = $('#stone_rat').css("top")
+        var catx = parseInt($('#hollow3').css("left").slice(0,-2))
+        var caty = parseInt($('#hollow3').css("top").slice(0,-2))
+        var ratx = parseInt($('#stone_rat').css("left").slice(0,-2))
+        var raty = parseInt($('#stone_rat').css("top").slice(0,-2))
         
-        var rugx = $('#hollow4').css("left")
-        var rugy = $('#hollow4').css("top")
-        var bugx = $('#stone_bug').css("left")
-        var bugy = $('#stone_bug').css("top")
+        var rugx = parseInt($('#hollow4').css("left").slice(0,-2))
+        var rugy = parseInt($('#hollow4').css("top").slice(0,-2))
+        var bugx = parseInt($('#stone_bug').css("left").slice(0,-2))
+        var bugy = parseInt($('#stone_bug').css("top").slice(0,-2))
         
-        if (obamax == llamax && obamay == llamay && 
-            tinx == finx && tiny == finy && 
-            catx == ratx && caty == raty && 
-            rugx == bugx && rugy == bugy) 
+        var obamaOffsetX = (Math.abs(obamax - llamax))
+        var obamaOffsetY = (Math.abs(obamay - llamay))
+        var tinOffsetX = (Math.abs(tinx - finx))
+        var tinOffsetY = (Math.abs(tiny - finy))
+        var catOffsetX = (Math.abs(catx - ratx))
+        var catOffsetY = (Math.abs(caty - raty))
+        var rugOffsetX = (Math.abs(rugx - bugx))
+        var rugOffsetY = (Math.abs(rugy - bugy))
+
+        if (obamaOffsetX < 1 && obamaOffsetY < 1 && 
+            tinOffsetX < 1 && tinOffsetY < 1 && 
+            catOffsetX < 1 && catOffsetY < 1 && 
+            rugOffsetX < 1 && rugOffsetY < 1) 
         {
+            console.log("Complete")
+
             // Mark puzzle as complete
             locations.find(function(entry){return entry.name=="Cave"}).complete = 1
             
@@ -119,17 +132,22 @@ class CavePuzzle{
     // This method replaces the background with one with an open hiding space
     openHidingPlace(){
 
+        // Remove the on click method for checking completion
+        $('#minigame-modal').off("mouseup")
+
         // Replace the background image with the door opened image
         $('#minigame-background').remove()
         $('#minigame-modal').find('.modal-body')                                
             .append('<img class="img-fluid" id="minigame-background" src=assets/images/minigames/cave_opened.png alt="Minigame">')
 
         // Add the two clues to the image
-        var clue1 = $('<img class="img-fluid" id="stepping-stones-clue" src=assets/images/minigames/puzzles/cave/waterfall-clue.png alt="Clue1">')
-                    .on("click",function(){zoom = new Zoom('assets/images/minigames/puzzles/cave/waterfall-clue.png','stepping-stones-clue','This must be some sort of hint',1)})
-        var clue2 = $('<img class="img-fluid" id="waterfall-clue" src=assets/images/minigames/puzzles/cave/clue2.bmp alt="Clue2">')
-                    .on("click",function(){zoom = new Zoom('assets/images/minigames/puzzles/cave/clue2.bmp','waterfall-clue','This must be a clue to the next location',1)})
-        $('#minigame-modal').find('.modal-body').append(clue1).append(clue2)
+        var clue1 = $('<img class="img-fluid" id="stepping-stones-clue" src=assets/images/clues/stepping-stones-clue.png alt="Clue1">')
+                    .on("click",function(){zoom = new Zoom('assets/images/clues/stepping-stones-clue.png','stepping-stones-clue','This must be some sort of hint',1)})
+        var clue2 = $('<img class="img-fluid" id="waterfall-clue" src=assets/images/clues/waterfall-clue.jpg alt="Clue2">')
+                    .on("click",function(){zoom = new Zoom('assets/images/clues/waterfall-clue.jpg','waterfall-clue','This must be a clue to the next location',1)})
+        var clue3 = $('<img class="img-fluid" id="key-line-cave" src=assets/images/clues/key-line-cave.bmp alt="Clue3">')
+                    .on("click",function(){zoom = new Zoom('assets/images/clues/key-line-cave.bmp','key-line-cave','A gold bar, stamped with characters',2)})
+        $('#minigame-modal').find('.modal-body').append(clue1).append(clue2).append(clue3)
 
     }
 
