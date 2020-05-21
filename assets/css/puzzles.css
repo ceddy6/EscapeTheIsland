@@ -349,7 +349,7 @@
     left:20px;
     background:black;
 }
-#skeleton-clue{
+#well-clue{
     position:absolute;
     cursor:pointer;
     width:46px;
@@ -357,11 +357,19 @@
     top:19px;
     left:29px;
 }
-#skeleton-clue-2{
+#well-stones-clue{
+    position:absolute;
+    cursor:pointer;
+    width:5px;
+    height:61px;
+    top:10px;
+    left:55px;
+}
+#key-line-obelisk{
     position:absolute;
     cursor:pointer;
     width:46px;
-    height:18px;
+    height:11px;
     top:19px;
     left:29px;
 }

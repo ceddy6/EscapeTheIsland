@@ -122,14 +122,16 @@ class ObeliskPuzzle{
 
         // Append the clues
         if (puzzid == 1) {
-            var clue1 = $('<img class="img-fluid" id="skeleton-clue" src=assets/images/minigames/puzzles/obelisk/skeleton-clue.bmp alt="Clue1">')
-                    .on("click",function(){zoom = new Zoom('assets/images/minigames/puzzles/obelisk/skeleton-clue.bmp','skeleton-clue','This must be some sort of clue',1)})
+            var clue1 = $('<img class="img-fluid" id="well-clue" src=assets/images/clues/well-clue.jpg alt="Clue1">')
+                    .on("click",function(){zoom = new Zoom('assets/images/clues/well-clue.jpg','well-clue','This must be a clue to the next location',1)})
             $('.block-0.puzzle-1').append(clue1)
         }
         if (puzzid == 2) {
-            var clue2 = $('<img class="img-fluid" id="skeleton-clue-2" src=assets/images/minigames/puzzles/obelisk/skeleton-clue-2.jpg alt="Clue2">')
-                    .on("click",function(){zoom = new Zoom('assets/images/minigames/puzzles/obelisk/skeleton-clue-2.jpg','skeleton-clue-2','This must be a clue to the next location',1)})
-            $('.block-0.puzzle-2').append(clue2)
+            var clue2 = $('<img class="img-fluid" id="well-stones-clue" src=assets/images/clues/well-stones-clue.jpg alt="Clue2">')
+                    .on("click",function(){zoom = new Zoom('assets/images/clues/well-stones-clue.jpg','well-stones-clue','This must be some sort of clue...',1)})
+            var clue3 = $('<img class="img-fluid" id="key-line-obelisk" src=assets/images/clues/key-line-obelisk.bmp alt="Clue3">')
+                    .on("click",function(){zoom = new Zoom('assets/images/clues/key-line-obelisk.bmp','key-line-obelisk','Another of those gold bars',2)})
+            $('.block-0.puzzle-2').append(clue2).append(clue3)
         }
 
     }
