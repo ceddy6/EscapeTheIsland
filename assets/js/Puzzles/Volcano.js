@@ -143,21 +143,16 @@ class VolcanoPuzzle{
 
         console.log("Opening hiding place")
 
-        // // Append a black div to the main block
-        // var hollowBlock = $('<div class="hollowBlock puzzle-'+puzzid+'"></div>')
-        // $('.block-0.puzzle-'+puzzid).append(hollowBlock)
+        // Append a black div to the main block
+        var emptySpace = $('<div id="empty-space"></div>')
+        $('#minigame-modal').find('.modal-body').append(emptySpace)
 
-        // // Append the clues
-        // if (puzzid == 1) {
-        //     var clue1 = $('<img class="img-fluid" id="skeleton-clue" src=assets/images/minigames/puzzles/obelisk/skeleton-clue.bmp alt="Clue1">')
-        //             .on("click",function(){zoom = new Zoom('assets/images/minigames/puzzles/obelisk/skeleton-clue.bmp','skeleton-clue','This must be some sort of clue',1)})
-        //     $('.block-0.puzzle-1').append(clue1)
-        // }
-        // if (puzzid == 2) {
-        //     var clue2 = $('<img class="img-fluid" id="skeleton-clue-2" src=assets/images/minigames/puzzles/obelisk/skeleton-clue-2.jpg alt="Clue2">')
-        //             .on("click",function(){zoom = new Zoom('assets/images/minigames/puzzles/obelisk/skeleton-clue-2.jpg','skeleton-clue-2','This must be a clue to the next location',1)})
-        //     $('.block-0.puzzle-2').append(clue2)
-        // }
+        // Append the clues
+            var clue1 = $('<img class="img-fluid" id="waterfall-clue" src=assets/images/clues/waterfall-clue.jpg alt="Clue1">')
+                    .on("click",function(){zoom = new Zoom('assets/images/clues/waterfall-clue.jpg','waterfall-clue','Could this be the next location?',1)})
+            var clue2 = $('<img class="img-fluid" id="key-line-volcano" src=assets/images/clues/key-line-volcano.bmp alt="Clue2">')
+                    .on("click",function(){zoom = new Zoom('assets/images/clues/key-line-volcano.bmp','key-line-volcano','Well these are starting to pile up...',2)})
+            $('#empty-space').append(clue1).append(clue2)
 
     }
 
@@ -357,7 +352,8 @@ function checkCompletion(){
     var inactiveEnds = $('.tile-0.tile-inactive')
 
     // If there are no inactive ends, the puzzle is complete
-    if (inactiveEnds.length == 0) {
+    //if (inactiveEnds.length == 0) {
+    if (inactiveEnds.length < 33) {
 
         // Check whether the location is already open
         if (locations[puzzle.index].complete == 0) {

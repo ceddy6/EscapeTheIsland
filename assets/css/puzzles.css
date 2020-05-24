@@ -423,37 +423,31 @@
     background-color:blue;
     cursor:pointer;
 }
-
-/* .lava-tile.tile-inactive.tile-0{
-    background-image:url("../images/minigames/puzzles/volcano/end.bmp");
+#empty-space{
+    position:absolute;
+    width:10%;
+    height:10%;
+    top:8%;
+    left:78%;
+    background-color:black;
+    border:2px solid red;
 }
-.lava-tile.tile-inactive.tile-1{
-    background-image:url("../images/minigames/puzzles/volcano/line.bmp");
+#waterfall-clue{
+    position:absolute;
+    cursor:pointer;
+    width:80%;
+    height:30%;
+    top:10%;
+    left:10%;
 }
-.lava-tile.tile-inactive.tile-2{
-    background-image:url("../images/minigames/puzzles/volcano/corner.bmp");
+#key-line-volcano{
+    position:absolute;
+    cursor:pointer;
+    width:80%;
+    height:16%;
+    top:60%;
+    left:10%;
 }
-.lava-tile.tile-inactive.tile-3{
-    background-image:url("../images/minigames/puzzles/volcano/tri.bmp");
-}
-.lava-tile.tile-inactive.tile-4{
-    background-image:url("../images/minigames/puzzles/volcano/start.bmp");
-}
-.lava-tile.tile-active.tile-0{
-    background-image:url("../images/minigames/puzzles/volcano/end_full.bmp");
-}
-.lava-tile.tile-active.tile-1{
-    background-image:url("../images/minigames/puzzles/volcano/line_full.bmp");
-}
-.lava-tile.tile-active.tile-2{
-    background-image:url("../images/minigames/puzzles/volcano/corner_full.bmp");
-}
-.lava-tile.tile-active.tile-3{
-    background-image:url("../images/minigames/puzzles/volcano/tri_full.bmp");
-}
-.lava-tile.tile-active.tile-4{
-    background-image:url("../images/minigames/puzzles/volcano/start.bmp");
-} */
 
 
 /* Skeleton tile grid */
