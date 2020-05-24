@@ -7,7 +7,7 @@ var inventoryItems = [
     {title:"well-clue",path:"assets/images/clues/well-clue.jpg",description:"This must be the next location",useability:"inventory-item-viewable"},
     {title:"volcano-clue",path:"assets/images/clues/volcano-clue.jpg",description:"This must be the next location",useability:"inventory-item-viewable"},
     {title:"obelisk-clue",path:"assets/images/clues/obelisk-clue.jpg",description:"Must be a clue to the next location",useability:"inventory-item-viewable"},
-    {title:"skeleton-clue",path:"assets/images/minigames/puzzles/obelisk/skeleton-clue.bmp",description:"Some kind of clue",useability:"inventory-item-viewable"},
+    {title:"skeleton-clue",path:"assets/images/clues/skeleton-clue.bmp",description:"Some kind of clue",useability:"inventory-item-viewable"},
     {title:"skeleton-clue-2",path:"assets/images/minigames/puzzles/obelisk/skeleton-clue-2.jpg",description:"A clue!",useability:"inventory-item-viewable"},
     {title:"key-line-waterfall",path:"assets/images/clues/key-line-waterfall.bmp",description:"A gold tile!",useability:"inventory-item-useable"},
     {title:"key-line-well",path:"assets/images/clues/key-line-well.bmp",description:"A gold tile!",useability:"inventory-item-useable"},

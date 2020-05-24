@@ -41,10 +41,10 @@ class WaterfallPuzzle{
             .append('<img class="img-fluid" id="scales-pointer" src=assets/images/minigames/puzzles/waterfall/scales-pointer.png alt="scales">')
 
         // Add the two clues to the image
-        var clue1 = $('<img class="img-fluid" id="well-stones-clue" src=assets/images/minigames/puzzles/waterfall/well-stones-clue.jpg alt="Clue1">')
-                   .on("click",function(){zoom = new Zoom('assets/images/minigames/puzzles/waterfall/well-stones-clue.jpg','well-stones-clue','This must be some sort of hint',1)})
-        var clue2 = $('<img class="img-fluid" id="well-clue" src=assets/images/minigames/puzzles/waterfall/well-clue.bmp alt="Clue2">')
-                   .on("click",function(){zoom = new Zoom('assets/images/minigames/puzzles/waterfall/well-clue.bmp','well-clue','This must be a clue to the next location',1)})
+        var clue1 = $('<img class="img-fluid" id="skeleton-clue" src=assets/images/clues/skeleton-clue.jpg alt="Clue1">')
+                   .on("click",function(){zoom = new Zoom('assets/images/clues/skeleton-clue.jpg','skeleton-clue','Maybe this is the last place...',1)})
+        var clue2 = $('<img class="img-fluid" id="key-line-waterfall" src=assets/images/clues/key-line-waterfall.bmp alt="Clue2">')
+                   .on("click",function(){zoom = new Zoom('assets/images/clues/key-line-waterfall.bmp','key-line-waterfall',"Here's another one",2)})
         $('#minigame-modal').find('.modal-body').append(clue1).append(clue2)
 
     }

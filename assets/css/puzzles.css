@@ -170,20 +170,19 @@
     pointer-events:none;
 }
 
-#well-clue{
+#skeleton-clue{
     cursor:pointer;
     position:absolute;
     width:6%;
-    top:44%;
-    left:50%;
+    top:60%;
+    left:46%;
 }
-#well-stones-clue{
+#key-line-waterfall{
     cursor:pointer;
     position:absolute;
-    width:1.5%;
-    top:36%;
+    width:8%;
+    top:60%;
     left:55%;
-    transform:rotate(90deg);
 }
 
 
