@@ -66,7 +66,7 @@ class Jug{
         var self = this
 
         // Set the div height for the water when full
-        if (capacity == 3) {this.maxWaterHeight = 5} else {this.maxWaterHeight = 7}
+        if (capacity == 3) {this.maxWaterHeight = 10} else {this.maxWaterHeight = 14}
 
         // Add the image for the jug
         if (this.capacity == 5) {
@@ -206,14 +206,25 @@ class Jug{
         var self = this
 
         // Set new position of the jug and its contents
-        $('.jug.jug-capacity-'+this.capacity).animate({
-            "top":"12%",
-            "left":"47%"
-        })
-        $('.jug-contents.jug-capacity-'+this.capacity).animate({
-            "bottom":"53.75%",
-            "left":"53%"
-        })
+        if (this.capacity == 5) {
+            $('.jug.jug-capacity-'+this.capacity).animate({
+                "top":"25%",
+                "left":"32.5%"
+            })
+            $('.jug-contents.jug-capacity-'+this.capacity).animate({
+                "bottom":"55.25%",
+                "left":"40%"
+            })
+        } else {
+            $('.jug.jug-capacity-'+this.capacity).animate({
+                "top":"31%",
+                "left":"35%"
+            })
+            $('.jug-contents.jug-capacity-'+this.capacity).animate({
+                "bottom":"55.25%",
+                "left":"40.75%"
+            })
+        }
 
         // Once the jug is on the scales, call weigh jug
         self.weigh()
@@ -231,22 +242,22 @@ class Jug{
         if (this.capacity == 3) {
             // Set new position of the 3kg jug and its contents
             $('.jug.jug-capacity-'+this.capacity).animate({
-                "top":"50%",
-                "left":"25%"
+                "top":"72%",
+                "left":"21%"
             })
             $('.jug-contents.jug-capacity-'+this.capacity).animate({
-                "bottom":"41.75%",
-                "left":"27%"
+                "bottom":"14.25%",
+                "left":"26.75%"
             })
         } else {
             // Set new position of the 5kg jug and its contents
             $('.jug.jug-capacity-'+this.capacity).animate({
-                "top":"50%",
-                "left":"75%"
+                "top":"70%",
+                "left":"56%"
             })
             $('.jug-contents.jug-capacity-'+this.capacity).animate({
-                "bottom":"41.75%",
-                "left":"77%"
+                "bottom":"10.5%",
+                "left":"63.5%"
             })            
         }
 
@@ -275,9 +286,6 @@ class Scales{
 
     // Weighing a jug will pass its weight to the scales as a parameter
     setWeight(weight){
-
-        console.log("Setting the scales pointer to " + weight + "kg")
-        console.log(scales.angles[weight])
 
         // Set the rotation angle of the pointer to the right angle
         $('#scales-pointer').css({'transform':'rotate('+scales.angles[weight]+')'})
