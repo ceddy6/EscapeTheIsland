@@ -467,7 +467,7 @@
 }
 .sk-grid-wrapper.ptile{
     top:30px;
-    left:300px;
+    left:260px;
 }
 .sk-grid{
     position:relative;
@@ -479,22 +479,22 @@
 }
 .sk-grid-cell-outer{
     background-color:transparent;
-    width:50px;
-    height:50px;
+    width:40px;
+    height:40px;
     padding:0px;
     background-color:#FFCC00;
     cursor:pointer;
 }
 .sk-grid-cell-inner{
     position:relative;
-    width:50px;
-    height:50px;
+    width:40px;
+    height:40px;
     background-color:blue;
     visibility:hidden;
     pointer-events:none;
 }
 .tile-row{
     position:absolute;
-    height:50px;
-    width:250px;
+    height:40px;
+    width:200px;
 }

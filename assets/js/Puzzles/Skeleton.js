@@ -91,7 +91,7 @@ class SkeletonPuzzle{
             .css({"top":"1px"})
             .css({"left":"4px"}))
         $('.sk-grid-row.sk-grid-row-6.pkey').append($('<img class="img-fluid tile-row tile-row-fixed" id="key-row-6" src=assets/images/minigames/puzzles/skeleton/key-line-7.bmp alt="Key Row">')
-            .css({"top":"308px"})
+            .css({"top":"246px"})
             .css({"left":"4px"}))
 
         // On click method for when a cell is clicked

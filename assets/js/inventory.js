@@ -29,11 +29,11 @@ class Inventory {
         this.addItem("padlock-key")
 
         // Temporarily add the gold tiles to the inventory for debugging purposes
-        //this.addItem("key-line-2")
-        //this.addItem("key-line-3")
-        //this.addItem("key-line-4")
-        //this.addItem("key-line-5")
-        //this.addItem("key-line-6")
+        this.addItem("key-line-obelisk")
+        this.addItem("key-line-cave")
+        this.addItem("key-line-waterfall")
+        this.addItem("key-line-volcano")
+        this.addItem("key-line-well")
 
     }
 
@@ -100,13 +100,13 @@ class Inventory {
                     break;
 
                 // If it's one of the gold tiles
-                case 'key-line-2':
+                case 'key-line-cave':
                     // If the puzzle is the right one, add a full sized tile to the puzzle
                     if (puzzle.index == 5) {
                         $('#minigame-modal').find('.modal-body')
-                            .append($('<img class="img-fluid tile-row tile-row-draggable" id="key-row-2" src=assets/images/minigames/puzzles/skeleton/key-line-2.bmp alt="Key Row">')
+                            .append($('<img class="img-fluid tile-row tile-row-draggable" id="key-row-cave" src=assets/images/clues/key-line-cave.bmp alt="Key Row">')
                                     .css({"top":"40px"})
-                                    .css({"left":"575px"})
+                                    .css({"left":"500px"})
                                     .css({"cursor":"pointer"})
                                     .css({"position":"absolute"})
                                     .draggable({
@@ -117,13 +117,13 @@ class Inventory {
                         inventory.removeItem(item)
                     }
                     break;
-                case 'key-line-3':
+                case 'key-line-waterfall':
                     // If the puzzle is the right one, add a full sized tile to the puzzle
                     if (puzzle.index == 5) {
                         $('#minigame-modal').find('.modal-body')
-                            .append($('<img class="img-fluid tile-row tile-row-draggable" id="key-row-3" src=assets/images/minigames/puzzles/skeleton/key-line-3.bmp alt="Key Row">')
+                            .append($('<img class="img-fluid tile-row tile-row-draggable" id="key-row-waterfall" src=assets/images/clues/key-line-waterfall.bmp alt="Key Row">')
                                     .css({"top":"100px"})
-                                    .css({"left":"575px"})
+                                    .css({"left":"500px"})
                                     .css({"cursor":"pointer"})
                                     .css({"position":"absolute"})
                                     .draggable({
@@ -134,13 +134,13 @@ class Inventory {
                         inventory.removeItem(item)
                     }
                     break;
-                case 'key-line-4':
+                case 'key-line-well':
                     // If the puzzle is the right one, add a full sized tile to the puzzle
                     if (puzzle.index == 5) {
                         $('#minigame-modal').find('.modal-body')
-                            .append($('<img class="img-fluid tile-row tile-row-draggable" id="key-row-4" src=assets/images/minigames/puzzles/skeleton/key-line-4.bmp alt="Key Row">')
+                            .append($('<img class="img-fluid tile-row tile-row-draggable" id="key-row-well" src=assets/images/clues/key-line-well.bmp alt="Key Row">')
                                     .css({"top":"160px"})
-                                    .css({"left":"575px"})
+                                    .css({"left":"500px"})
                                     .css({"cursor":"pointer"})
                                     .css({"position":"absolute"})
                                     .draggable({
@@ -151,13 +151,13 @@ class Inventory {
                         inventory.removeItem(item)
                     }
                     break;
-                case 'key-line-5':
+                case 'key-line-volcano':
                     // If the puzzle is the right one, add a full sized tile to the puzzle
                     if (puzzle.index == 5) {
                         $('#minigame-modal').find('.modal-body')
-                            .append($('<img class="img-fluid tile-row tile-row-draggable" id="key-row-5" src=assets/images/minigames/puzzles/skeleton/key-line-5.bmp alt="Key Row">')
+                            .append($('<img class="img-fluid tile-row tile-row-draggable" id="key-row-volcano" src=assets/images/clues/key-line-volcano.bmp alt="Key Row">')
                                     .css({"top":"220px"})
-                                    .css({"left":"575px"})
+                                    .css({"left":"500px"})
                                     .css({"cursor":"pointer"})
                                     .css({"position":"absolute"})
                                     .draggable({
@@ -168,13 +168,13 @@ class Inventory {
                         inventory.removeItem(item)
                     }
                     break;
-                case 'key-line-6':
+                case 'key-line-obelisk':
                     // If the puzzle is the right one, add a full sized tile to the puzzle
                     if (puzzle.index == 5) {
                         $('#minigame-modal').find('.modal-body')
-                            .append($('<img class="img-fluid tile-row tile-row-draggable" id="key-row-6" src=assets/images/minigames/puzzles/skeleton/key-line-6.bmp alt="Key Row">')
+                            .append($('<img class="img-fluid tile-row tile-row-draggable" id="key-row-obelisk" src=assets/images/clues/key-line-obelisk.bmp alt="Key Row">')
                                     .css({"top":"280px"})
-                                    .css({"left":"575px"})
+                                    .css({"left":"500px"})
                                     .css({"cursor":"pointer"})
                                     .css({"position":"absolute"})
                                     .draggable({
