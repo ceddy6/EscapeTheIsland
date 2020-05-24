@@ -69,27 +69,35 @@ class Jug{
         if (capacity == 3) {this.maxWaterHeight = 5} else {this.maxWaterHeight = 7}
 
         // Add the image for the jug
-        var canvas = $('#minigame-modal').find('.modal-body')
-                    .append(
-                        $('<img class="img-fluid click-region jug jug-capacity-'+capacity+'" src=assets/images/minigames/puzzles/waterfall/jug.bmp alt="Jug">')
-                            .on("click",function(){self.showActions()})
-                    )
+        if (this.capacity == 5) {
+            var canvas = $('#minigame-modal').find('.modal-body')
+                        .append(
+                            $('<img class="img-fluid click-region jug jug-capacity-'+capacity+'" src=assets/images/minigames/puzzles/waterfall/jug.png alt="Jug">')
+                                .on("click",function(){self.showActions()})
+                        )
+        } else {
+            var canvas = $('#minigame-modal').find('.modal-body')
+                        .append(
+                            $('<img class="img-fluid click-region jug jug-capacity-'+capacity+'" src=assets/images/minigames/puzzles/waterfall/jug.png alt="Jug">')
+                                .on("click",function(){self.showActions()})
+                        )
+        }
        
         // Add a blue rectangle to be the contents of the jug
         canvas.append($('<div class="jug-contents jug-capacity-'+capacity+'"></div>'))
 
         // Add labels above the jug for doing actions to the jug 
         canvas
-            .append($('<img class="img-fluid click-region jug-action jug-action-fill jug-capacity-'+capacity+'" src=assets/images/minigames/puzzles/waterfall/scroll-fill.bmp alt="Scroll">')
+            .append($('<img class="img-fluid click-region jug-action jug-action-fill jug-capacity-'+capacity+'" src=assets/images/minigames/puzzles/waterfall/scroll-fill.png alt="Scroll">')
                         .on("click",function(){self.fill()})
             )
-            .append($('<img class="img-fluid click-region jug-action jug-action-pour jug-capacity-'+capacity+'" src=assets/images/minigames/puzzles/waterfall/scroll-pour.bmp alt="Scroll">')
+            .append($('<img class="img-fluid click-region jug-action jug-action-pour jug-capacity-'+capacity+'" src=assets/images/minigames/puzzles/waterfall/scroll-pour.png alt="Scroll">')
                         .on("click",function(){self.pour()})
             )
-            .append($('<img class="img-fluid click-region jug-action jug-action-empty jug-capacity-'+capacity+'" src=assets/images/minigames/puzzles/waterfall/scroll-empty.bmp alt="Scroll">')
+            .append($('<img class="img-fluid click-region jug-action jug-action-empty jug-capacity-'+capacity+'" src=assets/images/minigames/puzzles/waterfall/scroll-empty.png alt="Scroll">')
                         .on("click",function(){self.empty()})
             )
-            .append($('<img class="img-fluid click-region jug-action jug-action-weigh jug-capacity-'+capacity+'" src=assets/images/minigames/puzzles/waterfall/scroll-weigh.bmp alt="Scroll">')
+            .append($('<img class="img-fluid click-region jug-action jug-action-weigh jug-capacity-'+capacity+'" src=assets/images/minigames/puzzles/waterfall/scroll-weigh.png alt="Scroll">')
                         .on("click",function(){self.putOnScales()})
             )
     
@@ -199,8 +207,8 @@ class Jug{
 
         // Set new position of the jug and its contents
         $('.jug.jug-capacity-'+this.capacity).animate({
-            "top":"38%",
-            "left":"51%"
+            "top":"12%",
+            "left":"47%"
         })
         $('.jug-contents.jug-capacity-'+this.capacity).animate({
             "bottom":"53.75%",
