@@ -18,7 +18,7 @@ class Zoom {
 
         // Check whether the zoomed image is capturable, and hide the take a picture button if not
         if (snapable == 1) {
-            $('#snapshot-button').css({"display":"inline-block"}).text('Take a picture')
+            $('#snapshot-button').css({"display":"inline-block"}).text('Take')
         } else if (snapable == 2) {
             $('#snapshot-button').css({"display":"inline-block"}).text('Take')
         } else {
