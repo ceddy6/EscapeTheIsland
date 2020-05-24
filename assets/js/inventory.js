@@ -106,7 +106,7 @@ class Inventory {
                         $('#minigame-modal').find('.modal-body')
                             .append($('<img class="img-fluid tile-row tile-row-draggable" id="key-row-cave" src=assets/images/clues/key-line-cave.bmp alt="Key Row">')
                                     .css({"top":"40px"})
-                                    .css({"left":"500px"})
+                                    .css({"left":"550px"})
                                     .css({"cursor":"pointer"})
                                     .css({"position":"absolute"})
                                     .draggable({
@@ -123,7 +123,7 @@ class Inventory {
                         $('#minigame-modal').find('.modal-body')
                             .append($('<img class="img-fluid tile-row tile-row-draggable" id="key-row-waterfall" src=assets/images/clues/key-line-waterfall.bmp alt="Key Row">')
                                     .css({"top":"100px"})
-                                    .css({"left":"500px"})
+                                    .css({"left":"550px"})
                                     .css({"cursor":"pointer"})
                                     .css({"position":"absolute"})
                                     .draggable({
@@ -140,7 +140,7 @@ class Inventory {
                         $('#minigame-modal').find('.modal-body')
                             .append($('<img class="img-fluid tile-row tile-row-draggable" id="key-row-well" src=assets/images/clues/key-line-well.bmp alt="Key Row">')
                                     .css({"top":"160px"})
-                                    .css({"left":"500px"})
+                                    .css({"left":"550px"})
                                     .css({"cursor":"pointer"})
                                     .css({"position":"absolute"})
                                     .draggable({
@@ -157,7 +157,7 @@ class Inventory {
                         $('#minigame-modal').find('.modal-body')
                             .append($('<img class="img-fluid tile-row tile-row-draggable" id="key-row-volcano" src=assets/images/clues/key-line-volcano.bmp alt="Key Row">')
                                     .css({"top":"220px"})
-                                    .css({"left":"500px"})
+                                    .css({"left":"550px"})
                                     .css({"cursor":"pointer"})
                                     .css({"position":"absolute"})
                                     .draggable({
@@ -174,7 +174,7 @@ class Inventory {
                         $('#minigame-modal').find('.modal-body')
                             .append($('<img class="img-fluid tile-row tile-row-draggable" id="key-row-obelisk" src=assets/images/clues/key-line-obelisk.bmp alt="Key Row">')
                                     .css({"top":"280px"})
-                                    .css({"left":"500px"})
+                                    .css({"left":"550px"})
                                     .css({"cursor":"pointer"})
                                     .css({"position":"absolute"})
                                     .draggable({

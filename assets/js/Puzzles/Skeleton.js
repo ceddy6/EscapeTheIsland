@@ -86,6 +86,11 @@ class SkeletonPuzzle{
             tbody.append(trow)
         }
 
+        // Append some text to the tiles
+        $('.sk-grid-wrapper.pkey').append($('<span id="skeleton-clue-text-1">I am an odd number</span>'))
+        $('.sk-grid-wrapper.pkey').append($('<span id="skeleton-clue-text-2">Take one away and I am even</span>'))
+        $('.sk-grid-wrapper.ptile').append($('<span id="skeleton-output"></span>'))
+
         // Append the first and last rows of the key to the grid
         $('.sk-grid-row.sk-grid-row-0.pkey').append($('<img class="img-fluid tile-row tile-row-fixed" id="key-row-0" src=assets/images/minigames/puzzles/skeleton/key-line-1.bmp alt="Key Row">')
             .css({"top":"1px"})
@@ -106,6 +111,16 @@ class SkeletonPuzzle{
             } else {
                 self.word.push(letter)
             }
+
+            // Make the word into a word
+            var output = ''
+            for (var n of self.word){
+                output = output + n
+            }
+
+            // Write the word into the space
+            $('#skeleton-output').text(output)
+
             // Add a check of whether the word is complete
             self.confirmComplete()
         })
