@@ -35,6 +35,9 @@ class Zoom {
         // Select the inventory modal, and append the correct picture
         inventory.addItem(this.id)
 
+        // Remove the clue from the game
+        $('#'+this.id).remove()
+
         // Close the zoom modal, and open the inventory
         $('#zoom-modal').modal('hide')
         $('#inventory-modal').modal('show')

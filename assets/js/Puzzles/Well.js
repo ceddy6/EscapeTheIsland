@@ -168,18 +168,21 @@ class WellPuzzle{
         var stone4Depth = $('.well-grid-cell-wrapper[data-grid-row=50][data-grid-col=0]').attr('data-stone-clicked')
         var stone5Depth = $('.well-grid-cell-wrapper[data-grid-row=67][data-grid-col=4]').attr('data-stone-clicked')
         // Use these if you want a quick test
-        //var stone1Depth = $('.well-grid-cell-wrapper[data-grid-row="0"][data-grid-col="0"]').attr('data-stone-clicked')
-        //var stone2Depth = $('.well-grid-cell-wrapper[data-grid-row="0"][data-grid-col="1"]').attr('data-stone-clicked')
-        //var stone3Depth = $('.well-grid-cell-wrapper[data-grid-row="0"][data-grid-col="2"]').attr('data-stone-clicked')
-        //var stone4Depth = $('.well-grid-cell-wrapper[data-grid-row="0"][data-grid-col="3"]').attr('data-stone-clicked')
-        //var stone5Depth = $('.well-grid-cell-wrapper[data-grid-row="0"][data-grid-col="4"]').attr('data-stone-clicked')
+        var tstone1Depth = $('.well-grid-cell-wrapper[data-grid-row="0"][data-grid-col="0"]').attr('data-stone-clicked')
+        var tstone2Depth = $('.well-grid-cell-wrapper[data-grid-row="0"][data-grid-col="1"]').attr('data-stone-clicked')
+        var tstone3Depth = $('.well-grid-cell-wrapper[data-grid-row="0"][data-grid-col="2"]').attr('data-stone-clicked')
+        var tstone4Depth = $('.well-grid-cell-wrapper[data-grid-row="0"][data-grid-col="3"]').attr('data-stone-clicked')
+        var tstone5Depth = $('.well-grid-cell-wrapper[data-grid-row="0"][data-grid-col="4"]').attr('data-stone-clicked')
 
         // Compare the depths to the targets
-        if ((parseInt(stone1Depth) == 1) &&
-            (parseInt(stone2Depth) == 2) &&
-            (parseInt(stone3Depth) == 3) &&
-            (parseInt(stone4Depth) == 4) &&
-            (parseInt(stone5Depth) == 5)) {
+        //if ((parseInt(stone1Depth) == 1) &&
+        //    (parseInt(stone2Depth) == 2) &&
+        //    (parseInt(stone3Depth) == 3) &&
+        //    (parseInt(stone4Depth) == 4) &&
+        //    (parseInt(stone5Depth) == 5)) {
+        // Compare the depths to the targets
+        if ((parseInt(tstone1Depth) == 1) &&
+            (parseInt(tstone2Depth) == 2)) {
                 console.log("All the tests were passed!")
 
                 // Set a timeout so that you can see the stone finish
@@ -197,17 +200,20 @@ class WellPuzzle{
     // This method replaces the background with one with an open hiding space
     openHidingPlace(){
 
+        // Turn off the stone on-click method
+        $('.well-grid-cell-wrapper').off("click")
+
         // Append a black div to the fifth stone
         $('.well-grid-cell-wrapper[data-grid-row="67"][data-grid-col="4"]')
             .empty()
             .append('<div class="well-stone" id="black-well-stone"></div>')
 
         // Append the clues
-        //var clue1 = $('<img class="img-fluid" id="well-stones-clue" src=assets/images/minigames/puzzles/waterfall/well-stones-clue.jpg alt="Clue1">')
-        //        .on("click",function(){zoom = new Zoom('assets/images/minigames/puzzles/waterfall/well-stones-clue.jpg','well-stones-clue','This must be some sort of hint',1)})
-        //var clue2 = $('<img class="img-fluid" id="well-clue" src=assets/images/minigames/puzzles/waterfall/well-clue.bmp alt="Clue2">')
-        //        .on("click",function(){zoom = new Zoom('assets/images/minigames/puzzles/waterfall/well-clue.bmp','well-clue','This must be a clue to the next location',1)})
-        //$('#minigame-modal').find('.modal-body').append(clue1).append(clue2)
+        var clue1 = $('<img class="img-fluid" id="volcano-clue" src=assets/images/clues/volcano-clue.jpg alt="Clue1">')
+                .on("click",function(){zoom = new Zoom('assets/images/clues/volcano-clue.jpg','volcano-clue','A clue!',1)})
+        var clue2 = $('<img class="img-fluid" id="key-line-well" src=assets/images/clues/key-line-well.bmp alt="Clue2">')
+                .on("click",function(){zoom = new Zoom('assets/images/clues/key-line-well.bmp','key-line-well','Another of those gold bars',2)})
+        $('.well-grid-cell-wrapper[data-grid-row="67"][data-grid-col="4"]').append(clue1).append(clue2)
 
     }
 
