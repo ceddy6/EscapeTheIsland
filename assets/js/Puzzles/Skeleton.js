@@ -12,7 +12,7 @@ class SkeletonPuzzle{
 
         // Add the the background and the title
         canvas.append('<img class="img-fluid" id="minigame-background" src='+locations[index].minigame_img+' alt="Minigame">')
-        title.text("Under the old bones you find a locked box and some stone tiles...")
+        title.text("Under the old bones you find a locked box with some gold and stone tiles set into the lid...")
 
         // Add the grid for the cars
         this.createGrid()
@@ -47,6 +47,9 @@ class SkeletonPuzzle{
 
         // Get the canvas to work on
         var canvas = $('#minigame-modal').find('.modal-body')
+
+        // Append the treasure chest
+        canvas.append('<img class="img-fluid" id="chest-closed" src=assets/images/minigames/puzzles/skeleton/chest.jpg alt="Chest">')
 
         // Append a table for the key
         canvas.append('<div class="sk-grid-wrapper pkey"></div>')
@@ -160,22 +163,13 @@ class SkeletonPuzzle{
     // This method replaces the background with one with an open hiding space
     openHidingPlace(){
 
-        // // Append a black div to the main block
-        // var hollowBlock = $('<div class="hollowBlock puzzle-'+puzzid+'"></div>')
-        // $('.block-0.puzzle-'+puzzid).append(hollowBlock)
-
-        // // Append the clues
-        // if (puzzid == 1) {
-        //     var clue1 = $('<img class="img-fluid" id="skeleton-clue" src=assets/images/minigames/puzzles/obelisk/skeleton-clue.bmp alt="Clue1">')
-        //             .on("click",function(){zoom = new Zoom('assets/images/minigames/puzzles/obelisk/skeleton-clue.bmp','skeleton-clue','This must be some sort of clue',1)})
-        //     $('.block-0.puzzle-1').append(clue1)
-        // }
-        // if (puzzid == 2) {
-        //     var clue2 = $('<img class="img-fluid" id="skeleton-clue-2" src=assets/images/minigames/puzzles/obelisk/skeleton-clue-2.jpg alt="Clue2">')
-        //             .on("click",function(){zoom = new Zoom('assets/images/minigames/puzzles/obelisk/skeleton-clue-2.jpg','skeleton-clue-2','This must be a clue to the next location',1)})
-        //     $('.block-0.puzzle-2').append(clue2)
-        // }
-
+        // Swap the treasure chest for the open one
+        $('#chest-closed').remove()
+        var canvas = $('#minigame-modal').find('.modal-body')
+        canvas.append('<img class="img-fluid" id="chest-open" src=assets/images/minigames/puzzles/skeleton/chest-open.jpg alt="Chest">')
+        canvas.append($('<img class="img-fluid" id="artefact" src=assets/images/minigames/puzzles/skeleton/artefact.jpg alt="Artefact">')
+                    .on("click",function(){zoom = new Zoom('assets/images/minigames/puzzles/skeleton/artefact.jpg','artefact',"This must be the artefact you've been searching for!",2)})
+        )
     }
 
 }

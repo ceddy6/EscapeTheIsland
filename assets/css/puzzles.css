@@ -516,10 +516,29 @@
 }
 #skeleton-output{
     position:absolute;
-    top:101%;
-    left:25%;
+    top:100%;
+    left:36%;
     font-size:20px;
     cursor:pointer;
     font-family:Arial, Helvetica, sans-serif;
     color:#00FF41;
+}
+#chest-closed{
+    position:absolute;
+    top:53%;
+    left:76%;
+    width:20%;
+}
+#chest-open{
+    position:absolute;
+    top:53%;
+    left:76%;
+    width:20%;
+}
+#artefact{
+    position:absolute;
+    cursor:pointer;
+    top:53%;
+    left:76%;
+    width:10%;
 }

@@ -13,7 +13,8 @@ var inventoryItems = [
     {title:"key-line-well",path:"assets/images/clues/key-line-well.bmp",description:"A gold tile!",useability:"inventory-item-useable"},
     {title:"key-line-cave",path:"assets/images/clues/key-line-cave.bmp",description:"A gold tile!",useability:"inventory-item-useable"},
     {title:"key-line-volcano",path:"assets/images/clues/key-line-volcano.bmp",description:"A gold tile!",useability:"inventory-item-useable"},
-    {title:"key-line-obelisk",path:"assets/images/clues/key-line-obelisk.bmp",description:"A gold tile!",useability:"inventory-item-useable"}
+    {title:"key-line-obelisk",path:"assets/images/clues/key-line-obelisk.bmp",description:"A gold tile!",useability:"inventory-item-useable"},
+    {title:"artefact",path:"assets/images/minigames/puzzles/skeleton/artefact.jpg",description:"The artefact!",useability:"inventory-item-useable"}
 ]
 
 // Create a class for the inventory
@@ -184,6 +185,10 @@ class Inventory {
                                     }))
                         inventory.removeItem(item)
                     }
+                    break;
+
+                case 'artefact':
+                    // If the player is in the village, end the game
                     break;
 
             }
