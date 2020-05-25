@@ -25,7 +25,16 @@ class Minigame{
             case 5:
                 puzzle = new SkeletonPuzzle(index)
                 break;
+            case 6:
+                // If we go back to the village, will need to open the village, and then somehow open the inventory to allow completion
+                break;
             default:
+                // If there isn't a real puzzle at the location, show 'no puzzle here' messages
+                var canvas = $('#minigame-modal').find('.modal-body').empty()
+                var title = $('#minigame-modal').find('.modal-title').empty()
+                canvas.append('<img class="img-fluid" id="minigame-background" src='+locations[index].minigame_img+' alt="Minigame">')
+                title.text("There doesn't seem to be anything here... Could you be in the wrong place?")
+                $('#minigame-modal').modal('show')
                 break;
         } 
 

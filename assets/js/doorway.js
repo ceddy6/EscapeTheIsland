@@ -20,12 +20,12 @@ class Doorway{
     // Constructor
     constructor(index){
 
-        this.lockPosition = doorwayData[index].lockposition
-        this.lockSize = doorwayData[index].locksize
-        this.lockImg = doorwayData[index].lock_img
-
         // The first thing to do is check wether the door is locked (if not, bypass it)
         if (locations[index].locked == 1) {
+
+            this.lockPosition = doorwayData[index].lockposition
+            this.lockSize = doorwayData[index].locksize
+            this.lockImg = doorwayData[index].lock_img
 
             // Fill in the doorway modal and show  
             var doorwayModal = $('#door-modal')
