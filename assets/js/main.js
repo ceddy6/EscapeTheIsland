@@ -84,3 +84,22 @@ $(window).on("load",function(){
     
 })
 
+
+// Function to run when the player completes the game
+function endGame(){
+
+    // Get the current time on the clock
+    var currentTime = clock.currentTime
+
+    // Compare the current time to 8pm.
+    var cutOff = new Date(2020,7,1,20,0,0,0) 
+    if (currentTime <= cutOff) {
+        console.log("Well done! You found the artefact in time")
+    } else {
+        console.log("Bad luck! You found the artefact but the boat has gone and you're stuck here forever")
+    }
+
+
+
+}
+

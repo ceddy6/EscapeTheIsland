@@ -35,6 +35,7 @@ class Inventory {
         this.addItem("key-line-waterfall")
         this.addItem("key-line-volcano")
         this.addItem("key-line-well")
+        this.addItem("artefact")
 
     }
 
@@ -189,6 +190,10 @@ class Inventory {
 
                 case 'artefact':
                     // If the player is in the village, end the game
+                    if ($('#minigame-background').hasClass('in-village')) {
+                        $('#inventory-modal').modal('hide')
+                        endGame()
+                    }
                     break;
 
             }

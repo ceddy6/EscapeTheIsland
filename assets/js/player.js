@@ -12,8 +12,8 @@ class Player {
         // Create and append location objects
         $('#background-map-wrapper').append($('<div class="player-token"></div>')
                                             .css({"position":"absolute"})
-                                            .css({"top":"40%"})
-                                            .css({"left":"40%"})
+                                            .css({"top":"60%"})
+                                            .css({"left":"35%"})
                                             .attr('name',"Player")    
                                             .append($('<img id="player-token-img" src="assets/images/token.png" alt="Token">'))  
                                             )

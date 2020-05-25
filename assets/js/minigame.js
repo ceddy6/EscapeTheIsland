@@ -27,6 +27,11 @@ class Minigame{
                 break;
             case 6:
                 // If we go back to the village, will need to open the village, and then somehow open the inventory to allow completion
+                var canvas = $('#minigame-modal').find('.modal-body').empty()
+                var title = $('#minigame-modal').find('.modal-title').empty()
+                canvas.append('<img class="img-fluid in-village" id="minigame-background" src='+locations[index].minigame_img+' alt="Minigame">')
+                title.text("Back in the village, there are some expectant looks... Do you have the artefact?")
+                $('#minigame-modal').modal('show')
                 break;
             default:
                 // If there isn't a real puzzle at the location, show 'no puzzle here' messages
