@@ -32,11 +32,11 @@ class Inventory {
         //this.addItem("well-stones-clue")
 
         // Temporarily add the gold tiles to the inventory for debugging purposes
-        this.addItem("key-line-obelisk")
-        this.addItem("key-line-cave")
-        this.addItem("key-line-waterfall")
-        this.addItem("key-line-volcano")
-        this.addItem("key-line-well")
+        //this.addItem("key-line-obelisk")
+        //this.addItem("key-line-cave")
+        //this.addItem("key-line-waterfall")
+        //this.addItem("key-line-volcano")
+        //this.addItem("key-line-well")
         //this.addItem("artefact")
 
     }

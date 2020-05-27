@@ -29,10 +29,10 @@ body{
     font-weight:bold;
 }
 
-.click-region{
+/* .click-region{
     border:solid;
     border-color:red;
-}
+} */
 
 #background-map-wrapper{
     position:relative;
