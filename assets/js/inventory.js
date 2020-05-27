@@ -30,6 +30,7 @@ class Inventory {
         // Add the padlock key to it
         //this.addItem("padlock-key")
         //this.addItem("well-stones-clue")
+        //this.addItem("stepping-stones-clue")
 
         // Temporarily add the gold tiles to the inventory for debugging purposes
         //this.addItem("key-line-obelisk")
@@ -229,6 +230,16 @@ class Inventory {
 
                 console.log("Loading clue into puzzle")
                 puzzle.appendClue()
+
+                // Close the inventory modal
+                $('#inventory-modal').modal('hide')
+
+            }
+            // Special case - if it's the stepping stones clue, we want to append it into the puzzle
+            else if (item == 'stepping-stones-clue' && lock.index == 1) {
+
+                console.log("Loading clue into puzzle")
+                lock.appendClue()
 
                 // Close the inventory modal
                 $('#inventory-modal').modal('hide')

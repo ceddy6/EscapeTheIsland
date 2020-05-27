@@ -130,3 +130,11 @@
     pointer-events:none;
     box-shadow:0px 0px 20px 20px transparent;
   }
+
+  #stepping-stones-appended{
+    position:absolute;
+    height:25%;
+    width:25%;
+    top:75%;
+    left:75%;
+  }

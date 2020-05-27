@@ -204,6 +204,15 @@ class Lock{
 
     }
 
+    // Function to put the clue into the puzzle
+    appendClue(){
+
+        var lockModal = $('#lock-modal') 
+        var lockModalBody = lockModal.find('.modal-body')  
+        lockModalBody.append('<img class="img-fluid" id="stepping-stones-appended" src="assets/images/clues/stepping-stones-clue.png" alt="Clue"></img>') 
+
+    }
+
 }
 
 // This is the on click function for 'test' on a lock
