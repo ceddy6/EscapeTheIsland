@@ -5,9 +5,9 @@ var lockData = [{name:"Cave",
                     inter_img:"assets/images/locks/padlock_and_key.jpg",
                     opened_img:"assets/images/locks/opened_padlock.jpg"},
                     {name:"Waterfall",
-                    lock_img:"assets/images/locks/stepping-stones.png",
+                    lock_img:"assets/images/locks/stepping-stones-water.jpg",
                     lock_text:"Be careful! Some of those stones look slippery...",
-                    opened_img:"assets/images/locks/stepping-stones.jpg"},
+                    opened_img:"assets/images/locks/stepping-stones-water.jpg"},
                     {name:"Well",
                     lock_img:"assets/images/locks/dial_lock.jpg",
                     lock_text:"The lock needs a combination.",
@@ -54,6 +54,7 @@ class Lock{
                 for (var i = 0; i<10; i++) {
                     lockModalBody.append($('<div class="stepping-stone click-region" id="stepping-stone-'+i+'"></div>')
                                         .attr('data-stone-index',i)
+                                        .append('<img class="img-fluid" id="stepping-stone-img-'+i+'" src=assets/images/locks/stepping-stones-stone.png alt="Stone">')
                                         .on("click",function(){
                                             $(this).animate({top:'+=6px'})
                                             $(this).animate({top:'-=6px'})
