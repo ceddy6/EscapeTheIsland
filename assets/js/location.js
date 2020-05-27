@@ -135,23 +135,24 @@ function locationClicked(index) {
 
     }
 
-
-
 }
 
+// Function to take two positions and calculate the travel time between them
 function calculateTravelTime(currLoc,newLoc){
 
+    // Slice up the locations into coordinates
     var currX = parseInt(currLoc[0].slice(0,-1))
     var currY = parseInt(currLoc[1].slice(0,-1))
     var newX = parseInt(newLoc[0].slice(0,-1))
     var newY = parseInt(newLoc[1].slice(0,-1))
 
+    // Calculate the distance between them
     var xOffset = currX - newX
     var yOffset = currY - newY
-
     var dist = Math.sqrt(xOffset*xOffset + yOffset*yOffset)
 
-    var speed = 1.75
+    // Multiply by speed to give a time
+    var speed = 1.85
     var time = dist*speed
 
     return time

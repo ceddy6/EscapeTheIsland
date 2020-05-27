@@ -185,7 +185,7 @@ class Block{
             })
 
             // Update the grid on mouseup
-            $(window).on("mouseup",function(){
+            $('#minigame-modal').on("mouseup",function(){
                 updateGridState(puzzle,puzzid)
                 checkPuzzleCompletion(puzzid)
             })
@@ -438,7 +438,7 @@ function checkPuzzleCompletion(puzzid){
 
             // Stop checking for completion if both puzzles are complete
             if (locations[puzzle.index].complete[0] == 1 && locations[puzzle.index].complete[1] == 1) {
-                $(window).off("mouseup")
+                $('#minigame-modal').off("mouseup")
             }
 
         }
