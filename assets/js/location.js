@@ -109,11 +109,16 @@ function locationClicked(index) {
     // If the player isn't already at the location, send it there and open the doorway on arrival
     if (player.id != index) {
 
+        // Calculate the travel time
+        var currLoc = player.position
+        var newLoc = locationsList[index].position
+        var travelTime = calculateTravelTime(currLoc,newLoc)
+
         // Send the player token to the location
         player.goToLocation(index)
 
         // Add time to the clock
-        clock.addTravelTime(60)
+        clock.addTravelTime(travelTime)
 
         // Delay opening the modal to show the travel
         setTimeout(function(){
@@ -131,5 +136,24 @@ function locationClicked(index) {
     }
 
 
+
+}
+
+function calculateTravelTime(currLoc,newLoc){
+
+    var currX = parseInt(currLoc[0].slice(0,-1))
+    var currY = parseInt(currLoc[1].slice(0,-1))
+    var newX = parseInt(newLoc[0].slice(0,-1))
+    var newY = parseInt(newLoc[1].slice(0,-1))
+
+    var xOffset = currX - newX
+    var yOffset = currY - newY
+
+    var dist = Math.sqrt(xOffset*xOffset + yOffset*yOffset)
+
+    var speed = 1.75
+    var time = dist*speed
+
+    return time
 
 }
