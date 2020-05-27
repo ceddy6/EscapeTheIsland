@@ -178,14 +178,19 @@ class WellPuzzle{
         var tstone5Depth = $('.well-grid-cell-wrapper[data-grid-row="0"][data-grid-col="4"]').attr('data-stone-clicked')
 
         // Compare the depths to the targets
-        //if ((parseInt(stone1Depth) == 1) &&
-        //    (parseInt(stone2Depth) == 2) &&
-        //    (parseInt(stone3Depth) == 3) &&
-        //    (parseInt(stone4Depth) == 4) &&
-        //    (parseInt(stone5Depth) == 5)) {
-        // Compare the depths to the targets
-        if ((parseInt(tstone1Depth) == 1) &&
-            (parseInt(tstone2Depth) == 2)) {
+        // Real checks
+        if ((parseInt(stone1Depth) == 1) &&
+           (parseInt(stone2Depth) == 2) &&
+           (parseInt(stone3Depth) == 3) &&
+           (parseInt(stone4Depth) == 4) &&
+           (parseInt(stone5Depth) == 5)) {
+        // End of real checks
+
+        // Testing checks
+        //if ((parseInt(tstone1Depth) == 1) &&
+        //    (parseInt(tstone2Depth) == 2)) {
+        // End of testing checks
+
                 console.log("All the tests were passed!")
 
                 // Set a timeout so that you can see the stone finish

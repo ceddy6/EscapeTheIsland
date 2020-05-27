@@ -352,8 +352,8 @@ function checkCompletion(){
     var inactiveEnds = $('.tile-0.tile-inactive')
 
     // If there are no inactive ends, the puzzle is complete
-    //if (inactiveEnds.length == 0) {
-    if (inactiveEnds.length < 33) {
+    if (inactiveEnds.length == 0) {
+    //if (inactiveEnds.length < 33) {
 
         // Check whether the location is already open
         if (locations[puzzle.index].complete == 0) {
