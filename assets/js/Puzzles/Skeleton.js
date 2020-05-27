@@ -6,6 +6,13 @@ class SkeletonPuzzle{
 
         this.index = index
 
+        // Make all the things visible in the inventory
+        $('#key-line-cave-inventory').css({"visibility":"visible"})
+        $('#key-line-well-inventory').css({"visibility":"visible"})
+        $('#key-line-waterfall-inventory').css({"visibility":"visible"})
+        $('#key-line-volcano-inventory').css({"visibility":"visible"})
+        $('#key-line-obelisk-inventory').css({"visibility":"visible"})
+
         // Select the modal body for content (and empty both of them)
         var canvas = $('#minigame-modal').find('.modal-body').empty()
         var title = $('#minigame-modal').find('.modal-title').empty()
