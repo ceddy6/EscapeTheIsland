@@ -362,6 +362,14 @@
     top:19px;
     left:29px;
 }
+#diallock-clue{
+    position:absolute;
+    cursor:pointer;
+    width:50px;
+    height:12px;
+    top:31px;
+    left:45px;
+}
 #well-stones-clue{
     position:absolute;
     cursor:pointer;

@@ -5,6 +5,7 @@ var inventoryItems = [
     {title:"waterfall-clue",path:"assets/images/clues/waterfall-clue.jpg",description:"Must be a clue to the next location",useability:"inventory-item-viewable"},
     {title:"well-stones-clue",path:"assets/images/clues/well-stones-clue.jpg",description:"Some kind of diagram",useability:"inventory-item-viewable"},
     {title:"well-clue",path:"assets/images/clues/well-clue.jpg",description:"This must be the next location",useability:"inventory-item-viewable"},
+    {title:"diallock-clue",path:"assets/images/clues/diallock-clue.jpg",description:"Some kind of clue",useability:"inventory-item-viewable"},
     {title:"volcano-clue",path:"assets/images/clues/volcano-clue.jpg",description:"This must be the next location",useability:"inventory-item-viewable"},
     {title:"obelisk-clue",path:"assets/images/clues/obelisk-clue.jpg",description:"Must be a clue to the next location",useability:"inventory-item-viewable"},
     {title:"skeleton-clue",path:"assets/images/clues/skeleton-clue.jpg",description:"Some kind of clue",useability:"inventory-item-viewable"},
@@ -27,15 +28,15 @@ class Inventory {
         this.contents = []
 
         // Add the padlock key to it
-        this.addItem("padlock-key")
+        //this.addItem("padlock-key")
 
         // Temporarily add the gold tiles to the inventory for debugging purposes
-        this.addItem("key-line-obelisk")
-        this.addItem("key-line-cave")
-        this.addItem("key-line-waterfall")
-        this.addItem("key-line-volcano")
-        this.addItem("key-line-well")
-        this.addItem("artefact")
+        //this.addItem("key-line-obelisk")
+        //this.addItem("key-line-cave")
+        //this.addItem("key-line-waterfall")
+        //this.addItem("key-line-volcano")
+        //this.addItem("key-line-well")
+        //this.addItem("artefact")
 
     }
 
@@ -45,13 +46,18 @@ class Inventory {
         // Get the entry of the image from the inventory list
         var details = inventoryItems.find(function(entry){return entry.title == item})
 
-        // Add the image to the modal 
-        $('#inventory-modal').find('.modal-body')
-            .append($('<img class="img-fluid inventory-item '+details.useability+'" id='+item+'-inventory src='+details.path+' alt='+item+'>')
-                .attr('data-item',item)
-                // Include an on-click method for that specific item
-                .on("click",function(){inventory.itemClicked($(this).attr('data-item'))})
-            )
+        // Check whether item is already in inventory
+        var itemInInventory = $('#'+item+'-inventory').length
+
+        if (itemInInventory == 0) {
+            // Add the image to the modal 
+            $('#inventory-modal').find('.modal-body')
+                .append($('<img class="img-fluid inventory-item '+details.useability+'" id='+item+'-inventory src='+details.path+' alt='+item+'>')
+                    .attr('data-item',item)
+                    // Include an on-click method for that specific item
+                    .on("click",function(){inventory.itemClicked($(this).attr('data-item'))})
+                )
+        }
 
     }
 

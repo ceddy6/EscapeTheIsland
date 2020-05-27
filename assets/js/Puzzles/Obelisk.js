@@ -124,7 +124,9 @@ class ObeliskPuzzle{
         if (puzzid == 1) {
             var clue1 = $('<img class="img-fluid" id="well-clue" src=assets/images/clues/well-clue.jpg alt="Clue1">')
                     .on("click",function(){zoom = new Zoom('assets/images/clues/well-clue.jpg','well-clue','This must be a clue to the next location',1)})
-            $('.block-0.puzzle-1').append(clue1)
+            var clue4 = $('<img class="img-fluid" id="diallock-clue" src=assets/images/clues/diallock-clue.jpg alt="Clue4">')
+                    .on("click",function(){zoom = new Zoom('assets/images/clues/diallock-clue.jpg','diallock-clue','Some cryptic symbols',1)})
+            $('.block-0.puzzle-1').append(clue1).append(clue4)
         }
         if (puzzid == 2) {
             var clue2 = $('<img class="img-fluid" id="well-stones-clue" src=assets/images/clues/well-stones-clue.jpg alt="Clue2">')

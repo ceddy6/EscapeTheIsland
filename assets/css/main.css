@@ -7,10 +7,10 @@ body{
     top:50%;
 }
 
-.click-region{
+/* .click-region{
     border:solid;
     border-color:red;
-}
+} */
 
 #background-map-wrapper{
     position:relative;
