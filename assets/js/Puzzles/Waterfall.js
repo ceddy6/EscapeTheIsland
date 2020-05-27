@@ -66,7 +66,7 @@ class Jug{
         var self = this
 
         // Set the div height for the water when full
-        if (capacity == 3) {this.maxWaterHeight = 10} else {this.maxWaterHeight = 14}
+        if (capacity == 3) {this.maxWaterHeight = 9.5} else {this.maxWaterHeight = 14}
 
         // Add the image for the jug
         if (this.capacity == 5) {
@@ -84,7 +84,10 @@ class Jug{
         }
        
         // Add a blue rectangle to be the contents of the jug
-        canvas.append($('<div class="jug-contents jug-capacity-'+capacity+'"></div>'))
+        canvas.append($('<div class="jug-contents jug-capacity-'+capacity+'"></div>')
+                    .append('<img class="img-fluid water-styling" id="water-styling-'+capacity+'-bottom" src=assets/images/minigames/puzzles/waterfall/water-styling.png alt="Jug">')
+                    .append('<img class="img-fluid water-styling" id="water-styling-'+capacity+'-top" src=assets/images/minigames/puzzles/waterfall/water-styling.png alt="Jug">')
+        )
 
         // Add labels above the jug for doing actions to the jug 
         canvas

@@ -97,6 +97,36 @@
     width:20%;
     height:24%;
 }
+
+
+.water-styling{
+    position:absolute;
+    pointer-events:none;
+    width:100%;
+    height:10%;
+}
+#water-styling-3-bottom{
+    top:100%;
+    left:0%;
+    transform:translate(0%,-50%);
+}
+#water-styling-3-top{
+    top:0%;
+    left:0%;    
+    transform:translate(0%,-50%);
+}
+#water-styling-5-bottom{
+    top:100%;
+    left:0%;    
+    transform:translate(0%,-50%);
+}
+#water-styling-5-top{
+    top:0%;
+    left:0%;    
+    transform:translate(0%,-50%);
+}
+
+
 .jug-action{
     position:absolute;
     cursor:pointer;
