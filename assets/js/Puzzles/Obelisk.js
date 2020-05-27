@@ -436,6 +436,11 @@ function checkPuzzleCompletion(puzzid){
             // Mark puzle as complete
             locations[puzzle.index].complete[puzzid-1] = 1
 
+            // Stop checking for completion if both puzzles are complete
+            if (locations[puzzle.index].complete[0] == 1 && locations[puzzle.index].complete[1] == 1) {
+                $(window).off("mouseup")
+            }
+
         }
     }
 

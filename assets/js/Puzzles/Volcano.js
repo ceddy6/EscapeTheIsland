@@ -12,7 +12,7 @@ class VolcanoPuzzle{
 
         // Add the the background and the title
         canvas.append('<img class="img-fluid" id="minigame-background" src='+locations[index].minigame_img+' alt="Minigame">')
-        title.text("It looks like the lava could be used to power something...")
+        title.text("At the volcano you see a strange grid of pipes. It looks like the lava could be used to power something...")
 
         // On and off grid for squares
         this.gridRotationState = [  

@@ -207,6 +207,10 @@ class Inventory {
         // The item is a 'viewable' item, so open a zoom
         } else {
 
+            // Special case - if it's the well stones clue, we want to append it into the puzzle
+
+            // Otherwise, we just want to look at it, so open up a modal
+
             // Close the inventory modal
             $('#inventory-modal').modal('hide')
 
