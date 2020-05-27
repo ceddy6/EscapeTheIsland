@@ -10,7 +10,7 @@ class CavePuzzle{
 
         // Add the the background and the title
         canvas.append('<img class="img-fluid" id="minigame-background" src='+locations[index].minigame_img+' alt="Minigame">')
-        title.text("There are some strange icons carved into the floor...")
+        title.text("When you enter the cave, there are some strange icons carved into the floor, and several painted stones dotted around...")
 
         // Append a div for the cave paintings
         canvas.append($('<div class="click-region" id="cave-paintings"></div>')

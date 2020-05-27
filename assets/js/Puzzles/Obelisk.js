@@ -12,7 +12,7 @@ class ObeliskPuzzle{
 
         // Add the the background and the title
         canvas.append('<img class="img-fluid" id="minigame-background" src='+locations[index].minigame_img+' alt="Minigame">')
-        title.text("One of these stones looks a different shade...")
+        title.text("Arriving at the Obelisk, you notice a couple of the stones look a different shade.")
 
         // Add the grid for the cars
         this.createGrid(1)
