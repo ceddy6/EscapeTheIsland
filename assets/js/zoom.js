@@ -17,10 +17,16 @@ class Zoom {
         modal.modal('show')
 
         // Check whether the zoomed image is capturable, and hide the take a picture button if not
+        // Suggestion: as soon as you open a 'takeable' zoom, put the item in the inventory anyway (and remove it from the minigame)
+        // That way if the user doesn't click the take button, nothing is messed up
         if (snapable == 1) {
             $('#snapshot-button').css({"display":"inline-block"}).text('Take')
+            inventory.addItem(id)
+            $('#'+this.id).remove()
         } else if (snapable == 2) {
             $('#snapshot-button').css({"display":"inline-block"}).text('Take')
+            inventory.addItem(id)
+            $('#'+this.id).remove()
         } else {
             $('#snapshot-button').css({"display":"none"})
         }
