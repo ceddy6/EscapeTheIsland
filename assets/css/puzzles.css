@@ -198,14 +198,14 @@
     width:50%;
     height:93%;
     top:4%;
-    left:4%;
+    left:45px;
 }
 .well-grid-wrapper-clue{
     position:absolute;
     width:34%;
     height:93%;
     top:4%;
-    left:41%;
+    left:340px;
 }
 #well-stones-appended-clue-wrapper{
     position:relative;
