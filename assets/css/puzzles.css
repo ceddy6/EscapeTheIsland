@@ -200,6 +200,29 @@
     top:4%;
     left:4%;
 }
+.well-grid-wrapper-clue{
+    position:absolute;
+    width:34%;
+    height:93%;
+    top:4%;
+    left:41%;
+}
+#well-stones-appended-clue-wrapper{
+    position:relative;
+    top:0%;
+    left:0%;
+    max-width:282px;
+    max-height:100%;
+    overflow:auto;
+}
+#well-stones-appended-clue{
+    position:relative;
+    height:3000px;
+    width:270px;
+    display:block;
+    overflow-y:scroll;
+    background-color:black;
+}
 #well-grid{
     position:relative;
     max-height:100%;

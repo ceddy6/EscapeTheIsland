@@ -29,6 +29,7 @@ class Inventory {
 
         // Add the padlock key to it
         //this.addItem("padlock-key")
+        this.addItem("well-stones-clue")
 
         // Temporarily add the gold tiles to the inventory for debugging purposes
         //this.addItem("key-line-obelisk")
@@ -208,14 +209,24 @@ class Inventory {
         } else {
 
             // Special case - if it's the well stones clue, we want to append it into the puzzle
+            if (item == 'well-stones-clue' && puzzle.index == 2) {
 
+                console.log("Loading clue into puzzle")
+                puzzle.appendClue()
+
+                // Close the inventory modal
+                $('#inventory-modal').modal('hide')
+
+            }
             // Otherwise, we just want to look at it, so open up a modal
+            else {
 
-            // Close the inventory modal
-            $('#inventory-modal').modal('hide')
+                // Close the inventory modal
+                $('#inventory-modal').modal('hide')
 
-            // Open up a zoom modal
-            zoom = new Zoom(details.path,details.title,details.description,0)
+                // Open up a zoom modal
+                zoom = new Zoom(details.path,details.title,details.description,0)
+            }
 
         }
 

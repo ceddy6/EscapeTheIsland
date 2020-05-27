@@ -4,6 +4,9 @@ class WellPuzzle{
     // Constructor adds all the elements
     constructor(index){
 
+        // Set the id for later access
+        this.index = index
+
         // Select the modal body for content (and empty both of them)
         var canvas = $('#minigame-modal').find('.modal-body').empty()
         var title = $('#minigame-modal').find('.modal-title').empty()
@@ -214,6 +217,18 @@ class WellPuzzle{
         var clue2 = $('<img class="img-fluid" id="key-line-well" src=assets/images/clues/key-line-well.bmp alt="Clue2">')
                 .on("click",function(){zoom = new Zoom('assets/images/clues/key-line-well.bmp','key-line-well','Another of those gold bars',2)})
         $('.well-grid-cell-wrapper[data-grid-row="67"][data-grid-col="4"]').append(clue1).append(clue2)
+
+    }
+
+    appendClue(){
+
+        console.log("Appending clue in the puzzle")
+
+        // Get the canvas to work on
+        var canvas = $('#minigame-modal').find('.modal-body')
+        canvas.append('<div class="well-grid-wrapper-clue"></div>')
+        $('.well-grid-wrapper-clue').append('<div id="well-stones-appended-clue-wrapper"></div>')
+        $('#well-stones-appended-clue-wrapper').append('<img class="img-fluid" id="well-stones-appended-clue" src=assets/images/clues/well-stones-clue.jpg alt="Clue">')
 
     }
 
