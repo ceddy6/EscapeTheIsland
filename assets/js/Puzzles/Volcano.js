@@ -152,7 +152,9 @@ class VolcanoPuzzle{
                     .on("click",function(){zoom = new Zoom('assets/images/clues/waterfall-clue.jpg','waterfall-clue','Could this be the next location?',1)})
             var clue2 = $('<img class="img-fluid" id="key-line-volcano" src=assets/images/clues/key-line-volcano.bmp alt="Clue2">')
                     .on("click",function(){zoom = new Zoom('assets/images/clues/key-line-volcano.bmp','key-line-volcano','Well these are starting to pile up...',2)})
-            $('#empty-space').append(clue1).append(clue2)
+            var clue3 = $('<img class="img-fluid" id="stepping-stones-clue" src=assets/images/clues/stepping-stones-clue.png alt="Clue3">')
+                    .on("click",function(){zoom = new Zoom('assets/images/clues/stepping-stones-clue.png','stepping-stones-clue','Who knows what this is...',1)})
+            $('#empty-space').append(clue1).append(clue2).append(clue3)
 
     }
 
@@ -359,7 +361,7 @@ function checkCompletion(){
         if (locations[puzzle.index].complete == 0) {
 
             // Show a dialogue modal, describing the entry opening
-            $('#dialogue-modal').find('.modal-title').text('With a loud grinding sound, a part of the wall rolls aside...')
+            $('#dialogue-modal').find('.modal-title').text('With a loud grinding sound, a part of the wall rolls aside... There are three items inside.')
             $('#dialogue-modal').modal('show')
 
             // Open the hiding place

@@ -485,6 +485,14 @@
     top:60%;
     left:10%;
 }
+#stepping-stones-clue{
+    position:absolute;
+    cursor:pointer;
+    width:20%;
+    height:50%;
+    top:10%;
+    left:73%;
+}
 
 
 /* Skeleton tile grid */
