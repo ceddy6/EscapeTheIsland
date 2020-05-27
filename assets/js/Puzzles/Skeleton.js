@@ -14,8 +14,12 @@ class SkeletonPuzzle{
         canvas.append('<img class="img-fluid" id="minigame-background" src='+locations[index].minigame_img+' alt="Minigame">')
         title.text("Under the old bones you find a locked box with some gold and stone tiles set into the lid...")
 
-        // Add the grid for the cars
-        this.createGrid()
+        self = this
+
+        // Append the treasure chest
+        canvas.append($('<img class="img-fluid" id="chest-closed" src=assets/images/minigames/puzzles/skeleton/chest.png alt="Chest">')
+                            .on("click",function(){self.createGrid()})                
+        )
 
         // Grid of letters
         this.letterGrid = [["1","A","L","E","W"],
@@ -47,9 +51,6 @@ class SkeletonPuzzle{
 
         // Get the canvas to work on
         var canvas = $('#minigame-modal').find('.modal-body')
-
-        // Append the treasure chest
-        canvas.append('<img class="img-fluid" id="chest-closed" src=assets/images/minigames/puzzles/skeleton/chest.jpg alt="Chest">')
 
         // Append a table for the key
         canvas.append('<div class="sk-grid-wrapper pkey"></div>')
@@ -166,9 +167,9 @@ class SkeletonPuzzle{
         // Swap the treasure chest for the open one
         $('#chest-closed').remove()
         var canvas = $('#minigame-modal').find('.modal-body')
-        canvas.append('<img class="img-fluid" id="chest-open" src=assets/images/minigames/puzzles/skeleton/chest-open.jpg alt="Chest">')
-        canvas.append($('<img class="img-fluid" id="artefact" src=assets/images/minigames/puzzles/skeleton/artefact.jpg alt="Artefact">')
-                    .on("click",function(){zoom = new Zoom('assets/images/minigames/puzzles/skeleton/artefact.jpg','artefact',"This must be the artefact you've been searching for!",2)})
+        canvas.append('<img class="img-fluid" id="chest-open" src=assets/images/minigames/puzzles/skeleton/chest-open.png alt="Chest">')
+        canvas.append($('<img class="img-fluid" id="artefact" src=assets/images/minigames/puzzles/skeleton/artefact.png alt="Artefact">')
+                    .on("click",function(){zoom = new Zoom('assets/images/minigames/puzzles/skeleton/artefact.png','artefact',"This must be the artefact you've been searching for!",2)})
         )
     }
 

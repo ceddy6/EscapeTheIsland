@@ -565,20 +565,21 @@
 }
 #chest-closed{
     position:absolute;
-    top:53%;
+    top:74%;
     left:76%;
-    width:20%;
+    width:13%;
+    cursor:pointer;
 }
 #chest-open{
     position:absolute;
-    top:53%;
+    top:60%;
     left:76%;
-    width:20%;
+    width:18%;
 }
 #artefact{
     position:absolute;
     cursor:pointer;
-    top:53%;
-    left:76%;
-    width:10%;
+    top:72%;
+    left:83%;
+    width:5%;
 }
