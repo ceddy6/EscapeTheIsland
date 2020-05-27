@@ -352,11 +352,11 @@
 .block-ver{
     background-image:url("../images/minigames/puzzles/obelisk/light-block-ver.jpg");
 }
-#block-0{
+.block-0{
     background-image:url("../images/minigames/puzzles/obelisk/dark-block.jpg");
 }
 .ob-grid{
-    background-image:url("../images/minigames/puzzles/obelisk/background-block.jpg");
+    background-image:url("../images/minigames/puzzles/obelisk/background-block-2.jpg");
 }
 .block-size-2.block-hor{
     width:120px;    
