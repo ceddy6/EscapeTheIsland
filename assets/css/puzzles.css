@@ -530,6 +530,7 @@
     position:absolute;
     background-color:transparent;
     border:30px solid #888C8D;
+    visibility:hidden;
 }
 .sk-grid-wrapper.pkey{
     top:30px;

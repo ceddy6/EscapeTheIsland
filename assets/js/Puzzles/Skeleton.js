@@ -14,11 +14,14 @@ class SkeletonPuzzle{
         canvas.append('<img class="img-fluid" id="minigame-background" src='+locations[index].minigame_img+' alt="Minigame">')
         title.text("Under the old bones you find a locked box with some gold and stone tiles set into the lid...")
 
-        self = this
+        // Create the grid, but make it hidden
+        this.createGrid()
 
         // Append the treasure chest
         canvas.append($('<img class="img-fluid" id="chest-closed" src=assets/images/minigames/puzzles/skeleton/chest.png alt="Chest">')
-                            .on("click",function(){self.createGrid()})                
+                            .on("click",function(){
+                                $('.sk-grid-wrapper').css({'visibility':'visible'})
+                            })                
         )
 
         // Grid of letters

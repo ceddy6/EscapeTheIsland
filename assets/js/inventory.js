@@ -32,11 +32,11 @@ class Inventory {
         //this.addItem("well-stones-clue")
 
         // Temporarily add the gold tiles to the inventory for debugging purposes
-        //this.addItem("key-line-obelisk")
-        //this.addItem("key-line-cave")
-        //this.addItem("key-line-waterfall")
-        //this.addItem("key-line-volcano")
-        //this.addItem("key-line-well")
+        this.addItem("key-line-obelisk")
+        this.addItem("key-line-cave")
+        this.addItem("key-line-waterfall")
+        this.addItem("key-line-volcano")
+        this.addItem("key-line-well")
         //this.addItem("artefact")
 
     }
@@ -112,86 +112,97 @@ class Inventory {
                 case 'key-line-cave':
                     // If the puzzle is the right one, add a full sized tile to the puzzle
                     if (puzzle.index == 5) {
-                        $('#minigame-modal').find('.modal-body')
-                            .append($('<img class="img-fluid tile-row tile-row-draggable" id="key-row-cave" src=assets/images/clues/key-line-cave.bmp alt="Key Row">')
-                                    .css({"top":"40px"})
-                                    .css({"left":"550px"})
-                                    .css({"cursor":"pointer"})
-                                    .css({"position":"absolute"})
-                                    .draggable({
-                                        snap:'.sk-grid-row.pkey',
-                                        snapMode:"inner",
-                                        snapTolerance:"30",
-                                    }))
-                        inventory.removeItem(item)
+                        // Check whether the item is already appended and append it if not
+                        if ($('#key-row-cave').length == 0) {
+                            $('#minigame-modal').find('.modal-body')
+                                .append($('<img class="img-fluid tile-row tile-row-draggable" id="key-row-cave" src=assets/images/clues/key-line-cave.bmp alt="Key Row">')
+                                        .css({"top":"40px"})
+                                        .css({"left":"550px"})
+                                        .css({"cursor":"pointer"})
+                                        .css({"position":"absolute"})
+                                        .draggable({
+                                            snap:'.sk-grid-row.pkey',
+                                            snapMode:"inner",
+                                            snapTolerance:"30",
+                                        }))
+                            //inventory.removeItem(item)
+                        }
                     }
                     break;
                 case 'key-line-waterfall':
                     // If the puzzle is the right one, add a full sized tile to the puzzle
                     if (puzzle.index == 5) {
-                        $('#minigame-modal').find('.modal-body')
-                            .append($('<img class="img-fluid tile-row tile-row-draggable" id="key-row-waterfall" src=assets/images/clues/key-line-waterfall.bmp alt="Key Row">')
-                                    .css({"top":"100px"})
-                                    .css({"left":"550px"})
-                                    .css({"cursor":"pointer"})
-                                    .css({"position":"absolute"})
-                                    .draggable({
-                                        snap:'.sk-grid-row.pkey',
-                                        snapMode:"inner",
-                                        snapTolerance:"30",
-                                    }))
-                        inventory.removeItem(item)
+                        if ($('#key-row-waterfall').length == 0) {
+                            $('#minigame-modal').find('.modal-body')
+                                .append($('<img class="img-fluid tile-row tile-row-draggable" id="key-row-waterfall" src=assets/images/clues/key-line-waterfall.bmp alt="Key Row">')
+                                        .css({"top":"100px"})
+                                        .css({"left":"550px"})
+                                        .css({"cursor":"pointer"})
+                                        .css({"position":"absolute"})
+                                        .draggable({
+                                            snap:'.sk-grid-row.pkey',
+                                            snapMode:"inner",
+                                            snapTolerance:"30",
+                                        }))
+                            //inventory.removeItem(item)
+                        }
                     }
                     break;
                 case 'key-line-well':
                     // If the puzzle is the right one, add a full sized tile to the puzzle
                     if (puzzle.index == 5) {
-                        $('#minigame-modal').find('.modal-body')
-                            .append($('<img class="img-fluid tile-row tile-row-draggable" id="key-row-well" src=assets/images/clues/key-line-well.bmp alt="Key Row">')
-                                    .css({"top":"160px"})
-                                    .css({"left":"550px"})
-                                    .css({"cursor":"pointer"})
-                                    .css({"position":"absolute"})
-                                    .draggable({
-                                        snap:'.sk-grid-row.pkey',
-                                        snapMode:"inner",
-                                        snapTolerance:"30",
-                                    }))
-                        inventory.removeItem(item)
+                        if ($('#key-row-well').length == 0) {
+                            $('#minigame-modal').find('.modal-body')
+                                .append($('<img class="img-fluid tile-row tile-row-draggable" id="key-row-well" src=assets/images/clues/key-line-well.bmp alt="Key Row">')
+                                        .css({"top":"160px"})
+                                        .css({"left":"550px"})
+                                        .css({"cursor":"pointer"})
+                                        .css({"position":"absolute"})
+                                        .draggable({
+                                            snap:'.sk-grid-row.pkey',
+                                            snapMode:"inner",
+                                            snapTolerance:"30",
+                                        }))
+                            //inventory.removeItem(item)
+                        }
                     }
                     break;
                 case 'key-line-volcano':
                     // If the puzzle is the right one, add a full sized tile to the puzzle
                     if (puzzle.index == 5) {
-                        $('#minigame-modal').find('.modal-body')
-                            .append($('<img class="img-fluid tile-row tile-row-draggable" id="key-row-volcano" src=assets/images/clues/key-line-volcano.bmp alt="Key Row">')
-                                    .css({"top":"220px"})
-                                    .css({"left":"550px"})
-                                    .css({"cursor":"pointer"})
-                                    .css({"position":"absolute"})
-                                    .draggable({
-                                        snap:'.sk-grid-row.pkey',
-                                        snapMode:"inner",
-                                        snapTolerance:"30",
-                                    }))
-                        inventory.removeItem(item)
+                        if ($('#key-row-volcano').length == 0) {
+                            $('#minigame-modal').find('.modal-body')
+                                .append($('<img class="img-fluid tile-row tile-row-draggable" id="key-row-volcano" src=assets/images/clues/key-line-volcano.bmp alt="Key Row">')
+                                        .css({"top":"220px"})
+                                        .css({"left":"550px"})
+                                        .css({"cursor":"pointer"})
+                                        .css({"position":"absolute"})
+                                        .draggable({
+                                            snap:'.sk-grid-row.pkey',
+                                            snapMode:"inner",
+                                            snapTolerance:"30",
+                                        }))
+                            //inventory.removeItem(item)
+                        }
                     }
                     break;
                 case 'key-line-obelisk':
                     // If the puzzle is the right one, add a full sized tile to the puzzle
                     if (puzzle.index == 5) {
-                        $('#minigame-modal').find('.modal-body')
-                            .append($('<img class="img-fluid tile-row tile-row-draggable" id="key-row-obelisk" src=assets/images/clues/key-line-obelisk.bmp alt="Key Row">')
-                                    .css({"top":"280px"})
-                                    .css({"left":"550px"})
-                                    .css({"cursor":"pointer"})
-                                    .css({"position":"absolute"})
-                                    .draggable({
-                                        snap:'.sk-grid-row.pkey',
-                                        snapMode:"inner",
-                                        snapTolerance:"30",
-                                    }))
-                        inventory.removeItem(item)
+                        if ($('#key-row-obelisk').length == 0) {
+                            $('#minigame-modal').find('.modal-body')
+                                .append($('<img class="img-fluid tile-row tile-row-draggable" id="key-row-obelisk" src=assets/images/clues/key-line-obelisk.bmp alt="Key Row">')
+                                        .css({"top":"280px"})
+                                        .css({"left":"550px"})
+                                        .css({"cursor":"pointer"})
+                                        .css({"position":"absolute"})
+                                        .draggable({
+                                            snap:'.sk-grid-row.pkey',
+                                            snapMode:"inner",
+                                            snapTolerance:"30",
+                                        }))
+                            //inventory.removeItem(item)
+                        }
                     }
                     break;
 
