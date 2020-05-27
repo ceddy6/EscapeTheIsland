@@ -141,3 +141,16 @@ body{
     padding-right:2px;
 }
 
+#map-inventory-button{
+    position:absolute;
+    cursor:pointer;
+    top:91%;
+    left:86.5%;
+    border:2px solid black;
+    font-weight:bold;
+    background-color:transparent;
+}
+#map-inventory-button:hover{
+    background-color:#B4FFFF;
+}
+
