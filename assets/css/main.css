@@ -7,6 +7,28 @@ body{
     top:50%;
 }
 
+.modal-content.dialogue{
+    background-color:#B3FFFF;
+    border:4px solid black;
+    border-radius:8px;
+}
+.modal-header.dialogue{
+    background-color:transparent;
+    border:none;
+}
+.modal-body.dialogue{
+    background-color:transparent;
+    border:none;
+}
+.modal-footer.dialogue{
+    background-color:transparent;
+    border:none;
+}
+.modal-footer.dialogue > .btn{
+    border:2px solid black;
+    font-weight:bold;
+}
+
 /* .click-region{
     border:solid;
     border-color:red;

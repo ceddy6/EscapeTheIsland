@@ -29,7 +29,7 @@ class Inventory {
 
         // Add the padlock key to it
         //this.addItem("padlock-key")
-        this.addItem("well-stones-clue")
+        //this.addItem("well-stones-clue")
 
         // Temporarily add the gold tiles to the inventory for debugging purposes
         //this.addItem("key-line-obelisk")
