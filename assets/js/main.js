@@ -9,6 +9,7 @@ var puzzle
 var dialogue
 var zoom
 var inventory
+var clockTicks
 
 //Wrap the construction in a ready function
 $(window).on("load",function(){
@@ -67,7 +68,7 @@ $(window).on("load",function(){
                                                         // Unbind the 'start timer' listener 
                                                         $(this).off("click")
                                                         // Tick the clock every second
-                                                        setInterval(function(){clock.tick()},1000)
+                                                        clockTicks = setInterval(function(){clock.tick()},1000)
                                                         // Also, reset the 'continue' button to say continue instead of begin
                                                         $('#dialogue-modal').find('.modal-footer').find('.btn').text('Continue')
                                                         // Need to give them the key.
@@ -93,6 +94,7 @@ $(window).on("load",function(){
 function endGame(){
 
     // Stop the clock
+    clearInterval(clockTicks)
 
     // Get the current time on the clock
     var currentTime = clock.currentTime
