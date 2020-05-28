@@ -35,7 +35,7 @@ class Doorway{
             this.doorwayText = doorwayData[index].doorwayText
 
             // Fill in the doorway modal and show  
-            var doorwayModal = $('#door-modal')
+            var doorwayModal = $('#door-modal').attr('data-doorway-for',index)
 
             // Add a title/description
             doorwayModal.find('.modal-title').text(this.doorwayText)  

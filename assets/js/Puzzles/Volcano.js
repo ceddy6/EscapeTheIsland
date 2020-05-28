@@ -5,6 +5,8 @@ class VolcanoPuzzle{
     constructor(index){
 
         this.index = index
+        
+        $('#minigame-modal').attr('data-minigame-for',index)
 
         // Select the modal body for content (and empty both of them)
         var canvas = $('#minigame-modal').find('.modal-body').empty()

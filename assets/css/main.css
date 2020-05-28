@@ -4,7 +4,15 @@ body{
 
 #dialogue-modal{
     position:absolute;
-    top:50%;
+    top:25%;
+}
+#inventory-modal{
+    position:absolute;
+    top:20%;
+}
+#zoom-modal{
+    position:absolute;
+    top:0%;
 }
 
 .modal-content.dialogue{
@@ -37,6 +45,7 @@ body{
 #background-map-wrapper{
     position:relative;
     padding:0px;
+    width:1000px;
 }
 #background-map{
     width:100%;
@@ -154,3 +163,26 @@ body{
     background-color:#B4FFFF;
 }
 
+
+
+/* Size the doorway modal for the cave */
+#door-modal[data-doorway-for='0']{
+    width:600px;
+    left:300px;
+}
+/* Size the lock modal for the cave */
+#lock-modal[data-lock-for='0']{
+    width:500px;
+    left:300px;
+}
+/* Size the minigame modal for the cave */
+#minigame-modal[data-minigame-for='0']{
+    width:680px;
+    left:300px;
+}
+
+/* Size the minigame modal for the obelsik */
+#minigame-modal[data-minigame-for='3']{
+    width:680px;
+    left:300px;
+}

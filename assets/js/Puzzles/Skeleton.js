@@ -6,6 +6,8 @@ class SkeletonPuzzle{
 
         this.index = index
 
+        $('#minigame-modal').attr('data-minigame-for',index)
+
         // Make all the things visible in the inventory
         $('#key-line-cave-inventory').css({"visibility":"visible"})
         $('#key-line-well-inventory').css({"visibility":"visible"})

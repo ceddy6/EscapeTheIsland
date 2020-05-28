@@ -36,7 +36,7 @@ class Lock{
         this.lockPath = []
 
         // Fill and show the lock modal
-        var lockModal = $('#lock-modal')
+        var lockModal = $('#lock-modal').attr('data-lock-for',index)
         lockModal.find('.modal-title').text(lockData[index].lock_text)  
         var lockModalBody = lockModal.find('.modal-body')   
                                     .empty()                                

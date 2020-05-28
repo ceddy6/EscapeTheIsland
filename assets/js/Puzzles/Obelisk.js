@@ -6,6 +6,8 @@ class ObeliskPuzzle{
 
         this.index = index
 
+        $('#minigame-modal').attr('data-minigame-for',index)
+
         // Select the modal body for content (and empty both of them)
         var canvas = $('#minigame-modal').find('.modal-body').empty()
         var title = $('#minigame-modal').find('.modal-title').empty()
