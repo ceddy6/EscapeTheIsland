@@ -92,18 +92,37 @@ $(window).on("load",function(){
 // Function to run when the player completes the game
 function endGame(){
 
+    // Stop the clock
+
     // Get the current time on the clock
     var currentTime = clock.currentTime
+    var startTime = new Date(2020,7,1,12,0,0,0)
+    var eTime = new Date(currentTime - startTime)
+    var eHours = eTime.getHours() - 1
+    var eMins = eTime.getMinutes()
+    var eSecs = eTime.getSeconds()
 
     // Compare the current time to 8pm.
     var cutOff = new Date(2020,7,1,20,0,0,0) 
     if (currentTime <= cutOff) {
-        console.log("Well done! You found the artefact in time")
+        var endText = "Congratulations! You found the artefact in time. The villagers will take you to back to the mainland. "
+        var endText2 = "Your time was " + eHours + "h " + eMins + "m " + eSecs + "s."
     } else {
-        console.log("Bad luck! You found the artefact but the boat has gone and you're stuck here forever")
+        var endText = "Bad luck! You found the artefact but the boat has gone and you're stuck here forever... "
+        var endText2 = "Your time was " + eHours + "h " + eMins + "m " + eSecs + "s."
     }
 
-
+    // Put together a dialogue to show completion
+    $('#dialogue-modal').find('.modal-title').text(endText + endText2)
+    $('#dialogue-modal').find('.modal-footer').find('.btn')
+                .text('Finish')
+                // On click method to show the leaderboard
+                .on("click",function(){
+                    $('#dialogue-modal').modal('hide')
+                    $('#minigame-modal').modal('hide')
+                })
+    // Show the third modal
+    $('#dialogue-modal').modal('show')
 
 }
 

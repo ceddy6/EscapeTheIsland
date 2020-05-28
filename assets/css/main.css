@@ -177,6 +177,16 @@ body{
     background-color:#B4FFFF;
 }
 
+#final-time{
+    position:absolute;
+    width:100px;
+    height:100px;
+    left:50px;
+    top:50px;
+    background-color:red;
+}
+
+
 
 
 /* Size the doorway modal for the cave */
@@ -252,3 +262,4 @@ body{
     width:700px;
     left:200px;
 }
+

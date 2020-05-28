@@ -38,7 +38,7 @@ class Inventory {
         this.addItem("key-line-waterfall")
         this.addItem("key-line-volcano")
         this.addItem("key-line-well")
-        //this.addItem("artefact")
+        this.addItem("artefact")
 
     }
 
