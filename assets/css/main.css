@@ -207,12 +207,16 @@ body{
     left:300px;
 }
 
-/* Size the doorway for the waterfall */
+/* Size the modals for the waterfall */
 #door-modal[data-doorway-for='1']{
     width:900px;
     left:250px;
 }
 #lock-modal[data-lock-for='1']{
     width:780px;
+    left:200px;
+}
+#minigame-modal[data-lock-for='1']{
+    width:780ox;
     left:200px;
 }
