@@ -150,7 +150,7 @@ class Block{
 
         //console.log("Creating block: " + num)
 
-        var blockSize = 60
+        var blockSize = 40
         var margin = 0
 
         // Create a block div
@@ -182,7 +182,7 @@ class Block{
                 containment:$('#minigame-modal').find('.ob-grid-wrapper.puzzle-'+puzzid),
                 snap:'.ob-grid-cell-inner.puzzle-'+puzzid,
                 snapMode:"inner",
-                snapTolerance:"30",
+                snapTolerance:"20",
                 axis:axis
             })
 
@@ -226,8 +226,8 @@ function updateGridState(puzzle,puzzid){
         var left = $(this).css("left")
         top = parseInt(top.slice(0,-2))
         left = parseInt(left.slice(0,-2))
-        row = Math.round((top-5)/60)
-        col = Math.round((left-5)/60)
+        row = Math.round((top-5)/40)
+        col = Math.round((left-5)/40)
 
         // Add the 1 to the state
         puzzle.gridState[puzzid-1][row][col] = 1
@@ -275,8 +275,8 @@ function calculateConstraints(puzzle,puzzid) {
         var ori_top = $(this).css("top")
         ori_top2 = parseInt(ori_top.slice(0,-2))
         ori_left2 = parseInt(ori_left.slice(0,-2))
-        ori_row = Math.round((ori_top2-5)/60)
-        ori_col = Math.round((ori_left2-5)/60)
+        ori_row = Math.round((ori_top2-5)/40)
+        ori_col = Math.round((ori_left2-5)/40)
 
         // For horizontal blocks (vertical blocks have a different method)
         if ($(this).hasClass("block-hor")) {
@@ -317,14 +317,14 @@ function calculateConstraints(puzzle,puzzid) {
             if (n == 0 && right_point == 6) {
                 right_point = 8
             }
-            var divWidth = (right_point - left_point)*60
+            var divWidth = (right_point - left_point)*40
 
             // Create an element the shape of the left and right points
             var wrapDiv = $('<div class="wrap-constraint wrap-constraint-'+n+' puzzle-'+puzzid+'"></div>')
                     .css({"width":divWidth})
-                    .css({"height":"60px"})
+                    .css({"height":"40px"})
                     .css({"top":(ori_top2-5)+"px"})
-                    .css({"left":(left_point*60)+"px"})
+                    .css({"left":(left_point*40)+"px"})
 
         } else {
 
@@ -360,13 +360,13 @@ function calculateConstraints(puzzle,puzzid) {
                 }
             }
             low_point = Math.min(low_point + 1,6)
-            var divHeight = (low_point - top_point)*60
+            var divHeight = (low_point - top_point)*40
 
             // Create an element the shape of the left and right points
             var wrapDiv = $('<div class="wrap-constraint wrap-constraint-'+n+' puzzle-'+puzzid+'"></div>')
-                    .css({"width":"60px"})
+                    .css({"width":"40px"})
                     .css({"height":divHeight})
-                    .css({"top":(top_point*60)+"px"})
+                    .css({"top":(top_point*40)+"px"})
                     .css({"left":(ori_left2-5)+"px"})
 
         }
@@ -407,7 +407,7 @@ function applyDraggable(puzzid){
                 containment:$('.wrap-constraint-'+n+'.puzzle-'+puzzid),
                 snap:'.ob-grid-cell-inner.puzzle-'+puzzid,
                 snapMode:"inner",
-                snapTolerance:"30",
+                snapTolerance:"20",
                 axis:axis
             })
         }

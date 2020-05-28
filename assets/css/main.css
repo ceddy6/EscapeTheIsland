@@ -183,6 +183,6 @@ body{
 
 /* Size the minigame modal for the obelsik */
 #minigame-modal[data-minigame-for='3']{
-    width:680px;
+    width:770px;
     left:300px;
 }

@@ -308,12 +308,12 @@
     border:10px solid brown;
 }
 .ob-grid-wrapper.puzzle-1{
-    top:60px;
-    left:60px;
+    top:50px;
+    left:50px;
 }
 .ob-grid-wrapper.puzzle-2{
-    top:430px;
-    left:60px;
+    top:50px;
+    left:400px;
 }
 .ob-grid{
     position:relative;
@@ -325,15 +325,15 @@
 }
 .ob-grid-cell-outer{
     background-color:brown;
-    width:60px;
-    height:60px;
+    width:40px;
+    height:40px;
     padding:0px;
     background-color:transparent;
 }
 .ob-grid-cell-inner{
     position:relative;
-    width:60px;
-    height:60px;
+    width:40px;
+    height:40px;
     background-color:transparent;
 }
 
@@ -359,24 +359,24 @@
     background-image:url("../images/minigames/puzzles/obelisk/background-block-2.jpg");
 }
 .block-size-2.block-hor{
-    width:120px;    
-    height:60px;
+    width:80px;    
+    height:40px;
 }
 .block-size-3.block-hor{
-    width:180px;
-    height:60px;
+    width:120px;
+    height:40px;
 }
 .block-size-2.block-ver{
-    width:60px;
-    height:120px;
+    width:40px;
+    height:80px;
 }
 .block-size-3.block-ver{
-    width:60px;
-    height:180px;
+    width:40px;
+    height:120px;
 }
 .block-size-1{
-    width:60px;
-    height:60px;
+    width:40px;
+    height:40px;
     cursor:default;
 }
 
@@ -388,23 +388,23 @@
 .doorway{
     position:absolute;
     width:18px;
-    height:60px;
+    height:40px;
     background:black;
 }
 .doorway.puzzle-1{
-    top:190px;
-    left:426px;
+    top:140px;
+    left:295px;
 }
 .doorway.puzzle-2{
-    top:560px;
-    left:426px;
+    top:140px;
+    left:645px;
 }
 .hollowBlock{
     position:absolute;
-    width:80px;
-    height:40px;
-    top:10px;
-    left:20px;
+    width:60px;
+    height:30px;
+    top:50px;
+    left:10px;
     background:black;
 }
 #well-clue{
