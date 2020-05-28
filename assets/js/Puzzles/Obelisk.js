@@ -41,27 +41,27 @@ class ObeliskPuzzle{
         // Add cars ([row,col], 0-indexed)
         // Inputs are (this,size,orientation,topleft starting coordinates,blockid,puzzleid,fixed)
         var b0 = new Block(this,2,"hor",[2,0],0,1,0)
-        var b1 = new Block(this,2,"hor",[3,3],1,1,0)
-        var b2 = new Block(this,2,"ver",[2,2],2,1,0)
-        var b3 = new Block(this,2,"ver",[1,3],3,1,0)
-        var b4 = new Block(this,2,"ver",[1,5],4,1,0)
-        var b5 = new Block(this,3,"hor",[0,3],5,1,0)
-        var b6 = new Block(this,3,"hor",[5,1],6,1,0)
-        var b7 = new Block(this,3,"ver",[3,0],7,1,0)
-        var b8 = new Block(this,3,"ver",[3,5],8,1,0)
-        var b9 = new Block(this,1,"hor",[0,1],9,1,1)
+        // var b1 = new Block(this,2,"hor",[3,3],1,1,0)
+        // var b2 = new Block(this,2,"ver",[2,2],2,1,0)
+        // var b3 = new Block(this,2,"ver",[1,3],3,1,0)
+        // var b4 = new Block(this,2,"ver",[1,5],4,1,0)
+        // var b5 = new Block(this,3,"hor",[0,3],5,1,0)
+        // var b6 = new Block(this,3,"hor",[5,1],6,1,0)
+        // var b7 = new Block(this,3,"ver",[3,0],7,1,0)
+        // var b8 = new Block(this,3,"ver",[3,5],8,1,0)
+        // var b9 = new Block(this,1,"hor",[0,1],9,1,1)
         var b10 = new Block(this,1,"hor",[1,2],10,1,1)
 
         var b0 = new Block(this,2,"hor",[2,1],0,2,0)
-        var b1 = new Block(this,2,"ver",[0,1],1,2,0)
-        var b2 = new Block(this,2,"ver",[3,2],2,2,0)
-        var b3 = new Block(this,2,"ver",[1,3],3,2,0)
-        var b4 = new Block(this,2,"ver",[1,5],4,2,0)
-        var b5 = new Block(this,2,"ver",[4,5],5,2,0)
-        var b6 = new Block(this,2,"hor",[4,3],6,2,0)
-        var b7 = new Block(this,3,"ver",[1,0],7,2,0)
-        var b8 = new Block(this,3,"hor",[0,3],8,2,0)
-        var b9 = new Block(this,3,"hor",[3,3],9,2,0)
+        // var b1 = new Block(this,2,"ver",[0,1],1,2,0)
+        // var b2 = new Block(this,2,"ver",[3,2],2,2,0)
+        // var b3 = new Block(this,2,"ver",[1,3],3,2,0)
+        // var b4 = new Block(this,2,"ver",[1,5],4,2,0)
+        // var b5 = new Block(this,2,"ver",[4,5],5,2,0)
+        // var b6 = new Block(this,2,"hor",[4,3],6,2,0)
+        // var b7 = new Block(this,3,"ver",[1,0],7,2,0)
+        // var b8 = new Block(this,3,"hor",[0,3],8,2,0)
+        // var b9 = new Block(this,3,"hor",[3,3],9,2,0)
         var b10 = new Block(this,1,"hor",[5,0],10,2,1)
 
         // If the puzzle has been completed, show the opened hiding place
@@ -419,11 +419,11 @@ function applyDraggable(puzzid){
 // Check whether the important block has reached the edge
 function checkPuzzleCompletion(puzzid){
 
-    //console.log("Checking puzzle completion")
+    console.log("Checking puzzle completion")
     var block = $('.block-0.puzzle-'+puzzid)
     var l = block.position().left
     // If it's further right than the grid edge, the puzzle is complete
-    if (l > 310) {
+    if (l > 238) {
 
         // Check whether the location is already open
         if (locations[puzzle.index].complete[puzzid-1] == 0) {

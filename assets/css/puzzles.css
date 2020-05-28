@@ -402,9 +402,9 @@
 .hollowBlock{
     position:absolute;
     width:60px;
-    height:30px;
-    top:50px;
-    left:10px;
+    height:35px;
+    top:2px;
+    right:2px;
     background:black;
 }
 #well-clue{
@@ -412,7 +412,7 @@
     cursor:pointer;
     width:46px;
     height:18px;
-    top:19px;
+    top:7px;
     left:29px;
 }
 #diallock-clue{
@@ -420,16 +420,16 @@
     cursor:pointer;
     width:50px;
     height:12px;
-    top:31px;
-    left:45px;
+    top:22px;
+    left:18px;
 }
 #well-stones-clue{
     position:absolute;
     cursor:pointer;
     width:5px;
     height:61px;
-    top:10px;
-    left:55px;
+    top:0px;
+    left:42px;
     transform:rotate(90deg);
 }
 #key-line-obelisk{
@@ -437,8 +437,8 @@
     cursor:pointer;
     width:46px;
     height:11px;
-    top:19px;
-    left:29px;
+    top:6px;
+    left:24px;
 }
 
 #volcano-clue{
