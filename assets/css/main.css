@@ -216,7 +216,25 @@ body{
     width:780px;
     left:200px;
 }
-#minigame-modal[data-lock-for='1']{
-    width:780ox;
+#minigame-modal[data-minigame-for='1']{
+    width:780px;
+    left:200px;
+}
+
+/* Size the modals for the skeleton */
+#minigame-modal[data-minigame-for='5']{
+    width:1000px;
+    left:100px;
+}
+
+/* Size the modal for the village */
+#minigame-modal[data-minigame-for='6']{
+    width:800px;
+    left:200px;
+}
+
+/* Size any other modals */
+#minigame-modal[data-minigame-for='10']{
+    width:700px;
     left:200px;
 }
