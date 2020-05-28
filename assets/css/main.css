@@ -186,3 +186,17 @@ body{
     width:770px;
     left:300px;
 }
+
+/* Size the doorway for the well */
+#door-modal[data-doorway-for='2']{
+    width: 500px;
+    left:300px;
+}
+#lock-modal[data-lock-for='2']{
+    width:500px;
+    left:300px;
+}
+#minigame-modal[data-minigame-for='2']{
+    width:785px;
+    left:300px;
+}
