@@ -62,7 +62,8 @@
 
     <!-- Elements for the background map and clock -->
     <div class="container-fluid" id="background-map-wrapper">
-        <img class="img-fluid" id="background-map" src="assets/images/map3.jpg" alt="Map">    
+        <img class="img-fluid" id="background-map" src="assets/images/map3.jpg" alt="Map">   
+        <?php include_once("../php/getLeaderboard.php"); ?> 
         <div class="background-clock-wrapper container-fluid">
           <img class="img-fluid" id="background-clock" src="assets/images/clock2.jpg" alt="Clock">
           <div class="background-clock-digits-wrapper container-fluid">
