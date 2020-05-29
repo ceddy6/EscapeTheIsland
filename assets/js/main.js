@@ -27,6 +27,9 @@ $(window).on("load",function(){
     // Create the inventory
     inventory = new Inventory
 
+    // Create the leaderboard
+    leaderboard = new Leaderboard
+
     //Run the location creator to instantiate locations
     locations = []
     for (i=0;i<locationsList.length;i++) {

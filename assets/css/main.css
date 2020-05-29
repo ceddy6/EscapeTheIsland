@@ -176,6 +176,19 @@ body{
 #map-inventory-button:hover{
     background-color:#B4FFFF;
 }
+#map-leaderboard-button{
+    position:absolute;
+    cursor:pointer;
+    top:91%;
+    left:73.5%;
+    border:2px solid black;
+    font-weight:bold;
+    background-color:transparent;
+}
+#map-leaderboard-button:hover{
+    background-color:#B4FFFF;
+}
+
 
 #final-time{
     position:absolute;
