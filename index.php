@@ -47,6 +47,7 @@
     <script src="assets/js/lock.js"></script>
     <script src="assets/js/inventory.js"></script>
     <script src="assets/js/zoom.js"></script>
+    <script src="assets/js/leaderboard.js"></script>
     <script src="assets/js/main.js"></script>
 
     <!-- Javascript files for the minigame puzzles-->
