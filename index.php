@@ -1,19 +1,15 @@
 <!-- Connect to the database -->
 <?php
 
-    $dbopts = parse_url(getenv('DATABASE_URL'));
-    $app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider('pdo'),
-                array(
-                    'pdo.server' => array(
-                    'driver'   => 'pgsql',
-                    'user' => $dbopts["user"],
-                    'password' => $dbopts["pass"],
-                    'host' => $dbopts["host"],
-                    'port' => $dbopts["port"],
-                    'dbname' => ltrim($dbopts["path"],'/')
-                    )
-                )
-    );
+    $db = parse_url(getenv('DATABASE_URL'));
+    $pdo = new PDO("pgsql:" . sprintf(
+        "host=%s;port=%s;user=%s;password=%s;dbname=%s",
+        $db["host"],
+        $db["port"],
+        $db["user"],
+        $db["pass"],
+        ltrim($db["path"], "/")
+    ));
 
 ?>
 
