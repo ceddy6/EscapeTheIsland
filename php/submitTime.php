@@ -5,6 +5,7 @@
     $travel = $_GET['travelTime'];
     $puzzle = $_GET['puzzleTime'];
     $total = $_GET['totalTime'];
+    $hints = $_GET['hintsGiven'];
 
     // Connect db
     $db = parse_url(getenv('DATABASE_URL'));
@@ -18,9 +19,9 @@
     )); 
 
     // Create the sql query
-    $sql = "INSERT INTO leaderboard (name, travel_time, puzzle_time, total_time) VALUES (?,?,?,?)";
+    $sql = "INSERT INTO leaderboard (name, travel_time, puzzle_time, total_time,hints_used) VALUES (?,?,?,?,?)";
     $stmt= $conn->prepare($sql);
-    $stmt->execute([$name, $travel, $puzzle, $total]);
+    $stmt->execute([$name, $travel, $puzzle, $total, $hints]);
 
     // Echo just to prove that things are working
     echo json_encode("Player's name is " . $name);

@@ -13,7 +13,6 @@ var hint
 var nextHint = 'travel_start_cave'
 var clockTicks
 var runningTravelTime = 0
-var nHintsGiven = 0
 
 //Wrap the construction in a ready function
 $(window).on("load",function(){
@@ -159,16 +158,15 @@ function endGame(){
 // Function to submit the finishing time and load the new leaderboard
 function submitTime(playerName,travelTime,puzzleTime,totalTime) {
 
-    console.log("Submitting the time")
-    console.log(playerName)
-    console.log(travelTime)
-    console.log(puzzleTime)
-    console.log(totalTime)
+    // Calculate number of hints used
+    var allHintsUsed = hint.hintList.filter(function(entry){
+        return entry.hintGiven == 1
+    })
 
     // Ajax call to submit the time
     $.ajax({
         type: "GET",
-        url: "./php/submitTime.php?playerName="+playerName+"&travelTime="+travelTime+"&puzzleTime="+puzzleTime+"&totalTime="+totalTime,
+        url: "./php/submitTime.php?playerName="+playerName+"&travelTime="+travelTime+"&puzzleTime="+puzzleTime+"&totalTime="+totalTime+"&hintsGiven="+allHintsUsed.length,
         dataType:"json",
         success : function(data){
             console.log("Successfully submitted time")
