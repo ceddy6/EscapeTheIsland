@@ -13,7 +13,7 @@
 
     // Try running a db query
     $sql = 'SELECT * FROM leaderboard';
-    //$leaders = [];
+    $leaders = [];
     // foreach ($conn->query($sql) as $row) {
     //     echo '<tr>';
     //     echo '<td>' . $row["name"] . '</td>';
@@ -25,10 +25,11 @@
 
     foreach($conn->query($sql) as $row) {
 
-        echo json_encode($row["name"]);
+        $player = array($row['name'],$row['travel_time'],$row['puzzle_time'],$row['total_time']);
+        $leaders[] = $player;
 
     }
 
-    //echo json_encode("This is a test");
+    echo json_encode($leaders);
 
 ?>
