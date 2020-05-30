@@ -1,17 +1,5 @@
 <!-- Connect to the database -->
-<?php
-
-    $db = parse_url(getenv('DATABASE_URL'));
-    $conn = new PDO("pgsql:" . sprintf(
-        "host=%s;port=%s;user=%s;password=%s;dbname=%s",
-        $db["host"],
-        $db["port"],
-        $db["user"],
-        $db["pass"],
-        ltrim($db["path"], "/")
-    ));
-
-?>
+<?php require "./php/getLeaderboard.php"; ?>
 
 <!doctype html>
 <html lang="en">
@@ -74,15 +62,6 @@
     <div class="container-fluid" id="background-map-wrapper">
         <img class="img-fluid" id="background-map" src="assets/images/map3.jpg" alt="Map">   
         <?php require "./php/getLeaderboard.php"; ?>
-        <?php 
-        
-          // Try running a db query
-          $sql = 'SELECT * FROM leaderboard';
-          foreach ($conn->query($sql) as $row) {
-              print $row['name'] . "\t";
-          };
-        
-        ?>
         <div class="background-clock-wrapper container-fluid">
           <img class="img-fluid" id="background-clock" src="assets/images/clock2.jpg" alt="Clock">
           <div class="background-clock-digits-wrapper container-fluid">
