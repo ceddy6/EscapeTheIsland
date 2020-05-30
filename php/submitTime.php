@@ -6,6 +6,25 @@
     $puzzle = $_GET['puzzleTime'];
     $total = $_GET['totalTime'];
 
+    // Connect db
+    $db = parse_url(getenv('DATABASE_URL'));
+    $conn = new PDO("pgsql:" . sprintf(
+        "host=%s;port=%s;user=%s;password=%s;dbname=%s",
+        $db["host"],
+        $db["port"],
+        $db["user"],
+        $db["pass"],
+        ltrim($db["path"], "/")
+    )); 
+
+    // Create the sql query
+    $sql = 'INSERT INTO leaderboard (name,travel_time,puzzle_time,total_time) 
+                VALUES ('.$name.','.$travel.','.$puzzle.','.$total.');';
+
+    // Run the query
+    $out = $conn->query($sql);
+
+    // Echo just to prove that things are working
     echo json_encode("Player's name is " . $name);
 
 ?>

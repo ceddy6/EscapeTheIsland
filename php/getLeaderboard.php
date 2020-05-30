@@ -14,14 +14,6 @@
     // Try running a db query
     $sql = 'SELECT * FROM leaderboard ORDER BY total_time ASC;';
     $leaders = [];
-    // foreach ($conn->query($sql) as $row) {
-    //     echo '<tr>';
-    //     echo '<td>' . $row["name"] . '</td>';
-    //     echo '<td>' . $row["travel_time"] . '</td>';
-    //     echo '<td>' . $row["puzzle_time"] . '</td>';
-    //     echo '<td>' . $row["total_time"] . '</td>';
-    //     echo '</tr>';
-    // };
 
     foreach($conn->query($sql) as $row) {
 
