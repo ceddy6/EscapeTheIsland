@@ -50,6 +50,9 @@ class Clock{
     // Function to add a set amount of time to the clock (in minutes)
     addTravelTime(tAdd){
 
+        // Add the travel time to the running total (travel time is in minutes) and travel time is stored in the db in seconds
+        runningTravelTime += tAdd * 60
+
         // Variable to show time added so far
         var tAdded = 0
 

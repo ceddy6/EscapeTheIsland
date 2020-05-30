@@ -10,7 +10,7 @@ var dialogue
 var zoom
 var inventory
 var clockTicks
-var runningTravelTime
+var runningTravelTime = 0
 
 //Wrap the construction in a ready function
 $(window).on("load",function(){
@@ -103,12 +103,13 @@ function endGame(){
     clearInterval(clockTicks)
 
     // Get the current time on the clock
-    var currentTime = clock.currentTime
-    var startTime = new Date(2020,7,1,12,0,0,0)
-    var eTime = new Date(currentTime - startTime)
-    var eHours = eTime.getHours() - 1
-    var eMins = eTime.getMinutes()
-    var eSecs = eTime.getSeconds()
+    var currentTime = clock.currentTime             // Time on the stopped clock (date object I think)
+    var startTime = new Date(2020,7,1,12,0,0,0)     // Time of start (also a date object)
+    var eDate = new Date(currentTime - startTime)   // Might be unecessary
+    var eTime = Math.round(eDate.getTime()/1000)    // Convert to seconds and round
+    var eHours = eDate.getHours() - 1
+    var eMins = eDate.getMinutes()
+    var eSecs = eDate.getSeconds()
 
     // Compare the current time to 8pm.
     var cutOff = new Date(2020,7,1,20,0,0,0) 
@@ -138,9 +139,9 @@ function endGame(){
 
                     // Submit the time to the database (as a string)
                     var playerName = $('.endText4').text()
-                    var travelTime = runningTravelTime
-                    var puzzleTime = (currentTime - startTime) - runningTravelTime
-                    submitTime(playerName,travelTime,puzzleTime,currentTime - startTime)
+                    var travelTime = runningTravelTime                                                        // Which is in seconds
+                    var puzzleTime = eTime - runningTravelTime                                                // Also in seconds
+                    submitTime(playerName,Math.round(travelTime),Math.round(puzzleTime),Math.round(eTime))    // Everything in seconds
 
                 })
     // Show the modal and focus on the text box
