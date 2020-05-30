@@ -96,6 +96,8 @@ $(window).on("load",function(){
 // Function to run when the player completes the game
 function endGame(){
 
+    console.log("Game complete")
+
     // Stop the clock
     clearInterval(clockTicks)
 
@@ -116,11 +118,17 @@ function endGame(){
         var endText = "Bad luck! You found the artefact but the boat has gone and you're stuck here forever... "
         var endText2 = "Your time was " + eHours + "h " + eMins + "m " + eSecs + "s."
     }
+ 
+    // Submit the time to the database (as a string)
+    var playerName = "A. Team"
+    var travelTime = 1
+    var puzzleTime = 1
+    submitTime(playerName,travelTime,puzzleTime,currentTime - startTime)
 
     // Put together a dialogue to show completion
     $('#dialogue-modal').find('.modal-title').text(endText + endText2)
     $('#dialogue-modal').find('.modal-footer').find('.btn')
-                .text('Finish')
+                .text('Leaderboard')
                 // On click method to show the leaderboard
                 .on("click",function(){
                     $('#dialogue-modal').modal('hide')
@@ -128,6 +136,30 @@ function endGame(){
                 })
     // Show the third modal
     $('#dialogue-modal').modal('show')
+
+}
+
+
+// Function to submit the finishing time and load the new leaderboard
+function submitTime(playerName,travelTime,puzzleTime,totalTime) {
+
+    console.log("Submitting the time")
+    console.log(playerName)
+    console.log(travelTime)
+    console.log(puzzleTime)
+    console.log(totalTime)
+
+    // Ajax call to submit the time
+    $.ajax({
+        type: "GET",
+        url: "./php/submitTime.php?playerName="+playerName+"&travelTime="+travelTime+"&puzzleTime="+puzzleTime+"&totalTime="+totalTime,
+        dataType:"json",
+        success : function(data){
+            console.log("Successfully submitted time")
+            console.log(data)
+        }
+
+    });
 
 }
 

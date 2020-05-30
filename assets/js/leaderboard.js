@@ -18,7 +18,7 @@ class Leaderboard {
             url: "./php/getLeaderboard.php",
             dataType:"json",
             success : function(data){
-                
+
                 console.log("Successfully populating leaderboard")
                 console.log(data)
 
@@ -51,6 +51,8 @@ class Leaderboard {
         $('#leaderboard-modal').modal('show')
         
     }
+
+    // Method to convert a string into hours, minutes, seconds
 
 }
 
