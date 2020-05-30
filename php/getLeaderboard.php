@@ -1,8 +1,8 @@
 <?php
 
     // Try running a db query
-    $sql = 'SELECT * FROM leaderboard';
-    $leaders = [];
+    //$sql = 'SELECT * FROM leaderboard';
+    //$leaders = [];
     // foreach ($conn->query($sql) as $row) {
     //     echo '<tr>';
     //     echo '<td>' . $row["name"] . '</td>';
@@ -12,10 +12,12 @@
     //     echo '</tr>';
     // };
 
-    foreach($conn->query($sql) as $row) {
+    // foreach($conn->query($sql) as $row) {
 
-        echo json_encode($row["name"]);
+    //     echo json_encode($row["name"]);
 
-    }
+    // }
+
+    echo json_encode("This is a test");
 
 ?>
