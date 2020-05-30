@@ -231,6 +231,7 @@
                 <thead>
                     <tr>
                         <th scope="col">Player</th>
+                        <th scope="col">Hints Used</th>
                         <th scope="col">Travel Time</th>
                         <th scope="col">Puzzle Time</th>
                         <th scope="col">Total Time</th>

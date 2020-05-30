@@ -17,7 +17,7 @@
 
     foreach($conn->query($sql) as $row) {
 
-        $player = array($row['name'],$row['travel_time'],$row['puzzle_time'],$row['total_time']);
+        $player = array($row['name'],$row['travel_time'],$row['puzzle_time'],$row['total_time'],$row['hints_used']);
         $leaders[] = $player;
 
     }
