@@ -87,6 +87,7 @@
         </div> 
       </div>
       <button type="button" class="btn btn-default" id="map-inventory-button" onClick="showInventory()">Inventory</button>
+      <button type="button" class="btn btn-default" id="map-leaderboard-button" onClick="showLeaderboard()">Leaderboard</button>
     </div>
 
     <!-- Modal for a locked door to enter a minigame -->
@@ -213,7 +214,7 @@
                     </tr>
                 </thead>
                 <tbody> 
-                  <?php require "./php/getLeaderboard.php"; ?>
+                  <?php //require "./php/getLeaderboard.php"; ?>
                 </tbody>
             </table>
           </div>

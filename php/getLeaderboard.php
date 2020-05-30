@@ -3,17 +3,19 @@
     // Try running a db query
     $sql = 'SELECT * FROM leaderboard';
     $leaders = [];
-    foreach ($conn->query($sql) as $row) {
-        print $row['name'] . "\t";
-        //$entry = array($row['name'],$row['puzzle_time'],$row['travel_time'],$row['total_time']);
-        //$leaders[] = $entry;
+    // foreach ($conn->query($sql) as $row) {
+    //     echo '<tr>';
+    //     echo '<td>' . $row["name"] . '</td>';
+    //     echo '<td>' . $row["travel_time"] . '</td>';
+    //     echo '<td>' . $row["puzzle_time"] . '</td>';
+    //     echo '<td>' . $row["total_time"] . '</td>';
+    //     echo '</tr>';
+    // };
 
-        echo '<tr>';
-        echo '<td>' . $row["name"] . '</td>';
-        echo '<td>' . $row["puzzle_time"] . '</td>';
-        echo '<td>' . $row["travel_time"] . '</td>';
-        echo '<td>' . $row["total_time"] . '</td>';
-        echo '</tr>';
-    };
+    foreach($conn->query($sql) as $row) {
+
+        echo json_encode($row["name"]);
+
+    }
 
 ?>
