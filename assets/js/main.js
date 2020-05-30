@@ -10,6 +10,7 @@ var dialogue
 var zoom
 var inventory
 var clockTicks
+var runningTravelTime
 
 //Wrap the construction in a ready function
 $(window).on("load",function(){
@@ -112,33 +113,41 @@ function endGame(){
     // Compare the current time to 8pm.
     var cutOff = new Date(2020,7,1,20,0,0,0) 
     if (currentTime <= cutOff) {
-        var endText = "Congratulations! You found the artefact in time. The villagers will take you to back to the mainland. "
+        var endText = "Congratulations!" 
+        var endText1 = "You found the artefact in time. The villagers will take you to back to the mainland. "
         var endText2 = "Your time was " + eHours + "h " + eMins + "m " + eSecs + "s."
     } else {
-        var endText = "Bad luck! You found the artefact but the boat has gone and you're stuck here forever... "
+        var endText = "Bad luck!" 
+        var endText1 = "You found the artefact but the boat has gone and you're stuck here forever... "
         var endText2 = "Your time was " + eHours + "h " + eMins + "m " + eSecs + "s."
     }
- 
-    // Submit the time to the database (as a string)
-    var playerName = "A. Team"
-    var travelTime = 1
-    var puzzleTime = 1
-    submitTime(playerName,travelTime,puzzleTime,currentTime - startTime)
+    var endText3 = "Please enter a team name:"
 
     // Put together a dialogue to show completion
-    $('#dialogue-modal').find('.modal-title').text(endText + endText2)
+    $('#dialogue-modal').find('.modal-title').text(endText)
+    $('#dialogue-modal').find('.modal-title').append($('<span class="endText endText1">'+endText1+'</span>'))
+                                            .append($('<span class="endText endText2">'+endText2+'</span>'))
+                                            .append($('<span class="endText endText3">'+endText3+'</span>'))
+                                            .append($('<span contenteditable="true" class="endText endText4"></span>'))
     $('#dialogue-modal').find('.modal-footer').find('.btn')
-                .text('Leaderboard')
+                .text('Submit Time')
                 // On click method to show the leaderboard
                 .on("click",function(){
                     $('#dialogue-modal').modal('hide')
                     $('#minigame-modal').modal('hide')
+
+                    // Submit the time to the database (as a string)
+                    var playerName = $('.endText4').text()
+                    var travelTime = runningTravelTime
+                    var puzzleTime = (currentTime - startTime) - runningTravelTime
+                    submitTime(playerName,travelTime,puzzleTime,currentTime - startTime)
+
                 })
-    // Show the third modal
+    // Show the modal and focus on the text box
     $('#dialogue-modal').modal('show')
+    $('.endText4').focus()
 
 }
-
 
 // Function to submit the finishing time and load the new leaderboard
 function submitTime(playerName,travelTime,puzzleTime,totalTime) {
@@ -157,6 +166,9 @@ function submitTime(playerName,travelTime,puzzleTime,totalTime) {
         success : function(data){
             console.log("Successfully submitted time")
             console.log(data)
+
+            showLeaderboard()
+
         }
 
     });

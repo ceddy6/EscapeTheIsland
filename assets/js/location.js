@@ -120,6 +120,9 @@ function locationClicked(index) {
         // Add time to the clock
         clock.addTravelTime(travelTime)
 
+        // Add the travel time to the running total
+        runningTravelTime += travelTime
+
         // Delay opening the modal to show the travel
         setTimeout(function(){
 

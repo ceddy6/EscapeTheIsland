@@ -276,3 +276,17 @@ body{
     left:200px;
 }
 
+
+
+.endText{
+    display:inline-block;
+    width:105%;
+    font-size:16px;
+}
+.endText1{
+    padding-top:10px;
+}
+.endText4{
+    border:2px solid red;
+    padding-left:10px;
+}
