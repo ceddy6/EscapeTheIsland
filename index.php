@@ -2,7 +2,7 @@
 <?php
 
     $db = parse_url(getenv('DATABASE_URL'));
-    $pdo = new PDO("pgsql:" . sprintf(
+    $conn = new PDO("pgsql:" . sprintf(
         "host=%s;port=%s;user=%s;password=%s;dbname=%s",
         $db["host"],
         $db["port"],
@@ -73,7 +73,16 @@
     <!-- Elements for the background map and clock -->
     <div class="container-fluid" id="background-map-wrapper">
         <img class="img-fluid" id="background-map" src="assets/images/map3.jpg" alt="Map">   
-        <?php require "./php/getLeaderboard.php"; ?> 
+        <?php require "./php/getLeaderboard.php"; ?>
+        <?php 
+        
+          // Try running a db query
+          $sql = 'SELECT * FROM leaderboard';
+          foreach ($conn->query($sql) as $row) {
+              print $row['name'] . "\t";
+          };
+        
+        ?>
         <div class="background-clock-wrapper container-fluid">
           <img class="img-fluid" id="background-clock" src="assets/images/clock2.jpg" alt="Clock">
           <div class="background-clock-digits-wrapper container-fluid">
