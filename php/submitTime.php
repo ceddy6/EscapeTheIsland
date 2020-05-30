@@ -18,11 +18,9 @@
     )); 
 
     // Create the sql query
-    $sql = 'INSERT INTO leaderboard (name,travel_time,puzzle_time,total_time) 
-                VALUES ('.$name.','.$travel.','.$puzzle.','.$total.');';
-
-    // Run the query
-    $out = $conn->query($sql);
+    $sql = "INSERT INTO leaderboard (name, travel_time, puzzle_time, total_time) VALUES (?,?,?,?)";
+    $stmt= $conn->prepare($sql);
+    $stmt->execute([$name, $travel, $puzzle, $total]);
 
     // Echo just to prove that things are working
     echo json_encode("Player's name is " . $name);
