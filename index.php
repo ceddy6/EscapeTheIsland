@@ -56,6 +56,7 @@
     <script src="assets/js/inventory.js"></script>
     <script src="assets/js/zoom.js"></script>
     <script src="assets/js/leaderboard.js"></script>
+    <script src="assets/js/hint.js"></script>
     <script src="assets/js/main.js"></script>
 
     <!-- Javascript files for the minigame puzzles-->
@@ -87,6 +88,7 @@
           </div>
         </div> 
       </div>
+      <button type="button" class="btn btn-default" id="map-hint-button" onClick="showHint()">Hint</button>
       <button type="button" class="btn btn-default" id="map-inventory-button" onClick="showInventory()">Inventory</button>
       <button type="button" class="btn btn-default" id="map-leaderboard-button" onClick="showLeaderboard()">Leaderboard</button>
     </div>
@@ -118,6 +120,7 @@
             <!-- The Modal body will be populated by the minigame constructors-->
           </div>
           <div class="modal-footer minigame">
+            <button type="button" class="btn btn-default" id="minigame-hint-button" onClick="showHint()">Hint</button>
             <button type="button" class="btn btn-default" id="inventory-button" onClick="showInventory()">Inventory</button>
           </div>
         </div>
@@ -136,6 +139,7 @@
             <!-- The Modal body will be populated by the lock constructors-->
           </div>
           <div class="modal-footer lock">
+            <button type="button" class="btn btn-default" onClick="showHint()">Hint</button>
             <button type="button" class="btn btn-default" onClick="showInventory('lock-modal')">Inventory</button>
             <button type="button" class="btn btn-default" onClick="resetLock()">Reset</button>
             <button type="button" class="btn btn-default" onClick="checkLock()">Check</button>
@@ -191,6 +195,23 @@
           <!-- </div> -->
           <div class="modal-footer dialogue">
             <button type="button" class="btn btn-default" data-dismiss="modal">Continue</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for a hint -->
+    <div id="hint-modal" class="modal fade hint" data-backdrop="static" data-keyboard="false" role="dialog">
+      <div class="modal-dialog hint">
+        <div class="modal-content hint">
+          <div class="modal-header hint">
+            <h4 class="modal-title hint">A Hint</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body hint">
+            <span class="solution-marker">Solution (click to reveal): </span>
+            <span class="solution"></span>
+            <!-- The Modal body will be populated by the minigame constructors-->
           </div>
         </div>
       </div>

@@ -9,8 +9,11 @@ var puzzle
 var dialogue
 var zoom
 var inventory
+var hint
+var nextHint = 'travel_start_cave'
 var clockTicks
 var runningTravelTime = 0
+var nHintsGiven = 0
 
 //Wrap the construction in a ready function
 $(window).on("load",function(){
@@ -30,6 +33,9 @@ $(window).on("load",function(){
 
     // Create the leaderboard
     leaderboard = new Leaderboard
+
+    // Create a class for giving hints
+    hint = new Hint
 
     //Run the location creator to instantiate locations
     locations = []

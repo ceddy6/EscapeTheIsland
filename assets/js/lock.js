@@ -46,10 +46,18 @@ class Lock{
         switch(index) {
             // For the first task, the lock needs to know whether the key has been clicked on or not
             case 0:
+
+                // If this lock is being opened, set the hint
+                nextHint = 'lock_cave'
+
                 break;
 
             // The second task is stepping stones
             case 1:
+
+                // If this lock is being opened, set the hint
+                nextHint = 'lock_waterfall'
+
                 // Append a clickable div to each stepping stone
                 for (var i = 0; i<10; i++) {
                     lockModalBody.append($('<div class="stepping-stone click-region" id="stepping-stone-'+i+'"></div>')
@@ -68,6 +76,10 @@ class Lock{
 
             // For the third task (the dial lock) various clickable bits need to be added
             case 2: 
+
+                // If this lock is being opened, set the hint
+                nextHint = 'lock_well'
+
                 lockModalBody.append($('<img class="img-fluid" id="diallock-dial" src=assets/images/locks/dial_lock_dial.png alt="Dial">')
                                         .on("click",function(){rotateDial()})
                                     )

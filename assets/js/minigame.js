@@ -8,21 +8,27 @@ class Minigame{
         // Add the main elements of each game
         switch(index){
             case 0:
+                nextHint = 'game_cave'
                 puzzle = new CavePuzzle(index)
                 break;
             case 1: 
+                nextHint = 'game_waterfall'
                 puzzle = new WaterfallPuzzle(index)
                 break;
             case 2: 
+                nextHint = 'game_well'
                 puzzle = new WellPuzzle(index)
                 break;
             case 3:
+                nextHint = 'game_obelisk'
                 puzzle = new ObeliskPuzzle(index)
                 break;
             case 4:
+                nextHint = 'game_volcano'
                 puzzle = new VolcanoPuzzle(index)
                 break;
             case 5:
+                nextHint = 'game_skeleton'
                 puzzle = new SkeletonPuzzle(index)
                 break;
             case 6:

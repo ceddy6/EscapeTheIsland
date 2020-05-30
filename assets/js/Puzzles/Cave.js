@@ -116,7 +116,8 @@ class CavePuzzle{
             catOffsetX < 1 && catOffsetY < 1 && 
             rugOffsetX < 1 && rugOffsetY < 1) 
         {
-            console.log("Complete")
+            // Set the next hint to be the obelisk
+            nextHint = 'travel_cave_obelisk' 
 
             // Mark puzzle as complete
             locations.find(function(entry){return entry.name=="Cave"}).complete = 1

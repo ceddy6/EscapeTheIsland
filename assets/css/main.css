@@ -167,7 +167,7 @@ body{
 #map-inventory-button{
     position:absolute;
     cursor:pointer;
-    top:91%;
+    top:84%;
     left:86.5%;
     border:2px solid black;
     font-weight:bold;
@@ -180,12 +180,24 @@ body{
     position:absolute;
     cursor:pointer;
     top:91%;
-    left:73.5%;
+    left:84.25%;
     border:2px solid black;
     font-weight:bold;
     background-color:transparent;
 }
 #map-leaderboard-button:hover{
+    background-color:#B4FFFF;
+}
+#map-hint-button{
+    position:absolute;
+    cursor:pointer;
+    top:77%;
+    left:90.5%;
+    border:2px solid black;
+    font-weight:bold;
+    background-color:transparent;
+}
+#map-hint-button:hover{
     background-color:#B4FFFF;
 }
 
@@ -293,4 +305,8 @@ body{
 
 .modal-dialog.leaderboard{
     max-width:90%;
+}
+
+.solution{
+    cursor:pointer;
 }

@@ -193,7 +193,7 @@ class WellPuzzle{
         //    (parseInt(tstone2Depth) == 2)) {
         // End of testing checks
 
-                console.log("All the tests were passed!")
+                nextHint = 'travel_well_volcano'
 
                 // Set a timeout so that you can see the stone finish
                 setTimeout(function(){

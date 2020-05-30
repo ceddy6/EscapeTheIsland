@@ -362,6 +362,9 @@ function checkCompletion(){
         // Check whether the location is already open
         if (locations[puzzle.index].complete == 0) {
 
+            // Set the hint
+            nextHint = 'travel_volcano_waterfall'
+
             // Show a dialogue modal, describing the entry opening
             $('#dialogue-modal').find('.modal-title').text('With a loud grinding sound, a part of the wall rolls aside... There are three items inside.')
             $('#dialogue-modal').modal('show')

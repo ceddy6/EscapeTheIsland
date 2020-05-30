@@ -157,6 +157,9 @@ class SkeletonPuzzle{
             // Check whether the location is already open
             if (locations[puzzle.index].complete == 0) {
 
+                // Set the hint
+                nextHint = 'travel_skeleton_end'
+
                 // Show a dialogue modal, describing the entry opening
                 $('#dialogue-modal').find('.modal-title').text('The box clicks open...')
                 $('#dialogue-modal').modal('show')

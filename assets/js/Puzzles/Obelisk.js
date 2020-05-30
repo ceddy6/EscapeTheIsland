@@ -441,6 +441,9 @@ function checkPuzzleCompletion(puzzid){
             // Stop checking for completion if both puzzles are complete
             if (locations[puzzle.index].complete[0] == 1 && locations[puzzle.index].complete[1] == 1) {
                 $('#minigame-modal').off("mouseup")
+
+                // Set the next hint
+                nextHint = 'travel_obelisk_well'
             }
 
         }

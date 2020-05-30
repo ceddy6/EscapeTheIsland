@@ -301,6 +301,9 @@ class Scales{
             // Mark puzzle as complete
             locations.find(function(entry){return entry.name=="Waterfall"}).complete = 1
 
+            // Set hint
+            nextHint = 'travel_waterfall_skeleton'
+
             // Set a timeout so that the scales can be seen moving
             setTimeout(function(){
                 // Show a dialogue modal, describing the entry opening
