@@ -32,7 +32,7 @@ class Leaderboard {
                     var playerTravelTime = $('<td>'+formatTime(entry[1])+'</td>')
                     var playerPuzzleTime = $('<td>'+formatTime(entry[2])+'</td>')
                     var playerTotalTime = $('<td>'+formatTime(entry[3])+'</td>')
-                    var playerHintsUsed = $('<td>'+formatTime(entry[4])+'</td>')                   
+                    var playerHintsUsed = $('<td>'+entry[4]+'</td>')                   
 
                     tableRow.append(playerName).append(playerTravelTime).append(playerPuzzleTime).append(playerTotalTime).append(playerHintsUsed)
                     tableBody.append(tableRow)
