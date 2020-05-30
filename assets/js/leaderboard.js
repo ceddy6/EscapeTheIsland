@@ -25,13 +25,13 @@ class Leaderboard {
                 // Empty the current leaderboard
                 var tableBody = $('.modal-body.leaderboard').find('tbody').empty()
 
-                for (player of data) {
+                for (var entry of data) {
 
                     var tableRow = $('<tr></tr>')  
-                    var playerName = $('<td>'+player[0]+'</td>')
-                    var playerTravelTime = $('<td>'+player[1]+'</td>')
-                    var playerPuzzleTime = $('<td>'+player[2]+'</td>')
-                    var playerTotalTime = $('<td>'+player[3]+'</td>')                  
+                    var playerName = $('<td>'+entry[0]+'</td>')
+                    var playerTravelTime = $('<td>'+entry[1]+'</td>')
+                    var playerPuzzleTime = $('<td>'+entry[2]+'</td>')
+                    var playerTotalTime = $('<td>'+entry[3]+'</td>')                  
 
                     tableRow.append(playerName).append(playerTravelTime).append(playerPuzzleTime).append(playerTotalTime)
                     tableBody.append(tableRow)
