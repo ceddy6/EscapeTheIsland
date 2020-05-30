@@ -183,7 +183,8 @@
         <div class="modal-content dialogue">
           <div class="modal-header dialogue">
             <h4 class="modal-title dialogue">Some dialogue</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <!-- I don't think the dialogue messages need a close button but might be proved wrong in the future -->
+            <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
           </div>
           <!-- <div class="modal-body dialogue"> -->
             <!-- The Modal body will be populated by the whatever dialogue is happening-->
