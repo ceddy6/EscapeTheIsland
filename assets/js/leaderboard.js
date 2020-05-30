@@ -69,7 +69,7 @@ function showLeaderboard() {
 // Function to convert ms time to hh:mm:ss
 function formatTime(time) {
 
-    var fTime = new Date(parseInt(time))
+    var fTime = new Date(parseInt(time)*1000)
     var hh = fTime.getHours() - 1
     var mm = fTime.getMinutes()
     var ss = fTime.getSeconds()
