@@ -1,5 +1,16 @@
 <?php
 
+    // Connect db
+    $db = parse_url(getenv('DATABASE_URL'));
+    $conn = new PDO("pgsql:" . sprintf(
+        "host=%s;port=%s;user=%s;password=%s;dbname=%s",
+        $db["host"],
+        $db["port"],
+        $db["user"],
+        $db["pass"],
+        ltrim($db["path"], "/")
+    )); 
+
     // Try running a db query
     $sql = 'SELECT * FROM leaderboard';
     //$leaders = [];

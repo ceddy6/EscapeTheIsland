@@ -1,8 +1,6 @@
 <!-- Connect to the database -->
 <?php  
 
-    global $conn;
-
     $db = parse_url(getenv('DATABASE_URL'));
     $conn = new PDO("pgsql:" . sprintf(
         "host=%s;port=%s;user=%s;password=%s;dbname=%s",
