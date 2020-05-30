@@ -1,5 +1,15 @@
 <!-- Connect to the database -->
-<?php require "./php/getLeaderboard.php"; ?>
+<?php    
+    $db = parse_url(getenv('DATABASE_URL'));
+    $conn = new PDO("pgsql:" . sprintf(
+        "host=%s;port=%s;user=%s;password=%s;dbname=%s",
+        $db["host"],
+        $db["port"],
+        $db["user"],
+        $db["pass"],
+        ltrim($db["path"], "/")
+    )); 
+?>
 
 <!doctype html>
 <html lang="en">
