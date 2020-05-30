@@ -29,9 +29,9 @@ class Leaderboard {
 
                     var tableRow = $('<tr></tr>')  
                     var playerName = $('<td>'+entry[0]+'</td>')
-                    var playerTravelTime = $('<td>'+entry[1]+'</td>')
-                    var playerPuzzleTime = $('<td>'+entry[2]+'</td>')
-                    var playerTotalTime = $('<td>'+entry[3]+'</td>')                  
+                    var playerTravelTime = $('<td>'+formatTime(entry[1])+'</td>')
+                    var playerPuzzleTime = $('<td>'+formatTime(entry[2])+'</td>')
+                    var playerTotalTime = $('<td>'+formatTime(entry[3])+'</td>')                  
 
                     tableRow.append(playerName).append(playerTravelTime).append(playerPuzzleTime).append(playerTotalTime)
                     tableBody.append(tableRow)
@@ -62,5 +62,20 @@ function showLeaderboard() {
     // Populate and then show the leaderboard
     leaderboard.populateLeaderboard()
     leaderboard.showLeaderboard()
+
+}
+
+
+// Function to convert ms time to hh:mm:ss
+function formatTime(time) {
+
+    var fTime = new Date(parseInt(time))
+    var hh = fTime.getHours()
+    var mm = fTime.getMinutes()
+    var ss = fTime.getSeconds()
+    
+    var str = hh + "h " + mm + "m " + ss + "s"
+
+    return str
 
 }
