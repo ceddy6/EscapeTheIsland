@@ -9,10 +9,10 @@
         //$leaders[] = $entry;
 
         echo '<tr>';
-        echo '<td> $row["name"]; </td>';
-        echo '<td> $row["puzzle_time"]; </td>';
-        echo '<td> $row["travel_time"]; </td>';
-        echo '<td> $row["total_time"]; </td>';
+        echo '<td>' . $row["name"] . '</td>';
+        echo '<td>' . $row["puzzle_time"] . '</td>';
+        echo '<td>' . $row["travel_time"] . '</td>';
+        echo '<td>' . $row["total_time"] . '</td>';
         echo '</tr>';
     };
 
