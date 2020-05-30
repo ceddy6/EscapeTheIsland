@@ -71,7 +71,7 @@ class Clock{
                 clearInterval(journeyTimer)
             }
 
-        },35)
+        },Math.round(2000/tAdd))
 
     }
 
