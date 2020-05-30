@@ -12,7 +12,7 @@
     )); 
 
     // Try running a db query
-    $sql = 'SELECT * FROM leaderboard';
+    $sql = 'SELECT * FROM leaderboard ORDER BY total_time ASC;';
     $leaders = [];
     // foreach ($conn->query($sql) as $row) {
     //     echo '<tr>';

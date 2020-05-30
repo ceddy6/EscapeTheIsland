@@ -18,8 +18,27 @@ class Leaderboard {
             url: "./php/getLeaderboard.php",
             dataType:"json",
             success : function(data){
+                
                 console.log("Successfully populating leaderboard")
                 console.log(data)
+
+                // Empty the current leaderboard
+                var tableBody = $('.modal-body.leaderboard').find('tbody').empty()
+
+                for (player of data) {
+
+                    var tableRow = $('<tr></tr>')  
+                    var playerName = $('<td>'+player[0]+'</td>')
+                    var playerTravelTime = $('<td>'+player[1]+'</td>')
+                    var playerPuzzleTime = $('<td>'+player[2]+'</td>')
+                    var playerTotalTime = $('<td>'+player[3]+'</td>')                  
+
+                    tableRow.append(playerName).append(playerTravelTime).append(playerPuzzleTime).append(playerTotalTime)
+                    tableBody.append(tableRow)
+
+                }
+
+
             }
         });
 
