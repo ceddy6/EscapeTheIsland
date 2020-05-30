@@ -290,3 +290,7 @@ body{
     border:2px solid red;
     padding-left:10px;
 }
+
+.modal-dialogue.leaderboard{
+    max-width:90%;
+}
