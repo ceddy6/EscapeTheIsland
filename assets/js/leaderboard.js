@@ -70,7 +70,7 @@ function showLeaderboard() {
 function formatTime(time) {
 
     var fTime = new Date(parseInt(time))
-    var hh = fTime.getHours()
+    var hh = fTime.getHours() - 1
     var mm = fTime.getMinutes()
     var ss = fTime.getSeconds()
     

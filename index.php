@@ -92,7 +92,7 @@
     </div>
 
     <!-- Modal for a locked door to enter a minigame -->
-    <div id="door-modal" class="modal fade door" role="dialog">
+    <div id="door-modal" class="modal fade door" data-backdrop="static" data-keyboard="false" role="dialog">
       <div class="modal-dialog door">
         <div class="modal-content door">
           <div class="modal-header door">
@@ -107,7 +107,7 @@
     </div>
 
     <!-- Modal for a minigame -->
-    <div id="minigame-modal" class="modal fade minigame" role="dialog">
+    <div id="minigame-modal" class="modal fade minigame" data-backdrop="static" data-keyboard="false" role="dialog">
       <div class="modal-dialog minigame">
         <div class="modal-content minigame">
           <div class="modal-header minigame">
@@ -125,7 +125,7 @@
     </div>
 
     <!-- Modal for a close up of a lock -->
-    <div id="lock-modal" class="modal fade lock" role="dialog">
+    <div id="lock-modal" class="modal fade lock" data-backdrop="static" data-keyboard="false" role="dialog">
       <div class="modal-dialog lock">
         <div class="modal-content lock">
           <div class="modal-header lock">
@@ -145,7 +145,7 @@
     </div>
 
     <!-- Modal for inventory -->
-    <div id="inventory-modal" class="modal fade inventory" role="dialog">
+    <div id="inventory-modal" class="modal fade inventory" data-backdrop="static" data-keyboard="false" role="dialog">
       <div class="modal-dialog inventory">
         <div class="modal-content inventory">
           <div class="modal-header inventory">
@@ -160,7 +160,7 @@
     </div>
 
     <!-- Modal for a zoomed in view of a feature of interest -->
-    <div id="zoom-modal" class="modal fade zoom" role="dialog">
+    <div id="zoom-modal" class="modal fade zoom" data-backdrop="static" data-keyboard="false" role="dialog">
       <div class="modal-dialog zoom">
         <div class="modal-content zoom">
           <div class="modal-header zoom">
@@ -178,7 +178,7 @@
     </div>    
 
     <!-- Modal for dialogue messages -->
-    <div id="dialogue-modal" class="modal fade dialogue" role="dialog">
+    <div id="dialogue-modal" class="modal fade dialogue" data-backdrop="static" data-keyboard="false" role="dialog">
       <div class="modal-dialog dialogue">
         <div class="modal-content dialogue">
           <div class="modal-header dialogue">
@@ -196,7 +196,7 @@
     </div>
 
     <!-- Modal for the leaderboard -->
-    <div id="leaderboard-modal" class="modal fade leaderboard" role="dialog">
+    <div id="leaderboard-modal" class="modal fade leaderboard" data-backdrop="static" data-keyboard="false" role="dialog">
       <div class="modal-dialog leaderboard">
         <div class="modal-content leaderboard">
           <div class="modal-header leaderboard">
