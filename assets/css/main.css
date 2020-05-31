@@ -226,7 +226,7 @@ body{
 }
 /* Size the minigame modal for the cave */
 #minigame-modal[data-minigame-for='0']{
-    width:680px;
+    width:650px;
     left:300px;
 }
 
@@ -272,8 +272,8 @@ body{
 
 /* Size the modals for the skeleton */
 #minigame-modal[data-minigame-for='5']{
-    width:1000px;
-    left:100px;
+    width:950px;
+    left:150px;
 }
 
 /* Size the modal for the village */

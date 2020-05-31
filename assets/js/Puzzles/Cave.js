@@ -123,7 +123,7 @@ class CavePuzzle{
             locations.find(function(entry){return entry.name=="Cave"}).complete = 1
             
             // Show a dialogue modal, describing the entry opening
-            $('#dialogue-modal').find('.modal-title').text('A stone in the wall swings aside...')
+            $('#dialogue-modal').find('.modal-title').text('A stone in the wall swings aside revealing two objects...')
             $('#dialogue-modal').modal('show')
 
             // Show the opened hiding place
