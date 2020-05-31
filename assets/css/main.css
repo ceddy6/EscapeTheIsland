@@ -252,7 +252,7 @@ body{
 
 /* Size the minigame modal for the volcano */
 #minigame-modal[data-minigame-for='4']{
-    width:780px;
+    width:765px;
     left:300px;
 }
 
