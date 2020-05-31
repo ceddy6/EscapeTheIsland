@@ -82,6 +82,9 @@
     top:73%;
     left:68%;
 }
+.stone{
+    z-index:10;
+}
 
 /* Waterfall jugs */
 .jug{
