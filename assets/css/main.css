@@ -216,7 +216,7 @@ body{
 
 /* Size the doorway modal for the cave */
 #door-modal[data-doorway-for='0']{
-    width:600px;
+    width:590px;
     left:300px;
 }
 /* Size the lock modal for the cave */
@@ -232,7 +232,7 @@ body{
 
 /* Size the minigame modal for the obelsik */
 #minigame-modal[data-minigame-for='3']{
-    width:770px;
+    width:750px;
     left:300px;
 }
 
@@ -246,27 +246,27 @@ body{
     left:300px;
 }
 #minigame-modal[data-minigame-for='2']{
-    width:785px;
+    width:750px;
     left:300px;
 }
 
 /* Size the minigame modal for the volcano */
 #minigame-modal[data-minigame-for='4']{
-    width:765px;
+    width:750px;
     left:300px;
 }
 
 /* Size the modals for the waterfall */
 #door-modal[data-doorway-for='1']{
-    width:900px;
+    width:750px;
     left:250px;
 }
 #lock-modal[data-lock-for='1']{
-    width:780px;
+    width:750px;
     left:200px;
 }
 #minigame-modal[data-minigame-for='1']{
-    width:780px;
+    width:750px;
     left:200px;
 }
 
@@ -278,7 +278,7 @@ body{
 
 /* Size the modal for the village */
 #minigame-modal[data-minigame-for='6']{
-    width:800px;
+    width:750px;
     left:200px;
 }
 

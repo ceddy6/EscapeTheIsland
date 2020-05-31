@@ -48,7 +48,7 @@ $(window).on("load",function(){
     // Create the opening dialogue
     var d1 = "Welcome adventurers! After months at sea, a mighty storm has wrecked your ship on the shores of a mysterious island."
     var d2 = "The locals welcome you, but will require payment for transport off the island. You are tasked with recovering an ancient artefact, but will need to solve a series of challenges."
-    var d3 = "You will need to be quick as the boat will only wait until sunset at 8pm. You are advised to start your search at the caves on the beach. When you have the artefact, return to the village to exchange it for your place on the boat."
+    var d3 = " When you have the artefact, return to the village to exchange it for your place on the boat. You will need to be quick as the boat will only wait until sunset at 8pm. You are advised to start your search at the caves on the beach."
 
     // Put the dialogues into modals and nest the on click methods
     $('#dialogue-modal').find('.modal-title').text(d1)
