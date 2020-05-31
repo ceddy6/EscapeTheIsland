@@ -140,16 +140,16 @@
 }
 .jug-capacity-3.jug-action-pour{
     left:6%;
-    top:69%; 
+    top:68%; 
     height:9%;  
 }
 .jug-capacity-3.jug-action-empty{
     left:6%;
-    top:75%;
+    top:74.25%;
 }
 .jug-capacity-3.jug-action-weigh{
     left:6%;
-    top:81%;
+    top:80%;
 }
 .jug-capacity-5.jug-action-fill{
     left:74%;
@@ -157,16 +157,16 @@
 }
 .jug-capacity-5.jug-action-pour{
     left:74%;
-    top:71%;
+    top:69%;
     height:9%;
 }
 .jug-capacity-5.jug-action-empty{
     left:74%;
-    top:78%;
+    top:75%;
 }
 .jug-capacity-5.jug-action-weigh{
     left:74%;
-    top:84%;
+    top:80.5%;
 }
 
 .jug-contents{

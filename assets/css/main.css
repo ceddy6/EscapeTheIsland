@@ -310,3 +310,29 @@ body{
 .solution{
     cursor:pointer;
 }
+
+
+.modal-content{
+    background-color:#B3FFFF;
+    border:4px solid black;
+    border-radius:8px;
+}
+.modal-header{
+    background-color:transparent;
+    border:none;
+}
+.modal-body{
+    background-color:transparent;
+    border:none;
+}
+.modal-footer{
+    background-color:transparent;
+    border:none;
+}
+.btn{
+    border:2px solid black;
+    font-weight:bold;
+}
+.btn:hover{
+    background-color:white;
+}

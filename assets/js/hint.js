@@ -64,7 +64,7 @@ class Hint{
         solutionSpace.text(hEntry.solution)
                     .css({"background-color":"#212529"})
         solutionSpace.on("click",function(){
-            $(this).css({"background-color":"white"})
+            $(this).css({"background-color":"#B3FFFF"})
         })
 
         // Show the modal

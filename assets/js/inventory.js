@@ -1,6 +1,6 @@
 // Outside the inventory class, keep a list of the possible items that could go into the inventory
 var inventoryItems = [
-    {title:"padlock-key",path:"assets/images/locks/padlock-key.jpg",description:"An old key",useability:"inventory-item-useable"},
+    {title:"padlock-key",path:"assets/images/locks/padlock-key.png",description:"An old key",useability:"inventory-item-useable"},
     {title:"stepping-stones-clue",path:"assets/images/clues/stepping-stones-clue.png",description:"Some kind of diagram",useability:"inventory-item-viewable"},
     {title:"waterfall-clue",path:"assets/images/clues/waterfall-clue.jpg",description:"Must be a clue to the next location",useability:"inventory-item-viewable"},
     {title:"well-stones-clue",path:"assets/images/clues/well-stones-clue.jpg",description:"Some kind of diagram",useability:"inventory-item-viewable"},
@@ -33,12 +33,12 @@ class Inventory {
         //this.addItem("stepping-stones-clue")
 
         // Temporarily add the gold tiles to the inventory for debugging purposes
-        this.addItem("key-line-obelisk")
-        this.addItem("key-line-cave")
-        this.addItem("key-line-waterfall")
-        this.addItem("key-line-volcano")
-        this.addItem("key-line-well")
-        this.addItem("artefact")
+        //this.addItem("key-line-obelisk")
+        //this.addItem("key-line-cave")
+        //this.addItem("key-line-waterfall")
+        //this.addItem("key-line-volcano")
+        //this.addItem("key-line-well")
+        //this.addItem("artefact")
 
     }
 

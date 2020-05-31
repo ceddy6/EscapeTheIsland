@@ -1,8 +1,8 @@
 // List of information for the locks
 var lockData = [{name:"Cave",
-                    lock_img:"assets/images/locks/padlock.jpg",
+                    lock_img:"assets/images/locks/padlock.png",
                     lock_text:"Do you have a key?",
-                    inter_img:"assets/images/locks/padlock_and_key.jpg",
+                    inter_img:"assets/images/locks/padlock_and_key.png",
                     opened_img:"assets/images/locks/opened_padlock.jpg"},
                     {name:"Waterfall",
                     lock_img:"assets/images/locks/stepping-stones-water.jpg",

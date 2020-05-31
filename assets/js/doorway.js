@@ -1,7 +1,7 @@
 // List of information about the doorways
 // List of locations and the player should be available everywhere
 var doorwayData = [{name:"Cave",     lockposition:["50%","31%"], locksize:["10%","13%"],
-                    lock_img:"assets/images/locks/padlock.jpg",
+                    lock_img:"assets/images/locks/padlock.png",
                     doorwayText:"The door is locked"},
                     {name:"Waterfall",          lockposition:["83%","17%"], locksize:["37%","14%"],
                     lock_img:"assets/images/locks/stepping-stones.jpg",

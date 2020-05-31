@@ -81,7 +81,7 @@ $(window).on("load",function(){
                                                         // Also, reset the 'continue' button to say continue instead of begin
                                                         $('#dialogue-modal').find('.modal-footer').find('.btn').text('Continue')
                                                         // Need to give them the key.
-                                                        zoom = new Zoom('assets/images/locks/padlock-key.jpg','padlock-key',"You'll need this!",1)
+                                                        zoom = new Zoom('assets/images/locks/padlock-key.png','padlock-key',"You'll need this!",1)
                                                     })
                                         // Show the third modal
                                         $('#dialogue-modal').modal('show')
